@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-100">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>
+    
+    Learn Spring Boot &middot; DanielSafonov
+    
+  </title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="144x144"  href="/assets/favicon/android-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Learn Spring Boot | DanielSafonov</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Learn Spring Boot" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="Материалы для изучения Spring Framework." />
+<meta property="og:description" content="Материалы для изучения Spring Framework." />
+<link rel="canonical" href="http://localhost:4000/learn-springboot" />
+<meta property="og:url" content="http://localhost:4000/learn-springboot" />
+<meta property="og:site_name" content="DanielSafonov" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-05-12T00:00:00+03:00" />
+<script type="application/ld+json">
+{"datePublished":"2019-05-12T00:00:00+03:00","dateModified":"2019-05-12T00:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/learn-springboot"},"url":"http://localhost:4000/learn-springboot","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/logo.png"}},"description":"Материалы для изучения Spring Framework.","@type":"BlogPosting","headline":"Learn Spring Boot","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<body class="d-flex flex-column h-100">
+	<main role="main" class="flex-shrink-0">
+		 <!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="/">Daniel Safonov</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#rollup" aria-controls="rollup" aria-expanded="false" aria-label="Rollup navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="rollup">
+     <ul class="navbar-nav ml-auto text-uppercase">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Main</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/offtop">Offtop</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/tags">Tags</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+
+  <hr style="background: $white-1; margin-top: 0; margin-bottom: 3rem;" />
+
+
+    <!-- <header class="masthead">
+      БЫЛО РАНЬШЕ
+      <h3 class="masthead-title">
+        <a href="/" title="Home">
+          <img class="masthead-logo" src="/assets/logo.png"/>
+          DanielSafonov
+        </a>
+
+        
+          &nbsp;
+          <small><a href="/offtop">Offtop</a></small>
+        
+          &nbsp;
+          <small><a href="/tags">Tags</a></small>
+        
+          &nbsp;
+          <small><a href="/about">About</a></small>
+        
+      </h3>
+    </header> -->
+
+		 <!-- Top tags -->
+		
+
+		<div class="container page-content">
+		    <div class="post mt-5">
+  <h1 class="post-title">Learn Spring Boot</h1>
+  <div datetime="2019-05-12T00:00:00+03:00" class="post-date">
+    12 May 2019
+     | 
+      
+        <a href="/tags#spring" class="badge tag">spring</a>
+      
+        <a href="/tags#java" class="badge tag">java</a>
+      
+    
+  </div>
+
+  
+
+  <article class="post-content">
+  <p>Материалы для изучения Spring Framework.</p>
+
+<!--more-->
+<h4>Подход к изучению</h4>
+
+<blockquote class="blockquote">
+	<p class="mb-0">
+		Spring Framework традиционно считается одним из самых сложных и при этом высокооплачиваемых. Однако, существующие подходы к его изучению крайне неэффективны. &lt;..&gt; Целенаправленное обучение - это быстрый, но ОЧЕНЬ тяжёлый способ. Он заключается в том, что человек продвигается по книге (или курсу), а потом пытается применить это на практике и как-то запомнить. И если с Java SE такой подход ещё кое-как работает, то со спрингом всё глухо и туго. Даже в самых лучших книгах зачастую не объясняется, где конкретно применять те или иные особенности, приходится догонять это самому. Но самое обидное тут — это забывание информации, добытой таким тяжёлым трудом.
+	</p>
+	<footer class="blockquote-footer"><a href="https://habr.com/ru/post/347816/" target="_blank">habr: kciray</a></footer>
+</blockquote>
+
+<p>Я считаю, что лучший подход - начать поверхностное изучение Spring Boot на практике, разрабатывая какой-то pet project по руководству для новичков, не погружаясь в детали и высокоуровневые абстракции <small>(например, с видеокурса <a href="https://youtu.be/jH17YkBTpI4" target="_blank">LetsCode</a>, как я и поступил).</small> <br /><br />
+После этого следует перейти к более глубокому изучению отдельных элементов фреймворка для решения конкретных задач по мере необходимости. <br /><br />
+И уже получив практические знания и навыки, написав учебный проект, следует перейти к чтению книг и официальной документации для структурирования и расширения знаний. Лучше даже пролистать несколько книг разных авторов.</p>
+
+<hr />
+
+<h4>Книги:</h4>
+
+<ul>
+  <li><a href="https://www.amazon.com/Spring-Action-Craig-Walls/dp/1617294942/ref=pd_ybh_a_3?_encoding=UTF8&amp;psc=1&amp;refRID=466VZCGAM4YNX8WEZHRR" target="_blank">Spring in Action 5th Edition</a> - <small>Craig Walls</small> <br />
+<small>(Перевод - “Spring в действии”)</small></li>
+  <li><a href="https://www.amazon.com/Pro-Spring-Depth-Guide-Framework/dp/1484228073/ref=pd_ybh_a_4?_encoding=UTF8&amp;psc=1&amp;refRID=466VZCGAM4YNX8WEZHRR" target="_blank">Pro Spring 5: An In-Depth Guide to the Spring Framework and Its Tools 5th ed. Edition</a> -  <small>Iuliana Cosmina, Rob Harrop, Chris Schaefer, Clarence Ho</small> <br />
+<small>(Перевод - “Spring 5 для профессионалов”)</small></li>
+  <li><a href="https://www.amazon.com/Cloud-Native-Java-Designing-Resilient/dp/1449374646/ref=pd_ybh_a_1?_encoding=UTF8&amp;psc=1&amp;refRID=466VZCGAM4YNX8WEZHRR" target="_blank">Cloud Native Java: Designing Resilient Systems with Spring Boot, Spring Cloud, and Cloud Foundry</a> - <small>by Josh Long, Kenny Bastani</small> <br />
+<small>(Перевод - “Java в облаке. Spring Boot, Spring Cloud, Cloud Foundry”)</small></li>
+</ul>
+
+<p><em>Все книги рекомендуется читать в оригинале.</em></p>
+
+<h4>Интернет-ресурсы:</h4>
+
+<ul>
+  <li><a href="https://spring.io/guides" target="_blank">Spring.io Guides</a> - официальный сборник туториалов;</li>
+  <li><a href="https://www.baeldung.com" target="_blank">Baeldung</a> - сборник туториалов;</li>
+  <li><a href="https://github.com/spring-projects/spring-petclinic" target="_blank">Spring Petclinic</a> [code] - официальное приложение-пример от создателей Spring Framework;</li>
+  <li><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/" target="_blank">Spring Boot Docs</a> - официальная документация;</li>
+  <li><a href="http://spring-projects.ru/guides/" target="_blank">Spring-project.ru</a> [ru] - частичный перевод spring.io;</li>
+  <li><a href="https://o7planning.org/ru/11669/spring-boot" target="_blank">o7planning</a> [ru] - сборник туториалов;</li>
+  <li><a href="https://dzone.com" target="_blank">DZone</a> - сборник туториалов (не только spring);</li>
+  <li><a href="https://youtu.be/jH17YkBTpI4" target="_blank">LetsCode</a> - [video] видеокурс на YouTube, в котором автор рассказывает о Spring Boot на примере пошаговой разработки клона твиттера.</li>
+</ul>
+
+  </article>
+</div>
+
+
+<aside class="related">
+  <h3>Latest posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/secure-email-in-web">
+          Защита email от спам-ботов
+          <small><time datetime="2019-05-17T00:00:00+03:00">17 May 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/sap-cloud-document-service">
+          SAP Cloud Document Service
+          <small><time datetime="2019-05-17T00:00:00+03:00">17 May 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/korolev">
+          Сергей Королев
+          <small><time datetime="2019-05-16T00:00:00+03:00">16 May 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+		</div>
+	</main>
+	<!-- FOOTER -->
+<footer class="page-footer mt-auto">
+	<div class="container">
+		<small>
+			&copy; <time datetime="2019-05-17T14:18:06+03:00">2019</time>. Даниил Сафонов
+		</small>
+	</div>
+</footer>
+
+<!-- Jquery -->
+<script src="/assets/javascript/bootstrap/jquery.min.js"></script>
+<!-- Bootstrap`s JS -->
+<script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66260535-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66260535-2');
+</script>
+
+
+</body>
+</html>
