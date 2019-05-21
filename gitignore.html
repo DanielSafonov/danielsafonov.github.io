@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-100">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>
+    
+      .gitignore &middot; DanielSafonov
+    
+  </title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="144x144"  href="/assets/favicon/android-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>.gitignore | DanielSafonov</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content=".gitignore" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="Игнорирование файлов в git." />
+<meta property="og:description" content="Игнорирование файлов в git." />
+<link rel="canonical" href="http://localhost:4000/gitignore" />
+<meta property="og:url" content="http://localhost:4000/gitignore" />
+<meta property="og:site_name" content="DanielSafonov" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-05-21T00:00:00+03:00" />
+<script type="application/ld+json">
+{"datePublished":"2019-05-21T00:00:00+03:00","dateModified":"2019-05-21T00:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/gitignore"},"url":"http://localhost:4000/gitignore","description":"Игнорирование файлов в git.","@type":"BlogPosting","headline":".gitignore","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<body class="d-flex flex-column h-100">
+	<main role="main" class="flex-shrink-0">
+		 <!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="/">Daniel Safonov</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#rollup" aria-controls="rollup" aria-expanded="false" aria-label="Rollup navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="rollup">
+     <ul class="navbar-nav ml-auto text-uppercase">
+      <li class="nav-item">
+        <a class="nav-link " href="/">Main</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/offtop">Offtop</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/tags">Tags</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+
+  <hr style="background: $white-1; margin-top: 0; margin-bottom: 3rem;" />
+
+
+		 <!-- Top tags -->
+		
+
+		<div class="container page-content">
+		    <div class="post mt-5">
+  <h1 class="post-title">.gitignore</h1>
+  <div datetime="2019-05-21T00:00:00+03:00" class="post-date">
+    21 May 2019
+     | 
+      
+        <a href="/tags#git" class="badge tag">git</a>
+      
+    
+  </div>
+
+  
+
+  <article class="post-content">
+  <p>Игнорирование файлов в git.</p>
+
+<!--more-->
+
+<blockquote class="blockquote">
+	<p class="mb-0">
+		Зачастую, у вас имеется группа файлов, которые вы не только не хотите автоматически добавлять в репозиторий, но и видеть в списках неотслеживаемых. К таким файлам обычно относятся автоматически генерируемые файлы (различные логи, результаты сборки программ и т.п.). В таком случае, вы можете создать файл .gitignore с перечислением шаблонов соответствующих таким файлам.
+	</p>
+	<footer class="blockquote-footer">
+		<a href="https://git-scm.com/book/ru/v1/Основы-Git-Запись-изменений-в-репозиторий#Игнорирование-файлов" target="_blank">Основы Git - Запись изменений в репозиторий</a>
+	</footer>
+</blockquote>
+
+<p>Файл <code class="highlighter-rouge">.gitignore</code> создается в корневом каталоге рабочей директории.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>touch .gitignore <span class="c">#Создать файл</span>
+<span class="nv">$ </span>nano .gitignore <span class="c">#Перейти к редактированию файла</span>
+
+
+
+<span class="c">#Пример файла .gitignore</span>
+/.settings/
+/.classpath
+<span class="k">*</span>.iml
+.idea/
+/target/
+
+<span class="k">*</span>.log
+<span class="k">*</span>.gz
+
+.DS_Store
+
+
+
+<span class="c">#Помимо этого, сущестсует глобальный .gitignore</span>
+<span class="nv">$ </span>git config <span class="nt">--global</span> core.excludesfile ~/.gitignore_global
+</code></pre></div></div>
+
+<p><strong>Правила синтаксиса:</strong></p>
+<ul>
+  <li>Пустые строки игнорируются</li>
+  <li>Строки с # - комментарии</li>
+  <li>target/ - директория</li>
+  <li>target - файл или директория</li>
+  <li>/target - файл или директория в корневом каталоге</li>
+  <li>.class - все файлы с расширением .class</li>
+  <li>/*.class - все файлы с расширением .class из корневого каталога</li>
+  <li>!target - не игнорировать файл или директорию</li>
+  <li>Символ \ используется для экранирования спецсимволов</li>
+  <li>** используются для указания любого количества поддиректорий</li>
+  <li>* - любое количество символов</li>
+</ul>
+
+<p>Если файл уже был проиндексирован и после внесен в .gitignore, игнорирование не применится. Необходимо вручную исключить его из индекса, после чего правила игнорирования примут силу:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span> git rm <span class="nt">--cached</span> FILENAME
+</code></pre></div></div>
+
+<p><a href="https://github.com/github/gitignore" target="_blank">A collection of .gitignore templates <small>by Github</small></a><br />
+<a href="https://www.gitignore.io" target="_blank">gitignore.io</a></p>
+
+<p><br /></p>
+
+<p><small>
+	<strong>Links:</strong> <a href="https://git-scm.com/book/ru/v1/Основы-Git-Запись-изменений-в-репозиторий#Игнорирование-файлов" target="_blank">Основы Git - Запись изменений в репозиторий</a>, <a href="https://labs.consol.de/development/git/2017/02/22/gitignore.html" target="_blank">Using .gitignore the Right Way</a>, <a href="https://help.github.com/en/articles/ignoring-files" target="_blank">Ignoring files</a>
+</small></p>
+
+  </article>
+</div>
+
+
+<aside class="related">
+  <h3>Latest posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/internet-in-new-appartment">
+          Прокладываем интернет в новой квартире
+          <small><time datetime="2019-05-20T00:00:00+03:00">20 May 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/secure-email-in-web">
+          Защита email от спам-ботов
+          <small><time datetime="2019-05-17T00:00:00+03:00">17 May 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/sap-cloud-document-service">
+          SAP Cloud Document Service
+          <small><time datetime="2019-05-17T00:00:00+03:00">17 May 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+		</div>
+	</main>
+	<!-- FOOTER -->
+<footer class="page-footer mt-auto">
+	<div class="container">
+		<div class="row">
+		<div class="col-md-6 col-sm-12 copyright">
+			<small>
+			&copy; <time datetime="2019-05-17T14:12:56+03:00">2019</time>. Даниил Сафонов
+			</small>
+		</div>
+
+		<div class="col-md-6 col-sm-12 navigation">
+			
+          		&nbsp;
+          		<small><a href="/main">Main</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/tags">Tags</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/offtop">Offtop</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/about">About</a></small>
+        	
+		</div>
+	</div>
+	</div>
+</footer>
+
+<!-- Jquery -->
+<script src="/assets/javascript/bootstrap/jquery.min.js"></script>
+<!-- Bootstrap`s JS -->
+<script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66260535-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66260535-2');
+</script>
+
+
+</body>
+</html>
