@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-100">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>
+    
+      SAP Cloud Destinations &middot; DanielSafonov
+    
+  </title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="144x144"  href="/assets/favicon/android-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>SAP Cloud Destinations | DanielSafonov</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="SAP Cloud Destinations" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="A blog by Daniel Safonov" />
+<meta property="og:description" content="A blog by Daniel Safonov" />
+<link rel="canonical" href="http://localhost:4000/sap-cloud-destinations" />
+<meta property="og:url" content="http://localhost:4000/sap-cloud-destinations" />
+<meta property="og:site_name" content="DanielSafonov" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-06-04T00:00:00+03:00" />
+<script type="application/ld+json">
+{"datePublished":"2019-06-04T00:00:00+03:00","dateModified":"2019-06-04T00:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/sap-cloud-destinations"},"url":"http://localhost:4000/sap-cloud-destinations","description":"A blog by Daniel Safonov","@type":"BlogPosting","headline":"SAP Cloud Destinations","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<body class="d-flex flex-column h-100">
+	<main role="main" class="flex-shrink-0">
+		 <!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="/">Daniel Safonov</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#rollup" aria-controls="rollup" aria-expanded="false" aria-label="Rollup navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="rollup">
+     <ul class="navbar-nav ml-auto text-uppercase">
+      <li class="nav-item">
+        <a class="nav-link " href="/">Main</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/offtop">Offtop</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/tags">Tags</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+
+  <hr style="background: $white-1; margin-top: 0; margin-bottom: 3rem;" />
+
+
+		 <!-- Top tags -->
+		
+
+		<div class="container page-content">
+		    <div class="post mt-5">
+  <h1 class="post-title">SAP Cloud Destinations</h1>
+  <div datetime="2019-06-04T00:00:00+03:00" class="post-date">
+    04 Jun 2019
+     | 
+      
+        <a href="/tags#sap" class="badge tag">sap</a>
+      
+        <a href="/tags#java" class="badge tag">java</a>
+      
+    
+  </div>
+
+  
+
+  <article class="post-content">
+  <!--more-->
+
+<blockquote class="blockquote">
+	<p class="mb-0">
+		SAP Cloud Platform Connectivity provides two services for the Cloud Foundry environment, the Connectivity service and the Destination service. &lt;..&gt;  <b>Using the Destination service, you can retrieve and store the technical information about the target resource (destination)</b> that you need to connect your application to a remote service or system.
+	</p>
+	<footer class="blockquote-footer">
+		<a href="https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/34010ace6ac84574a4ad02f5055d3597.html" target="_blank">Connectivity in the Cloud Foundry Environment</a>
+	</footer>
+</blockquote>
+
+<p>SAP Cloud &gt; Java Application &gt; Configuration &gt; Destitations</p>
+
+<ul>
+  <li><strong>Name</strong> - имя Destination, используется для получения его параметров.</li>
+  <li><strong>Type</strong> - HTTP, LDAP, MAIL, RFC</li>
+  <li><strong>Description</strong> - описание</li>
+  <li><strong>URL</strong> - адрес</li>
+  <li><strong>Proxy Type</strong> - Internet, OnPremise</li>
+  <li><strong>Authentication</strong> - AppToAppSSO, BasicAuthentication, ClientCertificateAuthentication, NoAuthentication, OAuth2ClientCredentials, OAuth2SAMLBearerAssertion, SAPAssertionSSO</li>
+  <li><strong>Additional Properties</strong> - дополнительные поля (пара “имя - значение”)</li>
+</ul>
+
+<p><a href="https://developers.sap.com/cis/tutorials/hcp-create-destination.html" target="_blank">developer.sap: Create a Destination</a></p>
+
+<hr />
+
+<p>Фрагмент <strong>web.xml</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">resource</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">connectivityConfiguration</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">sap</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">connectivity</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">configuration</span><span class="o">.</span><span class="na">ConnectivityConfiguration</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">resource</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<p><strong>DestinationGetter.java</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">com.sap.core.connectivity.api.configuration.ConnectivityConfiguration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.sap.core.connectivity.api.configuration.DestinationConfiguration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.AllArgsConstructor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.Getter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.extern.slf4j.Slf4j</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.naming.InitialContext</span><span class="o">;</span>
+
+<span class="cm">/**
+ * Класс для получения данных из SAP Cloud Destinations
+ *
+ * @author Daniel Safonov
+ */</span>
+<span class="nd">@AllArgsConstructor</span>
+<span class="nd">@Getter</span>
+<span class="nd">@Slf4j</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DestinationsGetter</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">URL</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">USER</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">PASSWORD</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="n">DestinationConfiguration</span> <span class="n">DESTINATION</span><span class="o">;</span>
+
+	<span class="c1">//Соединиться с выбранным Destination и получить его данные</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="n">DestinationsGetter</span> <span class="nf">connectFrom</span><span class="o">(</span><span class="n">String</span> <span class="n">destinationName</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+		<span class="c1">//Получить destination</span>
+		<span class="n">InitialContext</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InitialContext</span><span class="o">();</span>
+		<span class="n">ConnectivityConfiguration</span> <span class="n">configuration</span> <span class="o">=</span> <span class="o">(</span><span class="n">ConnectivityConfiguration</span><span class="o">)</span> <span class="n">context</span><span class="o">.</span><span class="na">lookup</span><span class="o">(</span><span class="s">"java:comp/env/connectivityConfiguration"</span><span class="o">);</span>
+		<span class="n">DestinationConfiguration</span> <span class="n">destination</span> <span class="o">=</span> <span class="n">configuration</span><span class="o">.</span><span class="na">getConfiguration</span><span class="o">(</span><span class="n">destinationName</span><span class="o">);</span>
+
+		<span class="k">if</span> <span class="o">(</span><span class="n">destination</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"Destination not found: "</span> <span class="o">+</span> <span class="n">destinationName</span><span class="o">);</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="nf">Exception</span><span class="o">(</span><span class="s">"Destination not found: "</span> <span class="o">+</span> <span class="n">destinationName</span><span class="o">);</span>
+		<span class="o">}</span>
+
+		<span class="c1">//Получить параметры</span>
+		<span class="n">String</span> <span class="n">user</span> <span class="o">=</span> <span class="n">destination</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">"User"</span><span class="o">);</span>
+		<span class="n">String</span> <span class="n">password</span> <span class="o">=</span> <span class="n">destination</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">"Password"</span><span class="o">);</span>
+		<span class="n">String</span> <span class="n">url</span> <span class="o">=</span> <span class="n">destination</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">"URL"</span><span class="o">);</span>
+
+		<span class="k">if</span> <span class="o">(</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">user</span><span class="o">))</span> <span class="o">{</span>
+			<span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"Destination: User is null or empty"</span><span class="o">);</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="nf">Exception</span><span class="o">(</span><span class="s">"Destination: User is null or empty"</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">password</span><span class="o">))</span> <span class="o">{</span>
+			<span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"Destination: Password is null or empty"</span><span class="o">);</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="nf">Exception</span><span class="o">(</span><span class="s">"Destination: Password is null or empty"</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">url</span><span class="o">))</span> <span class="o">{</span>
+			<span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"Destination: Url is null or empty"</span><span class="o">);</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="nf">Exception</span><span class="o">(</span><span class="s">"Destination: Url is null or empty"</span><span class="o">);</span>
+		<span class="o">}</span>
+
+		<span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Destination is correct! User: "</span> <span class="o">+</span> <span class="n">user</span> <span class="o">+</span> <span class="s">" URL: "</span> <span class="o">+</span> <span class="n">url</span><span class="o">);</span>
+		<span class="k">return</span> <span class="k">new</span> <span class="nf">DestinationsGetter</span><span class="o">(</span><span class="n">user</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span> <span class="n">url</span><span class="o">,</span> <span class="n">destination</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="c1">//Получить переменную из окружения SAP Cloud по имени</span>
+	<span class="kd">public</span> <span class="n">String</span> <span class="nf">getProperty</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+		<span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">DESTINATION</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">value</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">value</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+			<span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"Destination property not found:"</span> <span class="o">+</span> <span class="n">name</span><span class="o">);</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="nf">Exception</span><span class="o">(</span><span class="s">"Destination property not found: "</span> <span class="o">+</span> <span class="n">name</span><span class="o">);</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">value</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>Using</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SomeClass</span> <span class="o">{</span>
+	<span class="c1">//Данные для соединения</span>
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">URL</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">USER</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="n">String</span> <span class="n">PASSWORD</span><span class="o">;</span>
+
+	<span class="kd">public</span> <span class="nf">SomeClass</span><span class="o">(){</span>
+		<span class="k">try</span><span class="o">{</span>
+			<span class="c1">//Получить данные для создания соединения</span>
+			<span class="n">DestinationsGetter</span> <span class="n">destination</span> <span class="o">=</span> <span class="n">DestinationsGetter</span><span class="o">.</span><span class="na">connectFrom</span><span class="o">(</span><span class="s">"DESTINATION_NAME"</span><span class="o">);</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">USER</span> <span class="o">=</span> <span class="n">destination</span><span class="o">.</span><span class="na">getUSER</span><span class="o">();</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">PASSWORD</span> <span class="o">=</span> <span class="n">destination</span><span class="o">.</span><span class="na">getPASSWORD</span><span class="o">();</span>
+			<span class="k">this</span><span class="o">.</span><span class="na">URL</span> <span class="o">=</span> <span class="n">destination</span><span class="o">.</span><span class="na">getURL</span><span class="o">();</span>
+		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">){</span>
+			<span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"An error in constructor of SomeClass while trying to get data from destinations!"</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	<span class="o">&lt;...&gt;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+
+  </article>
+</div>
+
+
+<aside class="related">
+  <h3>Latest posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/web-typography">
+          Web typography
+          <small><time datetime="2019-05-25T00:00:00+03:00">25 May 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/gitignore">
+          .gitignore
+          <small><time datetime="2019-05-21T00:00:00+03:00">21 May 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/internet-in-new-appartment">
+          Прокладываем интернет в новой квартире
+          <small><time datetime="2019-05-20T00:00:00+03:00">20 May 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+		</div>
+	</main>
+	<!-- FOOTER -->
+<footer class="page-footer mt-auto">
+	<div class="container">
+		<div class="row">
+		<div class="col-md-6 col-sm-12 copyright">
+			<small>
+			&copy; <time datetime="2019-05-17T14:12:56+03:00">2019</time>. Даниил Сафонов
+			</small>
+		</div>
+
+		<div class="col-md-6 col-sm-12 navigation">
+			
+          		&nbsp;
+          		<small><a href="/main">Main</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/tags">Tags</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/offtop">Offtop</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/about">About</a></small>
+        	
+		</div>
+	</div>
+	</div>
+</footer>
+
+<!-- Jquery -->
+<script src="/assets/javascript/bootstrap/jquery.min.js"></script>
+<!-- Bootstrap`s JS -->
+<script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66260535-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66260535-2');
+</script>
+
+
+</body>
+</html>
