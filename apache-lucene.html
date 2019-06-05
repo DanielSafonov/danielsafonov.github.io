@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-100">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>
+    
+      Apache Lucene &middot; DanielSafonov
+    
+  </title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="144x144"  href="/assets/favicon/android-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Apache Lucene | DanielSafonov</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Apache Lucene" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="Полнотекстовый поисковой движок." />
+<meta property="og:description" content="Полнотекстовый поисковой движок." />
+<link rel="canonical" href="http://localhost:4000/apache-lucene" />
+<meta property="og:url" content="http://localhost:4000/apache-lucene" />
+<meta property="og:site_name" content="DanielSafonov" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-06-05T00:00:00+03:00" />
+<script type="application/ld+json">
+{"datePublished":"2019-06-05T00:00:00+03:00","dateModified":"2019-06-05T00:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/apache-lucene"},"url":"http://localhost:4000/apache-lucene","description":"Полнотекстовый поисковой движок.","@type":"BlogPosting","headline":"Apache Lucene","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<body class="d-flex flex-column h-100">
+	<main role="main" class="flex-shrink-0">
+		 <!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="/">Daniel Safonov</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#rollup" aria-controls="rollup" aria-expanded="false" aria-label="Rollup navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="rollup">
+     <ul class="navbar-nav ml-auto text-uppercase">
+      <li class="nav-item">
+        <a class="nav-link " href="/">Main</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/offtop">Offtop</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/tags">Tags</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+
+  <hr style="background: $white-1; margin-top: 0; margin-bottom: 3rem;" />
+
+
+		 <!-- Top tags -->
+		
+
+		<div class="container page-content">
+		    <div class="post mt-5">
+  <h1 class="post-title">Apache Lucene</h1>
+  <div datetime="2019-06-05T00:00:00+03:00" class="post-date">
+    05 Jun 2019
+     | 
+      
+        <a href="/tags#java" class="badge tag">java</a>
+      
+        <a href="/tags#search" class="badge tag">search</a>
+      
+        <a href="/tags#database" class="badge tag">database</a>
+      
+    
+  </div>
+
+  
+
+  <article class="post-content">
+  <p>Полнотекстовый поисковой движок.</p>
+
+<!--more-->
+
+<blockquote>
+  <p><a href="https://lucene.apache.org" target="_blank">Lucene</a> — свободная <strong>библиотека</strong> для высокопроизводительного полнотекстового поиска фонда Apache, используемая в качестве основы в двух самых популярных тиражируемых поисковых системах — Elasticsearch и Solr. Написана на Java.</p>
+</blockquote>
+
+<p><small>Apache Lucene - библиотека, а не приложение как Elasticsearch. Для Lucene не нужна отдельная машина в SAP Cloud.</small></p>
+
+<blockquote>
+  <p>Основная функциональная особенность библиотеки — обеспечение масштабируемой и достаточно высокоскоростной индексации (порядка 100 Гбайт в час на сервере массового класса). Создаваемый индекс занимает примерно 20—30 % от размера исходного текста.</p>
+</blockquote>
+
+<blockquote>
+  <p>Поисковой алгоритм поддерживает ранжированный поиск, нечёткий поиск, реализовано множество различных типов запросов (запрос фразы, запросы с символами подстановки, поиск интервалов и другие), поиск по значениям метаданных. Поддерживается поиск по нескольким индексам с возможностью объединения результатов, реализована сортировка результатов поиска по различным полям. Поиск возможен одновременно с процессом обновления индекса. Логическая архитектура библиотеки представляет любой документ как набор текстовых полей, что позволяет ей функционировать вне зависимости от форматов, как только текстовая информация из них может быть получена.</p>
+</blockquote>
+
+<ul>
+  <li><strong><a href="http://www.lucenetutorial.com/index.html" target="_blank">Lucene Tutorials</a></strong></li>
+  <li><strong><a href="https://www.baeldung.com/lucene" target="_blank">Baeldung: Introduction to Apache Lucene</a></strong></li>
+  <li><a href="https://www.baeldung.com/lucene-file-search" target="_blank">Baeldung: A Simple File Search with Lucene</a></li>
+  <li><strong><a href="http://look-in.net/2005/02/16/lucene-introduction-article/" target="_blank">Перевод статьи «Введение в Lucene»</a></strong></li>
+  <li><a href="https://www.waveaccess.ru/blog/2014/september/02/полнотекстовый-поиск-с-использованием-apache-lucene.aspx">Полнотекстовый поиск с использованием Apache Lucene</a></li>
+  <li><a href="https://compscicenter.ru/media/courses/2013-autumn/spb-data-bases/slides/data_bases_lecture_181113.pdf" target="_blank">Поисковая библиотека Lucene</a></li>
+  <li><strong><a href="https://dzone.com/articles/apache-lucene-a-high-performance-and-full-featured" target="_blank">Searching and Indexing With Apache Lucene</a></strong></li>
+  <li><a href="https://www.toptal.com/database/full-text-search-of-dialogues-with-apache-lucene" target="_blank">Full Text Search of Dialogues with Apache Lucene: A Tutorial</a></li>
+  <li><a href="https://habr.com/ru/post/277509/" target="_blank">Habr: Материал по работе с Apache Lucene и созданию простейшего нечёткого поиска</a></li>
+</ul>
+
+<hr />
+
+<h3 id="lucene-search-in-database">Lucene search in database</h3>
+
+<ul>
+  <li><strong><a href="http://www.lucenetutorial.com/techniques/indexing-databases.html" target="_blank">Indexing Databases with Lucene</a></strong></li>
+  <li><a href="https://dzone.com/articles/lucene-database-oracle-five" target="_blank">Lucene Setup on OracleDB in 5 Minutes</a></li>
+</ul>
+
+<p><br /></p>
+
+<p><small>
+	<strong>Links:</strong> <a href="https://ru.wikipedia.org/wiki/Lucene" target="_blank">Wiki</a>
+</small></p>
+
+  </article>
+</div>
+
+
+<aside class="related">
+  <h3>Latest posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/sap-cloud-destinations">
+          SAP Cloud Destinations
+          <small><time datetime="2019-06-04T00:00:00+03:00">04 Jun 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/web-typography">
+          Web typography
+          <small><time datetime="2019-05-25T00:00:00+03:00">25 May 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/gitignore">
+          .gitignore
+          <small><time datetime="2019-05-21T00:00:00+03:00">21 May 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+		</div>
+	</main>
+	<!-- FOOTER -->
+<footer class="page-footer mt-auto">
+	<div class="container">
+		<div class="row">
+		<div class="col-md-6 col-sm-12 copyright">
+			<small>
+			&copy; <time datetime="2019-05-17T14:12:56+03:00">2019</time>. Даниил Сафонов
+			</small>
+		</div>
+
+		<div class="col-md-6 col-sm-12 navigation">
+			
+          		&nbsp;
+          		<small><a href="/main">Main</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/tags">Tags</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/offtop">Offtop</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/about">About</a></small>
+        	
+		</div>
+	</div>
+	</div>
+</footer>
+
+<!-- Jquery -->
+<script src="/assets/javascript/bootstrap/jquery.min.js"></script>
+<!-- Bootstrap`s JS -->
+<script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66260535-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66260535-2');
+</script>
+
+
+</body>
+</html>
