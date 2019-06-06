@@ -108,10 +108,28 @@
   </li>
   <li>Запустить тоннель:
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ~/Downloads/neo-java-web-sdk-3.71.8/tools/
-<span class="nv">$ </span>sh neo.sh open-db-tunnel <span class="nt">-a</span> &lt;subaccount&gt; <span class="nt">-h</span> &lt;host&gt; <span class="nt">-u</span> &lt;s-user&gt; <span class="nt">-i</span> &lt;db-schema instance&gt; <span class="nt">-p</span> &lt;s-user password&gt;
+<span class="nv">$ </span>sh neo.sh open-db-tunnel <span class="nt">-a</span> %subaccount% <span class="nt">-h</span> %host% <span class="nt">-u</span> %s-user% <span class="nt">-i</span> %db-schema% <span class="nt">-p</span> %password%
 </code></pre></div>    </div>
   </li>
-  <li>Поправить конфиг приложения в соответсвии с указанным в консоли JDBC-URL.</li>
+  <li>Поправить конфиг приложения в соответсвии с указанным в консоли JDBC-URL.
+    <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">spring</span><span class="pi">:</span>
+  <span class="na">jpa</span><span class="pi">:</span> 
+<span class="err"> </span><span class="na">generate-ddl</span><span class="pi">:</span> <span class="no">false</span>
+ <span class="na">hibernate</span><span class="pi">:</span>
+   <span class="na">ddl-auto</span><span class="pi">:</span> <span class="s">update</span>
+ <span class="na">show-sql</span><span class="pi">:</span> <span class="no">true</span>
+ <span class="na">properties</span><span class="pi">:</span>
+   <span class="na">hibernate</span><span class="pi">:</span>
+     <span class="na">dialect</span><span class="pi">:</span> <span class="s">org.hibernate.dialect.HANAColumnStoreDialect</span>
+     <span class="na">temp</span><span class="pi">:</span>
+       <span class="na">use_jdbc_metadata_defaults</span><span class="pi">:</span> <span class="no">false</span>
+  <span class="na">datasource</span><span class="pi">:</span>
+ <span class="na">driver-class-name</span><span class="pi">:</span> <span class="s">com.sap.db.jdbc.Driver</span>
+ <span class="na">url</span><span class="pi">:</span> <span class="s">jdbc:sap://localhost:30015/</span>
+ <span class="na">username</span><span class="pi">:</span> <span class="err">%</span><span class="s">USERNAME%</span>
+ <span class="na">password</span><span class="pi">:</span> <span class="err">%</span><span class="s">PASSWORD%</span>
+</code></pre></div>    </div>
+  </li>
 </ol>
 
 <p><br /></p>
