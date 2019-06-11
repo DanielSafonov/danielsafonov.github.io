@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-100">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>
+    
+      Spring logging the true way &middot; DanielSafonov
+    
+  </title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="144x144"  href="/assets/favicon/android-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Spring logging the true way | DanielSafonov</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Spring logging the true way" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="Правильный подход к логгированию с использованием аспектно-ориентированного программирования." />
+<meta property="og:description" content="Правильный подход к логгированию с использованием аспектно-ориентированного программирования." />
+<link rel="canonical" href="http://localhost:4000/spring-logging-true-way" />
+<meta property="og:url" content="http://localhost:4000/spring-logging-true-way" />
+<meta property="og:site_name" content="DanielSafonov" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-06-09T00:00:00+03:00" />
+<script type="application/ld+json">
+{"datePublished":"2019-06-09T00:00:00+03:00","dateModified":"2019-06-09T00:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/spring-logging-true-way"},"url":"http://localhost:4000/spring-logging-true-way","description":"Правильный подход к логгированию с использованием аспектно-ориентированного программирования.","@type":"BlogPosting","headline":"Spring logging the true way","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<body class="d-flex flex-column h-100">
+	<main role="main" class="flex-shrink-0">
+		 <!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="/">Daniel Safonov</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#rollup" aria-controls="rollup" aria-expanded="false" aria-label="Rollup navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="rollup">
+     <ul class="navbar-nav ml-auto text-uppercase">
+      <li class="nav-item">
+        <a class="nav-link " href="/">Main</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/offtop">Offtop</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/tags">Tags</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+
+  <hr style="background: $white-1; margin-top: 0; margin-bottom: 3rem;" />
+
+
+		 <!-- Top tags -->
+		
+
+		<div class="container page-content">
+		    <div class="post mt-5">
+  <h1 class="post-title">Spring logging the true way</h1>
+  <div datetime="2019-06-09T00:00:00+03:00" class="post-date">
+    09 Jun 2019
+     | 
+      
+        <a href="/tags#spring" class="badge tag">spring</a>
+      
+        <a href="/tags#java" class="badge tag">java</a>
+      
+        <a href="/tags#spring-aop" class="badge tag">spring-aop</a>
+      
+    
+  </div>
+
+  
+
+  <article class="post-content">
+  <p>Правильный подход к логгированию с использованием аспектно-ориентированного программирования.</p>
+
+<!--more-->
+
+<p><strong><a href="https://stackoverflow.com/questions/1555969/traditional-logging-vs-aop-logging" target="_blank">Traditional logging vs AOP logging</a></strong></p>
+
+<div class="row">
+	<div class="col-md-6 col-sm-12">
+		<b>Traditional</b>
+		<ul>
+			<li>maven-зависимость Sl4j</li>
+			<li>аннотация @Sl4j над классом</li>
+			<li>log.info("Log info");</li>
+		</ul>
+	</div>
+	<div class="col-md-6 col-sm-12">
+		<b>AOP</b>
+		<ul>
+			<li>автоматическое логирование аннотированных методов</li>
+			<li>автоматическое логирование указанных в конфигурации методов</li>
+			<li>ручное traditional-логирование</li>
+		</ul>
+	</div>
+</div>
+
+<p><br /></p>
+<h3 id="spring-aop">Spring AOP</h3>
+
+<p><strong>Аспектно-ориентированное программирование (АОП)</strong> — парадигма программирования, основанная на идее разделения функциональности для улучшения разбиения программы на модули. В нашем случае - отделение логирования от основго функионала.</p>
+
+<ul>
+  <li><a href="https://habr.com/ru/post/428548/" target="_blank">[habr] Аспектно-ориентированное программирование, Spring AOP</a></li>
+  <li><a href="https://www.baeldung.com/spring-aop" target="_blank">[baeldung] Introduction to Spring AOP</a></li>
+  <li><a href="https://docs.spring.io/spring/docs/2.5.x/reference/aop.html" target="_blank">[spring doc] Chapter 6. Aspect Oriented Programming with Spring</a></li>
+  <li><a href="https://proselyte.net/tutorials/spring-tutorial-full-version/aop-with-spring/" target="_blank">Терминология Spring AOP</a></li>
+</ul>
+
+<p><br /></p>
+<h3 id="spring-aop-logging">Spring AOP Logging</h3>
+<p style="margin-bottom: 0;">‌‌ </p>
+
+<p><small><strong><em>Loggable.java</em></strong></small></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Описание аннотации, которая будет использоваться для включения 
+ * AOP логгировани на методе
+ * @author Daniel Safonov
+ */</span>
+<span class="nd">@Retention</span><span class="o">(</span><span class="n">RetentionPolicy</span><span class="o">.</span><span class="na">RUNTIME</span><span class="o">)</span> <span class="c1">//Аннотация доступна во время выполнения</span>
+<span class="nd">@Target</span><span class="o">(</span><span class="n">ElementType</span><span class="o">.</span><span class="na">METHOD</span><span class="o">)</span> <span class="c1">//Аннотация предназанчена для установки на метод</span>
+<span class="kd">public</span> <span class="nd">@interface</span> <span class="n">Loggable</span> <span class="o">{</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><small><strong><em>LoggerAspects.java</em></strong> - правила логирования</small></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Аспект, определяющий правила логирования на AOP
+ * @author Daniel Safonov
+ */</span>
+<span class="nd">@Aspect</span>
+<span class="nd">@Component</span>
+<span class="nd">@Slf4j</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoggerAspect</span> <span class="o">{</span>
+	<span class="c1">//Срез - объединение точек приложения для подключения аспекта в них</span>
+	<span class="nd">@Pointcut</span><span class="o">(</span><span class="s">"within(ru.sberbank.sf.techservice.mavenarchetype.application.services.*)"</span><span class="o">)</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">services</span><span class="o">(){}</span>
+
+	<span class="c1">//Инструкции, вызываемые на аннотации во время выполнения</span>
+	<span class="nd">@Around</span><span class="o">(</span><span class="s">"@annotation(loggable)"</span><span class="o">)</span>
+	<span class="kd">public</span> <span class="n">Object</span> <span class="nf">annotationAudit</span><span class="o">(</span><span class="n">ProceedingJoinPoint</span> <span class="n">joinPoint</span><span class="o">,</span> <span class="n">Loggable</span> <span class="n">loggable</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Throwable</span><span class="o">{</span>
+		<span class="n">Object</span> <span class="n">result</span><span class="o">;</span> <span class="c1">//Результат выполнения прерываемого метода</span>
+		<span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"\nEntered method %s \nwith args %s"</span><span class="o">,</span> <span class="n">joinPoint</span><span class="o">.</span><span class="na">getSignature</span><span class="o">().</span><span class="na">getName</span><span class="o">(),</span> <span class="n">joinPoint</span><span class="o">.</span><span class="na">getArgs</span><span class="o">().</span><span class="na">toString</span><span class="o">()));</span>
+		<span class="n">StopWatch</span> <span class="n">stopWatch</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StopWatch</span><span class="o">();</span>
+		<span class="n">stopWatch</span><span class="o">.</span><span class="na">start</span><span class="o">();</span> <span class="c1">//Установить таймер</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="n">joinPoint</span><span class="o">.</span><span class="na">proceed</span><span class="o">(</span><span class="n">joinPoint</span><span class="o">.</span><span class="na">getArgs</span><span class="o">());</span> <span class="c1">//Выполнить прерываемый метод</span>
+		<span class="n">stopWatch</span><span class="o">.</span><span class="na">stop</span><span class="o">();</span> <span class="c1">//Остановить таймер</span>
+		<span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"\nOut of method with result %s \nduring %s ms."</span><span class="o">,</span> <span class="n">result</span><span class="o">.</span><span class="na">toString</span><span class="o">(),</span> <span class="n">stopWatch</span><span class="o">.</span><span class="na">getLastTaskTimeMillis</span><span class="o">()));</span>
+		<span class="k">return</span> <span class="n">result</span><span class="o">;</span> <span class="c1">//Вернуть результат прерываемого метода</span>
+	<span class="o">}</span>
+
+	<span class="c1">//Инструкции, вызываемые на срезе</span>
+	<span class="nd">@Around</span><span class="o">(</span><span class="s">"services()"</span><span class="o">)</span>
+	<span class="kd">public</span> <span class="n">Object</span> <span class="nf">pointcutAudit</span><span class="o">(</span><span class="n">ProceedingJoinPoint</span> <span class="n">joinPoint</span><span class="o">,</span> <span class="n">Loggable</span> <span class="n">loggable</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
+		<span class="n">Object</span> <span class="n">result</span><span class="o">;</span>
+		<span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"\nEntered method %s"</span><span class="o">,</span> <span class="n">joinPoint</span><span class="o">.</span><span class="na">getSignature</span><span class="o">().</span><span class="na">getName</span><span class="o">()));</span>
+		<span class="n">result</span> <span class="o">=</span> <span class="n">joinPoint</span><span class="o">.</span><span class="na">proceed</span><span class="o">(</span><span class="n">joinPoint</span><span class="o">.</span><span class="na">getArgs</span><span class="o">());</span> <span class="c1">//Выполнить прерываемый метод</span>
+		<span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"\nOut of method %s"</span><span class="o">,</span> <span class="n">joinPoint</span><span class="o">.</span><span class="na">getSignature</span><span class="o">().</span><span class="na">getName</span><span class="o">()));</span>
+		<span class="k">return</span> <span class="n">result</span><span class="o">;</span> <span class="c1">//Вернуть результат прерываемого метода</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li><a href="https://www.baeldung.com/spring-aop-annotation" target="_blank">[baeldung] Implementing a Custom Spring AOP Annotation</a></li>
+  <li><a href="https://www.baeldung.com/spring-performance-logging" target="_blank">[baeldung] Spring Performance Logging</a></li>
+  <li><a href="https://medium.com/@wkrzywiec/moving-into-next-level-in-user-log-events-with-spring-aop-3b4435892f16" target="_blank">Moving into next level in user log events with Spring AOP</a></li>
+</ul>
+
+<p><br />
+<small>
+  <strong>Links:</strong> <a href="https://ru.wikipedia.org/wiki/Аспектно-ориентированное_программирование" target="_blank">[wiki] Аспектно-ориентированное программирование</a>
+</small></p>
+
+  </article>
+</div>
+
+
+<aside class="related">
+  <h3>Latest posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/java-styleguide">
+          Java styleguide
+          <small><time datetime="2019-06-07T00:00:00+03:00">07 Jun 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/hana-table-modified-date">
+          SAP HANA get table modified date
+          <small><time datetime="2019-06-06T00:00:00+03:00">06 Jun 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/apache-lucene">
+          Apache Lucene
+          <small><time datetime="2019-06-05T00:00:00+03:00">05 Jun 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+		</div>
+	</main>
+	<!-- FOOTER -->
+<footer class="page-footer mt-auto">
+	<div class="container">
+		<div class="row">
+		<div class="col-md-6 col-sm-12 copyright">
+			<small>
+			&copy; <time datetime="2019-05-17T14:12:56+03:00">2019</time>. Даниил Сафонов
+			</small>
+		</div>
+
+		<div class="col-md-6 col-sm-12 navigation">
+			
+          		&nbsp;
+          		<small><a href="/main">Main</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/tags">Tags</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/offtop">Offtop</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/about">About</a></small>
+        	
+		</div>
+	</div>
+	</div>
+</footer>
+
+<!-- Jquery -->
+<script src="/assets/javascript/bootstrap/jquery.min.js"></script>
+<!-- Bootstrap`s JS -->
+<script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66260535-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66260535-2');
+</script>
+
+
+</body>
+</html>
