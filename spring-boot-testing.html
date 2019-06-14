@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-100">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>
+    
+      Spring Boot Testing &middot; DanielSafonov
+    
+  </title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="144x144"  href="/assets/favicon/android-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Spring Boot Testing | DanielSafonov</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Spring Boot Testing" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="A blog by Daniel Safonov" />
+<meta property="og:description" content="A blog by Daniel Safonov" />
+<link rel="canonical" href="http://localhost:4000/spring-boot-testing" />
+<meta property="og:url" content="http://localhost:4000/spring-boot-testing" />
+<meta property="og:site_name" content="DanielSafonov" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-06-13T00:00:00+03:00" />
+<script type="application/ld+json">
+{"datePublished":"2019-06-13T00:00:00+03:00","dateModified":"2019-06-13T00:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/spring-boot-testing"},"url":"http://localhost:4000/spring-boot-testing","description":"A blog by Daniel Safonov","@type":"BlogPosting","headline":"Spring Boot Testing","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<body class="d-flex flex-column h-100">
+	<main role="main" class="flex-shrink-0">
+		 <!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="/">Daniel Safonov</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#rollup" aria-controls="rollup" aria-expanded="false" aria-label="Rollup navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="rollup">
+     <ul class="navbar-nav ml-auto text-uppercase">
+      <li class="nav-item">
+        <a class="nav-link " href="/">Main</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/offtop">Offtop</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/tags">Tags</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+
+  <hr style="background: $white-1; margin-top: 0; margin-bottom: 3rem;" />
+
+
+		 <!-- Top tags -->
+		
+
+		<div class="container page-content">
+		    <div class="post mt-5">
+  <h1 class="post-title">Spring Boot Testing</h1>
+  <div datetime="2019-06-13T00:00:00+03:00" class="post-date">
+    13 Jun 2019
+     | 
+      
+        <a href="/tags#spring" class="badge tag">spring</a>
+      
+        <a href="/tags#java" class="badge tag">java</a>
+      
+        <a href="/tags#qa" class="badge tag">qa</a>
+      
+    
+  </div>
+
+  
+
+  <article class="post-content">
+  <!--more-->
+<p style="margin-bottom: 0;">‌‌ </p>
+<h4 id="некоторые-виды-тестирования-по">Некоторые виды тестирования ПО:</h4>
+
+<ul>
+  <li><strong>Модульное тестирование (unit testing)</strong> - тестирование минимально возможных частей приложения по отдельности <br /></li>
+  <li><strong>Интеграционное тестирование (integration testing)</strong> - тестирование взаимодействия компонентов приложения <br /></li>
+  <li><strong>Нагрузочное тестирование (load testing)</strong> - тестирование приложения при стандартных нагрузках для определения максимального пика, при котором система работает стабильно - эмуляции работы нескольких пользователей одновременно<br /></li>
+  <li><strong>Стресс тестирование (stress testing)</strong> - тестирование приложения при нестандартных нагрузках для определения максимального пика для выявления максимального пика нагрузки и условий, при которых система выходит из строя <br /></li>
+  <li><strong>Системное тестирование (system testing)</strong> - тестирование работы всего приложения <br /></li>
+</ul>
+
+<p><br /></p>
+
+<blockquote class="blockquote">
+	<p class="mb-0">
+		<b>JUnit 4</b>: The de-facto standard for unit testing Java applications. <br />
+		<b>Spring Test &amp; Spring Boot Test</b>: Utilities and integration test support for Spring Boot applications. <br />
+		<b>AssertJ</b>: A fluent assertion library. <br />
+		<b>Mockito</b>: A Java mocking framework.
+	</p>
+	<footer class="blockquote-footer"><b><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html" target="_blank">[springboot docs] §46. Testing</a></b></footer>
+</blockquote>
+
+<ul>
+  <li><a href="https://www.baeldung.com/spring-boot-testing" target="_blank">[baeldung] Spring Boot Testing</a></li>
+  <li><a href="https://dzone.com/articles/unit-and-integration-tests-in-spring-boot" target="_blank">[dzone] Unit and Integration Tests in Spring Boot</a></li>
+  <li><a href="https://dzone.com/articles/unit-and-integration-tests-in-spring-boot-2" target="_blank">[dzone] Unit and Integration Tests in Spring Boot 2</a></li>
+  <li><a href="https://stackabuse.com/how-to-test-a-spring-boot-application/" target="_blank">How to Test a Spring Boot Application</a></li>
+  <li><a href="https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-test/src/test/java/sample/test" target="_blank">[github] Spring Boot Sample Test</a></li>
+  <li><a href="https://github.com/spring-projects/spring-petclinic/tree/master/src/test/java/org/springframework/samples/petclinic" target="_blank">[github] Spring Boot Petclinic Test</a></li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="unit-tests">Unit tests</h4>
+<ul>
+  <li>тестирование минимально возможных функциональных частей приложения</li>
+  <li>тесты не должны загружать Spring-контекст (<strike>@RunWith(SpringRunner.class)</strike>)</li>
+  <li>тестируются только public методы; внутренний код тестируется за счет изменения входных данных</li>
+  <li>каждый класс имеет свой тест</li>
+  <li>внешние ресурсы не должны использоваться: недопустимо подключение к БД, почтовым/веб-службам и тд, поэтому юнит-тесты репозиториев недопустимы - для таких задач необходимо писать интеграционные тесты</li>
+  <li>для получения данных из внешних ресурсов или взаимодействия с другими классами, требуемыго тестируемой логике, должны создаваться фиктивные объекты (моки)</li>
+  <li><strong>JUnit + AssertJ + Mockito</strong></li>
+</ul>
+
+<p><br /></p>
+
+<ul>
+  <li><b><a href="https://junit.org/junit5/docs/current/user-guide" target="_blank">JUnit 5 User Guide</a>, <a href="https://junit.org/junit5/docs/current/api/" target="_blank">JUnit 5 Docs</a></b></li>
+  <li><b><a href="https://static.javadoc.io/org.mockito/mockito-core/2.28.2/org/mockito/Mockito.html" target="_blank">Mockito Docs</a></b></li>
+  <li><b><a href="https://joel-costigliola.github.io/assertj/assertj-core-quick-start.html" target="_blank">AssertJ QuickStart</a>, <a href="http://joel-costigliola.github.io/assertj/core-8/api/index.html" target="_blank">AssertJ Docs</a></b></li>
+  <li><a href="https://reflectoring.io/unit-testing-spring-boot/" target="_blank">Unit Testing with Spring Boot</a></li>
+  <li><a href="https://www.springboottutorial.com/spring-boot-unit-testing-and-mocking-with-mockito-and-junit" target="_blank">Spring Boot - Unit Testing and Mocking with Mockito and JUnit</a> <br /><small>(может отображаться некорректно в safary)</small></li>
+  <li><a href="https://www.mkyong.com/spring-boot/spring-boot-junit-5-mockito/" target="_blank">Spring Boot + JUnit 5 + Mockito</a></li>
+  <li><a href="http://java-online.ru/junit-mockito.xhtml" target="_blank">JUnit и фреймворк Mockito</a></li>
+  <li><a href="https://habr.com/ru/post/444982/" target="_blank">[habr] Mockito и как его готовить</a></li>
+  <li><a href="https://habr.com/ru/post/243155/" target="_blank">[habr] Шесть простых примеров по Mockito</a></li>
+  <li><a href="https://www.baeldung.com/mockito-series" target="_blank">[baeldung] Mockito Tutorials</a></li>
+  <li><a href="https://www.baeldung.com/introduction-to-assertj" target="_blank">[baeldung] Introduction To Assertj</a></li>
+  <li><a href="https://spring.io/guides/gs/testing-web/" target="_blank">[spring.io] Testing the Web Layer</a></li>
+  <li><a href="https://reflectoring.io/spring-boot-web-controller-test/" target="_blank">Testing Spring MVC Web Controllers with @WebMvcTest</a></li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="integration-tests">Integration tests</h4>
+<ul>
+  <li>тестирование взаимодействия компонентов приложения</li>
+  <li>загрузка Spring-контекста</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="load-and-stress-tests">Load and Stress tests</h4>
+<ul>
+  <li>тестирование приложения при стандартных/нестандартных нагрузках</li>
+  <li>JMeter or Gatling</li>
+</ul>
+
+<p><br />
+<small>
+  <strong>Links:</strong> 
+  <a href="http://wiki.rosalab.ru/ru/index.php/Виды_тестирования_ПО" target="_blank">Виды тестирования ПО</a>,
+  <a href="https://ru.wikipedia.org/wiki/Тестирование_программного_обеспечения" target="_blank">[wiki] Тестирование программного обеспечения</a>,
+  <a href="https://habr.com/ru/post/279535/" target="_blank">[habr] Тестирование. Фундаментальная теория</a>,
+  <a href="http://java-online.ru/junit-mockito.xhtml" target="_blank">JUnit и фреймворк Mockito</a>
+</small></p>
+
+  </article>
+</div>
+
+
+<aside class="related">
+  <h3>Latest posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/spring-logging-true-way-15-55-57-504">
+          Spring logging the true way
+          <small><time datetime="2019-06-09T00:00:00+03:00">09 Jun 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/java-styleguide">
+          Java styleguide
+          <small><time datetime="2019-06-07T00:00:00+03:00">07 Jun 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/hana-table-modified-date">
+          SAP HANA get table modified date
+          <small><time datetime="2019-06-06T00:00:00+03:00">06 Jun 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+		</div>
+	</main>
+	<!-- FOOTER -->
+<footer class="page-footer mt-auto">
+	<div class="container">
+		<div class="row">
+		<div class="col-md-6 col-sm-12 copyright">
+			<small>
+			&copy; <time datetime="2019-05-17T14:12:56+03:00">2019</time>. Даниил Сафонов
+			</small>
+		</div>
+
+		<div class="col-md-6 col-sm-12 navigation">
+			
+          		&nbsp;
+          		<small><a href="/main">Main</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/tags">Tags</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/offtop">Offtop</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/about">About</a></small>
+        	
+		</div>
+	</div>
+	</div>
+</footer>
+
+<!-- Jquery -->
+<script src="/assets/javascript/bootstrap/jquery.min.js"></script>
+<!-- Bootstrap`s JS -->
+<script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66260535-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66260535-2');
+</script>
+
+
+</body>
+</html>

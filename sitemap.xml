@@ -77,8 +77,12 @@
 <lastmod>2019-06-07T00:00:00+03:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/spring-logging-true-way</loc>
+<loc>http://localhost:4000/spring-logging-true-way-15-55-57-504</loc>
 <lastmod>2019-06-09T00:00:00+03:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/spring-boot-testing</loc>
+<lastmod>2019-06-13T00:00:00+03:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/about</loc>
@@ -100,5 +104,8 @@
 </url>
 <url>
 <loc>http://localhost:4000/page4/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page5/</loc>
 </url>
 </urlset>
