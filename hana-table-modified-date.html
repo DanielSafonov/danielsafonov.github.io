@@ -110,7 +110,7 @@
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Repository</span>
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">OrgunitRepository</span> <span class="kd">extends</span> <span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">Orgunit</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;{</span>
 	<span class="c1">//Получить дату обновления таблицы</span>
-	<span class="nd">@Query</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"SELECT LAST_MODIFY_TIME FROM SYS.M_TABLE_STATISTICS WHERE TABLE_NAME = \'ORGUNIT\' AND SCHEMA_NAME = \'SF_SBER_ORGSTRUC\'"</span><span class="o">,</span> <span class="n">nativeQuery</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+	<span class="nd">@Query</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"SELECT LAST_MODIFY_TIME FROM SYS.M_TABLE_STATISTICS WHERE TABLE_NAME = \'TABLE_NAME\' AND SCHEMA_NAME = \'SCHEMA_NAME\'"</span><span class="o">,</span> <span class="n">nativeQuery</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
 	<span class="n">Timestamp</span> <span class="nf">getLastModifiedDate</span><span class="o">();</span>
 <span class="o">}</span>
 </code></pre></div></div>
@@ -124,16 +124,16 @@
   <ul class="related-posts">
     
       <li>
-        <a href="/spring-boot-testing">
-          Spring Boot Testing
-          <small><time datetime="2019-06-13T00:00:00+03:00">13 Jun 2019</time></small>
+        <a href="/plastic-bootles-recycling">
+          Переработка пластиковых бутылок
+          <small><time datetime="2019-06-16T00:00:00+03:00">16 Jun 2019</time></small>
         </a>
       </li>
     
       <li>
-        <a href="/spring-logging-true-way-15-55-57-504">
-          Spring logging the true way
-          <small><time datetime="2019-06-09T00:00:00+03:00">09 Jun 2019</time></small>
+        <a href="/spring-boot-testing">
+          Spring Boot Testing
+          <small><time datetime="2019-06-13T00:00:00+03:00">13 Jun 2019</time></small>
         </a>
       </li>
     

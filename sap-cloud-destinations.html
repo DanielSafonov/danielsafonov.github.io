@@ -143,7 +143,6 @@
 
 <span class="cm">/**
  * Класс для получения данных из SAP Cloud Destinations
- *
  * @author Daniel Safonov
  */</span>
 <span class="nd">@AllArgsConstructor</span>
@@ -223,6 +222,83 @@
 <span class="o">}</span>
 </code></pre></div></div>
 
+<hr />
+
+<h2 id="2-способ">2 способ</h2>
+<p><small>Пригодился при конфигурировании Feign, который требовал исключительно static final параметры из Destinations</small>
+<br /></p>
+
+<p>Фрагмент <strong>web.xml</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">resource</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="n">connectivityConfiguration</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">ref</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">res</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span><span class="n">com</span><span class="o">.</span><span class="na">sap</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">connectivity</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">configuration</span><span class="o">.</span><span class="na">ConnectivityConfiguration</span><span class="o">&lt;/</span><span class="n">res</span><span class="o">-</span><span class="n">type</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">resource</span><span class="o">-</span><span class="n">ref</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<p><strong>ConnectivityConfigurationProvider.java</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Компонент для получения Connectivity Configuration (из них получают Destinations)
+ */</span>
+<span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ConnectivityConfigurationProvider</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">CONNECTIVITY_JNDI_NAME</span> <span class="o">=</span> <span class="s">"java:comp/env/connectivityConfiguration"</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="n">ConnectivityConfiguration</span> <span class="nf">getConnectivityConfiguration</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">NamingException</span> <span class="o">{</span>
+        <span class="n">Context</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="n">InitialContext</span><span class="o">();</span>
+        <span class="k">return</span> <span class="o">(</span><span class="n">ConnectivityConfiguration</span><span class="o">)</span> <span class="n">context</span><span class="o">.</span><span class="na">lookup</span><span class="o">(</span><span class="n">CONNECTIVITY_JNDI_NAME</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>DestinationConfigurationService.java</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * Компонент для получения Destinations через ConnectivityConfigurationProvider
+ */</span>
+<span class="nd">@Component</span>
+<span class="nd">@RequiredArgsConstructor</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DestinationConfigurationService</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="n">ConnectivityConfigurationProvider</span> <span class="n">connectivityConfigurationProvider</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="n">DestinationConfiguration</span> <span class="nf">getDestinationConfiguration</span><span class="o">(</span><span class="n">String</span> <span class="n">destinationName</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">NamingException</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">connectivityConfigurationProvider</span><span class="o">.</span><span class="na">getConnectivityConfiguration</span><span class="o">().</span><span class="na">getConfiguration</span><span class="o">(</span><span class="n">destinationName</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>Using</strong></p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SomeClass</span> <span class="o">{</span>
+	<span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="n">DestinationConfigurationService</span> <span class="n">destinationConfigurationService</span><span class="o">;</span>
+
+    <span class="o">&lt;...&gt;</span>
+    <span class="n">DestinationConfiguration</span> <span class="n">destinationConfiguration</span> <span class="o">=</span> <span class="n">destinationConfigurationService</span><span class="o">.</span><span class="na">getDestinationConfiguration</span><span class="o">(</span><span class="n">DESTINATION_NAME</span><span class="o">);</span>
+
+    <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="n">destinationConfiguration</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">"VALUE_NAME"</span><span class="o">);</span>
+    <span class="o">&lt;...&gt;</span>
+<span class="o">}</span>
+
+<span class="cm">/* ИЛИ */</span>
+
+<span class="nd">@RequiredArgsConstructor</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SomeClass</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">final</span> <span class="n">DestinationConfigurationService</span> <span class="n">destinationConfigurationService</span><span class="o">;</span>
+
+	<span class="nd">@Bean</span>
+	<span class="kd">public</span> <span class="n">DestinationConfiguration</span> <span class="nf">Destination</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">NamingException</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="n">destinationConfigurationService</span>
+				<span class="o">.</span><span class="na">getDestinationConfiguration</span><span class="o">(</span><span class="n">Constants</span><span class="o">.</span><span class="na">DESTINATION_NAME</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Bean</span>
+	<span class="kd">public</span> <span class="n">BasicAuthRequestInterceptor</span> <span class="nf">basicAuthRequestInterceptor</span><span class="o">(</span><span class="n">DestinationConfiguration</span> <span class="n">sfApiDestination</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="k">new</span> <span class="nf">BasicAuthRequestInterceptor</span><span class="o">(</span>
+				<span class="n">sfApiDestination</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="n">DestinationConfiguration</span><span class="o">.</span><span class="na">DESTINATION_USER</span><span class="o">),</span>
+				<span class="n">sfApiDestination</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="n">DestinationConfiguration</span><span class="o">.</span><span class="na">DESTINATION_PASSWORD</span><span class="o">)</span>
+		<span class="o">);</span>
+	<span class="o">}</span>
+	<span class="o">&lt;...&gt;</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
   </article>
 </div>
@@ -233,16 +309,16 @@
   <ul class="related-posts">
     
       <li>
-        <a href="/spring-boot-testing">
-          Spring Boot Testing
-          <small><time datetime="2019-06-13T00:00:00+03:00">13 Jun 2019</time></small>
+        <a href="/plastic-bootles-recycling">
+          Переработка пластиковых бутылок
+          <small><time datetime="2019-06-16T00:00:00+03:00">16 Jun 2019</time></small>
         </a>
       </li>
     
       <li>
-        <a href="/spring-logging-true-way-15-55-57-504">
-          Spring logging the true way
-          <small><time datetime="2019-06-09T00:00:00+03:00">09 Jun 2019</time></small>
+        <a href="/spring-boot-testing">
+          Spring Boot Testing
+          <small><time datetime="2019-06-13T00:00:00+03:00">13 Jun 2019</time></small>
         </a>
       </li>
     
