@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-100">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>
+    
+      Java lossless image compressing &middot; DanielSafonov
+    
+  </title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="144x144"  href="/assets/favicon/android-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Java lossless image compressing | DanielSafonov</title>
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Java lossless image compressing" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="A blog by Daniel Safonov" />
+<meta property="og:description" content="A blog by Daniel Safonov" />
+<link rel="canonical" href="http://localhost:4000/java-lossless-image-compressing" />
+<meta property="og:url" content="http://localhost:4000/java-lossless-image-compressing" />
+<meta property="og:site_name" content="DanielSafonov" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-07-18T00:00:00+03:00" />
+<script type="application/ld+json">
+{"datePublished":"2019-07-18T00:00:00+03:00","dateModified":"2019-07-18T00:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/java-lossless-image-compressing"},"url":"http://localhost:4000/java-lossless-image-compressing","description":"A blog by Daniel Safonov","@type":"BlogPosting","headline":"Java lossless image compressing","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<body class="d-flex flex-column h-100">
+	<main role="main" class="flex-shrink-0">
+		 <!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="/">Daniel Safonov</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#rollup" aria-controls="rollup" aria-expanded="false" aria-label="Rollup navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="rollup">
+     <ul class="navbar-nav ml-auto text-uppercase">
+      <li class="nav-item">
+        <a class="nav-link " href="/">Main</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/offtop">Offtop</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/tags">Tags</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+
+  <hr style="background: $white-1; margin-top: 0; margin-bottom: 3rem;" />
+
+
+		 <!-- Top tags -->
+		
+
+		<div class="container page-content">
+		    <div class="post mt-5">
+  <h1 class="post-title">Java lossless image compressing</h1>
+  <div datetime="2019-07-18T00:00:00+03:00" class="post-date">
+    18 Jul 2019
+     | 
+      
+        <a href="/tags#java" class="badge tag">java</a>
+      
+    
+  </div>
+
+  
+
+  <article class="post-content">
+  <!--more-->
+
+<p>Для сжатия <code class="highlighter-rouge">jpeg</code> используется <code class="highlighter-rouge">Java ImageIO</code>, для <code class="highlighter-rouge">png</code> - <code class="highlighter-rouge">Pngtastic</code>.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">compressImage</span><span class="o">(</span><span class="n">MultipartFile</span> <span class="n">multipartFile</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">Exception</span> <span class="o">{</span>
+	<span class="n">String</span> <span class="n">imageExtention</span> <span class="o">=</span> <span class="n">multipartFile</span><span class="o">.</span><span class="na">getContentType</span><span class="o">().</span><span class="na">substring</span><span class="o">(</span><span class="n">multipartFile</span><span class="o">.</span><span class="na">getContentType</span><span class="o">().</span><span class="na">indexOf</span><span class="o">(</span><span class="sc">'/'</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+	<span class="k">if</span><span class="o">(!</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">imageExtention</span><span class="o">)){</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">imageExtention</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"jpeg"</span><span class="o">)){</span>
+			<span class="c1">//JPEG, JPG</span>
+			<span class="n">BufferedImage</span> <span class="n">image</span> <span class="o">=</span> <span class="n">ImageIO</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="k">new</span> <span class="n">ByteArrayInputStream</span><span class="o">(</span><span class="n">multipartFile</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
+			<span class="n">ImageWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="n">ImageIO</span><span class="o">.</span><span class="na">getImageWritersByFormatName</span><span class="o">(</span><span class="s">"jpeg"</span><span class="o">).</span><span class="na">next</span><span class="o">();</span>
+			<span class="n">ImageWriteParam</span> <span class="n">param</span> <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="na">getDefaultWriteParam</span><span class="o">();</span>
+			<span class="n">param</span><span class="o">.</span><span class="na">setCompressionMode</span><span class="o">(</span><span class="n">ImageWriteParam</span><span class="o">.</span><span class="na">MODE_DEFAULT</span><span class="o">);</span>
+			<span class="c1">//compression quality default = 100%</span>
+
+			<span class="n">ByteArrayOutputStream</span> <span class="n">baos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayOutputStream</span><span class="o">();</span>
+			<span class="n">ImageOutputStream</span> <span class="n">ios</span> <span class="o">=</span> <span class="n">ImageIO</span><span class="o">.</span><span class="na">createImageOutputStream</span><span class="o">(</span><span class="n">baos</span><span class="o">);</span>
+			<span class="n">writer</span><span class="o">.</span><span class="na">setOutput</span><span class="o">(</span><span class="n">ios</span><span class="o">);</span>
+			<span class="n">writer</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="k">new</span> <span class="n">IIOImage</span><span class="o">(</span><span class="n">image</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">),</span> <span class="n">param</span><span class="o">);</span>
+
+			<span class="k">return</span> <span class="n">baos</span><span class="o">.</span><span class="na">toByteArray</span><span class="o">();</span>
+		<span class="o">}</span> <span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">imageExtention</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"png"</span><span class="o">)){</span>
+			<span class="c1">//PNG</span>
+			<span class="n">PngImage</span> <span class="n">image</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PngImage</span><span class="o">(</span><span class="k">new</span> <span class="n">ByteArrayInputStream</span><span class="o">(</span><span class="n">multipartFile</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
+			<span class="n">PngOptimizer</span> <span class="n">pngOptimizer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PngOptimizer</span><span class="o">();</span>
+			<span class="n">PngImage</span> <span class="n">optimizedImage</span> <span class="o">=</span> <span class="n">pngOptimizer</span><span class="o">.</span><span class="na">optimize</span><span class="o">(</span><span class="n">image</span><span class="o">);</span>
+
+			<span class="n">ByteArrayOutputStream</span> <span class="n">baos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayOutputStream</span><span class="o">();</span>
+			<span class="n">optimizedImage</span><span class="o">.</span><span class="na">writeDataOutputStream</span><span class="o">(</span><span class="n">baos</span><span class="o">);</span>
+
+			<span class="k">return</span> <span class="n">baos</span><span class="o">.</span><span class="na">toByteArray</span><span class="o">();</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+	<span class="k">return</span> <span class="n">multipartFile</span><span class="o">.</span><span class="na">getBytes</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Выходит в среднем 20-25% уменьшения размера изображения. <br /></p>
+
+<hr />
+
+<p>Удивительно, но никаких других библиотек, удовлетворяющих двум простым требованиям <small>(наличие в центральном maven репозитории и возможность использования без танцев с бубнами)</small> я не нашел. <br /></p>
+
+<p>Обратил внимание на китайскую библиотеку для андроида <a href="https://github.com/Curzibn/Luban" target="_blank">Luban</a>.</p>
+<blockquote>
+  <p><strong>Image compression with efficiency very close to WeChat Moments.</strong>
+Original: 390k, Luban: 87k (78%), WeChat: 56k (86%)</p>
+</blockquote>
+
+  </article>
+</div>
+
+
+<aside class="related">
+  <h3>Latest posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/spring-error-handling">
+          The true way - Spring error handling
+          <small><time datetime="2019-07-10T00:00:00+03:00">10 Jul 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/plastic-bootles-recycling">
+          Переработка пластиковых бутылок
+          <small><time datetime="2019-06-16T00:00:00+03:00">16 Jun 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/spring-boot-testing">
+          Spring Boot Testing
+          <small><time datetime="2019-06-13T00:00:00+03:00">13 Jun 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+		</div>
+	</main>
+	<!-- FOOTER -->
+<footer class="page-footer mt-auto">
+	<div class="container">
+		<div class="row">
+		<div class="col-md-6 col-sm-12 copyright">
+			<small>
+			&copy; <time datetime="2019-05-17T14:12:56+03:00">2019</time>. Даниил Сафонов
+			</small>
+		</div>
+
+		<div class="col-md-6 col-sm-12 navigation">
+			
+          		&nbsp;
+          		<small><a href="/main">Main</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/tags">Tags</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/offtop">Offtop</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/about">About</a></small>
+        	
+		</div>
+	</div>
+	</div>
+</footer>
+
+<!-- Jquery -->
+<script src="/assets/javascript/bootstrap/jquery.min.js"></script>
+<!-- Bootstrap`s JS -->
+<script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66260535-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66260535-2');
+</script>
+
+
+</body>
+</html>
