@@ -36,13 +36,14 @@
 <meta property="og:locale" content="ru_RU" />
 <meta name="description" content="A blog by Daniel Safonov" />
 <meta property="og:description" content="A blog by Daniel Safonov" />
-<link rel="canonical" href="https://www.danielsafonov.github.io/java-lossless-image-compressing" />
-<meta property="og:url" content="https://www.danielsafonov.github.io/java-lossless-image-compressing" />
+<link rel="canonical" href="http://localhost:4000/java-lossless-image-compressing" />
+<meta property="og:url" content="http://localhost:4000/java-lossless-image-compressing" />
 <meta property="og:site_name" content="DanielSafonov" />
+<meta property="og:image" content="http://localhost:4000/2019/08/jpg-jackals.jpg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-07-18T00:00:00+03:00" />
 <script type="application/ld+json">
-{"datePublished":"2019-07-18T00:00:00+03:00","dateModified":"2019-07-18T00:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.danielsafonov.github.io/java-lossless-image-compressing"},"url":"https://www.danielsafonov.github.io/java-lossless-image-compressing","description":"A blog by Daniel Safonov","@type":"BlogPosting","headline":"Java lossless image compressing","@context":"http://schema.org"}</script>
+{"datePublished":"2019-07-18T00:00:00+03:00","dateModified":"2019-07-18T00:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/java-lossless-image-compressing"},"url":"http://localhost:4000/java-lossless-image-compressing","image":"http://localhost:4000/2019/08/jpg-jackals.jpg","description":"A blog by Daniel Safonov","@type":"BlogPosting","headline":"Java lossless image compressing","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -90,15 +91,21 @@
       
         <a href="/tags#java" class="badge tag">java</a>
       
+        <a href="/tags#img" class="badge tag">img</a>
+      
     
   </div>
 
+  
+      <div class="thumbnail-container-full">
+        <a href="/java-lossless-image-compressing"><img src="/img/thumbnail/2019/08/jpg-jackals.jpg"></a>
+      </div>
   
 
   <article class="post-content">
   <!--more-->
 
-<p>Для сжатия <code class="highlighter-rouge">jpeg</code> используется <code class="highlighter-rouge">Java ImageIO</code>, для <code class="highlighter-rouge">png</code> - <code class="highlighter-rouge">Pngtastic</code>.</p>
+<p>Для сжатия <code class="highlighter-rouge">jpeg</code> используется <a href="https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html" target="blank">Java ImageIO</a>, для <code class="highlighter-rouge">png</code> - <a href="https://github.com/depsypher/pngtastic" target="_blank">PNGtastic</a>.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">compressImage</span><span class="o">(</span><span class="n">MultipartFile</span> <span class="n">multipartFile</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
 	<span class="n">String</span> <span class="n">imageExtention</span> <span class="o">=</span> <span class="n">multipartFile</span><span class="o">.</span><span class="na">getContentType</span><span class="o">().</span><span class="na">substring</span><span class="o">(</span><span class="n">multipartFile</span><span class="o">.</span><span class="na">getContentType</span><span class="o">().</span><span class="na">indexOf</span><span class="o">(</span><span class="sc">'/'</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
@@ -154,6 +161,13 @@ Original: 390k, Luban: 87k (78%), WeChat: 56k (86%)</p>
   <ul class="related-posts">
     
       <li>
+        <a href="/solar-powered-web-site">
+          Solar powered web site
+          <small><time datetime="2019-07-19T00:00:00+03:00">19 Jul 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
         <a href="/product-development">
           Наглядное пособие по разработке продуктов
           <small><time datetime="2019-07-19T00:00:00+03:00">19 Jul 2019</time></small>
@@ -164,13 +178,6 @@ Original: 390k, Luban: 87k (78%), WeChat: 56k (86%)</p>
         <a href="/java-md5-base64">
           Java get file md5 and base64
           <small><time datetime="2019-07-18T00:00:00+03:00">18 Jul 2019</time></small>
-        </a>
-      </li>
-    
-      <li>
-        <a href="/spring-error-handling">
-          The true way - Spring error handling
-          <small><time datetime="2019-07-10T00:00:00+03:00">10 Jul 2019</time></small>
         </a>
       </li>
     
