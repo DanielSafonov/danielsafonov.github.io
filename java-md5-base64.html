@@ -117,7 +117,6 @@
 		<span class="kt">byte</span><span class="o">[]</span> <span class="n">digest</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="na">digest</span><span class="o">();</span>
 		<span class="k">return</span> <span class="n">DatatypeConverter</span><span class="o">.</span><span class="na">printHexBinary</span><span class="o">(</span><span class="n">digest</span><span class="o">).</span><span class="na">toUpperCase</span><span class="o">();</span>
 	<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-		<span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"An error in getByteArrayFileHash() while calculating hash code!"</span><span class="o">);</span>
 		<span class="k">throw</span> <span class="k">new</span> <span class="nf">Exception</span><span class="o">(</span><span class="s">"An error in getByteArrayFileHash() while calculating hash code!"</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
 	<span class="o">}</span>
 <span class="o">}</span>
@@ -138,6 +137,13 @@
   <ul class="related-posts">
     
       <li>
+        <a href="/this-person-does-not-exist">
+          this person does't exist
+          <small><time datetime="2019-07-20T00:00:00+03:00">20 Jul 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
         <a href="/solar-powered-web-site">
           Solar powered web site
           <small><time datetime="2019-07-19T00:00:00+03:00">19 Jul 2019</time></small>
@@ -148,13 +154,6 @@
         <a href="/product-development">
           Наглядное пособие по разработке продуктов
           <small><time datetime="2019-07-19T00:00:00+03:00">19 Jul 2019</time></small>
-        </a>
-      </li>
-    
-      <li>
-        <a href="/java-lossless-image-compressing">
-          Java lossless image compressing
-          <small><time datetime="2019-07-18T00:00:00+03:00">18 Jul 2019</time></small>
         </a>
       </li>
     
