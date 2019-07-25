@@ -101,6 +101,16 @@
   <!--more-->
 
 <h3 id="фундаментальные-принципы">Фундаментальные принципы:</h3>
+
+<div class="mx-auto" style="width: 80%">
+  <figure class="figure">
+    <img src="img/attachments/2019/08/java_throwable.png" class="figure-img img-fluid" alt="Java Throwable" />
+    <figcaption class="figure-caption text-center">
+    	<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html" target="_blank">javadoc: Class Throwable</a>
+    </figcaption>
+  </figure>
+</div>
+
 <ul>
   <li>Никогда не проглатывать исключения
     <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">catch</span> <span class="o">(</span><span class="n">NoSuchMethodException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
@@ -109,15 +119,17 @@
 <span class="o">}</span>
 </code></pre></div>    </div>
   </li>
+  <li>Не выбрасывать generic Exception, если он не будет обработан далее - лучше использовать <code class="highlighter-rouge">RuntimeException</code> (или пользовательское исключение)</li>
   <li>Всегда закрывать ресурсы (файлы, соединения) после обработки или пробрасывания исключения c помощью конструкции <code class="highlighter-rouge">try-with-resources</code> или в блоке <code class="highlighter-rouge">finally</code></li>
   <li>Либо пробросить исключение выше (<code class="highlighter-rouge">throw e</code>), либо залогировать (<code class="highlighter-rouge">log.error()</code>) - не производить эти действия одновременно</li>
   <li>Не пытаться обработать исключение сразу же после обнаружения, иногда стоит пробросить его наверх</li>
-  <li>Выводить в лог не <code class="highlighter-rouge">stackTrace</code>, а только полезную информацию одной строкой</li>
+  <li>Выводить в лог не <code class="highlighter-rouge">stackTrace</code>, а только полезную информацию одним вызовом метода логирования (<code class="highlighter-rouge">log.error()</code>)</li>
   <li>Объявлять список конкретных исключений, которые может выбросить метод
     <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kt">void</span> <span class="nf">foo</span><span class="o">()</span> <span class="kd">throws</span> <span class="kd">throws</span> <span class="n">SpecificException1</span><span class="o">,</span> <span class="n">SpecificException2</span> <span class="o">{...}</span>
 </code></pre></div>    </div>
   </li>
   <li>Методы должны выбрасывать только соответствующие их логике исключения. Метод по работе с файлом может выбросить <code class="highlighter-rouge">IOException</code>, но не <code class="highlighter-rouge">NullPointerException</code> - его лучше завернуть в пользовательское исключение, например, <code class="highlighter-rouge">NoSuchFileFoundException</code></li>
+  <li>По возможности использовать пользовательские типы исключений с говорящими именами</li>
   <li>Сначала перехватывать и обрабатывать специфические исключения и только потом generic
     <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">catch</span><span class="o">(</span><span class="n">SpecificException1</span> <span class="n">se1</span><span class="o">){</span>
   <span class="o">...</span>
@@ -128,50 +140,50 @@
 <span class="o">}</span>
 </code></pre></div>    </div>
   </li>
-  <li>Не пытаться обработать исключения JVM (Error)</li>
-  <li>Не выполнять в блоке <code class="highlighter-rouge">finally</code> операции, которые могут вызвать исключение
+  <li>Не пытаться обработать <code class="highlighter-rouge">Error</code> без явной необходимости</li>
+  <li>Не выполнять в блоке <code class="highlighter-rouge">finally</code> операции, которые могут вызвать исключение, а также <code class="highlighter-rouge">return</code>
     <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="o">{</span>
   <span class="n">foo</span><span class="o">();</span>
 <span class="o">}</span> <span class="k">finally</span><span class="o">{</span>
-  <span class="n">poo</span><span class="o">();</span> <span class="c1">//Исключение от poo() затрет исключение от foo()</span>
+  <span class="n">poo</span><span class="o">();</span> <span class="c1">//Исключение из poo() затрет исключение из foo()</span>
+  <span class="k">return</span><span class="o">;</span> <span class="c1">//Исключение из foo() будет потеряно</span>
 <span class="o">}</span>
 </code></pre></div>    </div>
   </li>
   <li>Вместо кучи повторяющихся блоков <code class="highlighter-rouge">try-catch</code> для проверки соединения, пользовательского ввода и тд, проще завести специальный метод в отдельном классе, задача которого будет лишь в выполнении операции в блоке <code class="highlighter-rouge">try-catch</code></li>
-  <li>По возможности использовать пользовательские типы исключений с говорящими именами</li>
-  <li>Не выполнять <code class="highlighter-rouge">throw</code> и <code class="highlighter-rouge">return</code> в блоке <code class="highlighter-rouge">finally</code>, так как это приводит к потере исключений из блока <code class="highlighter-rouge">try-catch</code></li>
   <li>Не использовать блок <code class="highlighter-rouge">try-catch</code> как оператор goto, ветвление или другую конструкцию, не связанную с обработкой исключений
-```java
-//Bad code
-try {
-  // some code 1
- 	throw new MyException();
-  // some code 2
-} catch(MyException ex) {
-  // some code 3
-}</li>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Bad code</span>
+<span class="k">try</span> <span class="o">{</span>
+  <span class="c1">// some code 1</span>
+ 	<span class="k">throw</span> <span class="k">new</span> <span class="nf">MyException</span><span class="o">();</span> <span class="c1">//goto</span>
+  <span class="c1">// because not exception</span>
+<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">MyException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">// because exception</span>
+<span class="o">}</span>
+<span class="c1">//Another bad code</span>
+<span class="k">try</span><span class="o">{</span>
+  <span class="o">..</span>
+<span class="o">}</span> <span class="k">catch</span><span class="o">(..){</span>
+  <span class="k">try</span><span class="o">{</span>
+      <span class="o">..</span>
+  <span class="o">}</span> <span class="k">catch</span><span class="o">(..){</span>
+      <span class="k">try</span><span class="o">{</span>
+
+      <span class="o">}</span> <span class="k">catch</span><span class="o">(..){</span>
+          <span class="o">..</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>…</li>
 </ul>
-
-<p>try{
-	..
-} catch(..){
-	try{
-		..
-	} catch(..){
-		try{</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	} catch(..){
-		..
-	}
-} } ```
-</code></pre></div></div>
-
-<p>try-catch vs throws</p>
 
 <p><br />
 <small>
   <strong>Links:</strong> 
-  <a href="https://howtodoinjava.com/best-practices/java-exception-handling-best-practices/" target="_blank">Top 20 Java Exception Handling Best Practices</a>, <a hreg="https://stackabuse.com/exception-handling-in-java-a-complete-guide-with-best-and-worst-practices/" target="_blank">Exception Handling in Java: A Complete Guide with Best and Worst Practices</a>
+  <a href="https://howtodoinjava.com/best-practices/java-exception-handling-best-practices/" target="_blank">Top 20 Java Exception Handling Best Practices</a>, <a hreg="https://stackabuse.com/exception-handling-in-java-a-complete-guide-with-best-and-worst-practices/" target="_blank">Exception Handling in Java: A Complete Guide with Best and Worst Practices</a>, <a href="https://www.ntu.edu.sg/home/ehchua/programming/java/J5a_ExceptionAssert.html" target="_blank">Java Programming
+Exception Handling &amp; Assertion</a>
 </small></p>
 
   </article>
@@ -181,6 +193,13 @@ try {
 <aside class="related">
   <h3>Latest posts</h3>
   <ul class="related-posts">
+    
+      <li>
+        <a href="/java-multiple-flags">
+          Java multiple flags
+          <small><time datetime="2019-07-24T00:00:00+03:00">24 Jul 2019</time></small>
+        </a>
+      </li>
     
       <li>
         <a href="/learn-computer-science">
@@ -193,13 +212,6 @@ try {
         <a href="/this-person-does-not-exist">
           this person does't exist
           <small><time datetime="2019-07-20T00:00:00+03:00">20 Jul 2019</time></small>
-        </a>
-      </li>
-    
-      <li>
-        <a href="/solar-powered-web-site">
-          Solar powered web site
-          <small><time datetime="2019-07-19T00:00:00+03:00">19 Jul 2019</time></small>
         </a>
       </li>
     
