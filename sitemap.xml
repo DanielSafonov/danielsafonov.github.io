@@ -77,10 +77,6 @@
 <lastmod>2019-06-16T00:00:00+03:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/spring-error-handling</loc>
-<lastmod>2019-07-10T00:00:00+03:00</lastmod>
-</url>
-<url>
 <loc>http://localhost:4000/java-lossless-image-compressing</loc>
 <lastmod>2019-07-18T00:00:00+03:00</lastmod>
 </url>
@@ -107,6 +103,10 @@
 <url>
 <loc>http://localhost:4000/java-multiple-flags</loc>
 <lastmod>2019-07-24T00:00:00+03:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/3d-printer-sappire-s</loc>
+<lastmod>2019-08-03T00:00:00+03:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/about</loc>
