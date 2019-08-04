@@ -105,6 +105,10 @@
 <lastmod>2019-07-24T00:00:00+03:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/lubricant-for-printer</loc>
+<lastmod>2019-07-28T00:00:00+03:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/3d-printer-sappire-s</loc>
 <lastmod>2019-08-03T00:00:00+03:00</lastmod>
 </url>
@@ -132,5 +136,8 @@
 </url>
 <url>
 <loc>http://localhost:4000/page4/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page5/</loc>
 </url>
 </urlset>
