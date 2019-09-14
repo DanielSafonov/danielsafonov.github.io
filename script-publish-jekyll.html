@@ -98,6 +98,8 @@
   <article class="post-content">
   <!--more-->
 
+<p>Скрипт собирает, коммитит и пушит сначала в приватный репозиторий с исходниками сайта, а затем в открытый репозиторий-хостинг (github pages).</p>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>touch upload.sh <span class="c">#Создать файл</span>
 <span class="nv">$ </span>nano upload.sh <span class="c">#Перейти к редактированию файла</span>
 
@@ -109,6 +111,7 @@ git push origin master
 git add <span class="k">*</span>
 git commit <span class="nt">-m</span> <span class="s2">"Update"</span>
 git push origin master
+<span class="nb">echo</span> <span class="nt">-e</span> <span class="s2">"</span><span class="se">\n\n\n\0</span><span class="s2">33[45mBlog was uploaded</span><span class="se">\0</span><span class="s2">33[0m</span><span class="se">\n\n\n</span><span class="s2">"</span>
 
 <span class="nv">$ </span>chmod +x upload.sh <span class="c">#Сделать скрипт исполняемым</span>
 <span class="nv">$ </span>./upload.sh <span class="c">#Выполнить скрипт</span>
