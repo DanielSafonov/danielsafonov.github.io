@@ -9,7 +9,7 @@
   <!-- Title -->
   <title>
     
-      this person does't exist &middot; DanielSafonov
+      HTTP status code &middot; DanielSafonov
     
   </title>
 
@@ -30,20 +30,19 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>this person does’t exist | DanielSafonov</title>
+<title>HTTP status code | DanielSafonov</title>
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="this person does’t exist" />
+<meta property="og:title" content="HTTP status code" />
 <meta property="og:locale" content="ru_RU" />
-<meta name="description" content="Работа генеративно-состязательной нейронной сети thispersondoesnotexist." />
-<meta property="og:description" content="Работа генеративно-состязательной нейронной сети thispersondoesnotexist." />
-<link rel="canonical" href="https://www.danielsafonov.github.io/this-person-does-not-exist" />
-<meta property="og:url" content="https://www.danielsafonov.github.io/this-person-does-not-exist" />
+<meta name="description" content="A blog by Daniel Safonov" />
+<meta property="og:description" content="A blog by Daniel Safonov" />
+<link rel="canonical" href="http://localhost:4000/http-status-code" />
+<meta property="og:url" content="http://localhost:4000/http-status-code" />
 <meta property="og:site_name" content="DanielSafonov" />
-<meta property="og:image" content="https://www.danielsafonov.github.io/2019/08/this-person-does-not-exits.jpg" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-07-20T00:00:00+03:00" />
+<meta property="article:published_time" content="2019-10-05T00:00:00+03:00" />
 <script type="application/ld+json">
-{"dateModified":"2019-07-20T00:00:00+03:00","datePublished":"2019-07-20T00:00:00+03:00","image":"https://www.danielsafonov.github.io/2019/08/this-person-does-not-exits.jpg","url":"https://www.danielsafonov.github.io/this-person-does-not-exist","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.danielsafonov.github.io/this-person-does-not-exist"},"description":"Работа генеративно-состязательной нейронной сети thispersondoesnotexist.","@type":"BlogPosting","headline":"this person does’t exist","@context":"http://schema.org"}</script>
+{"datePublished":"2019-10-05T00:00:00+03:00","dateModified":"2019-10-05T00:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/http-status-code"},"url":"http://localhost:4000/http-status-code","description":"A blog by Daniel Safonov","@type":"BlogPosting","headline":"HTTP status code","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -84,24 +83,49 @@
 
 		<div class="container page-content">
 		    <div class="post mt-5">
-  <h1 class="post-title">this person does't exist</h1>
-  <div datetime="2019-07-20T00:00:00+03:00" class="post-date">
-    20 Jul 2019
+  <h1 class="post-title">HTTP status code</h1>
+  <div datetime="2019-10-05T00:00:00+03:00" class="post-date">
+    05 Oct 2019
      | 
       
-        <a href="/tags#ai" class="badge tag">ai</a>
+        <a href="/tags#web" class="badge tag">web</a>
+      
+        <a href="/tags#http" class="badge tag">http</a>
       
     
   </div>
 
   
-      <div class="thumbnail-container-full">
-        <a href="/this-person-does-not-exist"><img src="/img/thumbnail/2019/08/this-person-does-not-exits.jpg"></a>
-      </div>
-  
 
   <article class="post-content">
-  <p class="text-left">Работа генеративно-состязательной нейронной сети <a href="https://thispersondoesnotexist.com" target="_blank">thispersondoesnotexist</a>.</p>
+  <!--more-->
+
+<p>Код статуса представляет из себя целое число из трёх десятичных цифр. Первая цифра указывает на класс состояния.
+Клиент узнаёт по коду ответа о результатах его запроса и определяет, какие действия ему предпринимать дальше. Набор кодов состояния является стандартом, и они описаны в соответствующих документах RFC. Клиент может не знать все коды состояния, но он обязан отреагировать в соответствии с классом кода. В настоящее время выделено пять классов кодов состояния.</p>
+
+<p><strong>Классы состояний:</strong></p>
+<ul>
+  <li><strong>1xx:</strong> Informational (информационные)</li>
+  <li><strong>2xx:</strong> Success (успешно)</li>
+  <li><strong>3xx:</strong> Redirection (перенаправление)</li>
+  <li><strong>4xx:</strong> Client Error (ошибка клиента)</li>
+  <li><strong>5xx:</strong> Server Error (ошибка сервера)</li>
+</ul>
+
+<p><br /></p>
+<ul>
+  <li><strong><a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/http/HttpStatus.html" target="_blank">Spring HTTP Status Code</a></strong></li>
+  <li><a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" target="_blank">Спецификация RFC 2616 HTTP/1.1 (1999 г.)</a></li>
+  <li><a href="http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml" target="_blank">Hypertext Transfer Protocol (HTTP) Status Code Registry</a></li>
+</ul>
+
+<p><br />
+<small>
+  <strong>Links:</strong> 
+  <a href="https://developer.mozilla.org/ru/docs/Web/HTTP/Status" target="_blank">Коды ответа HTTP</a>,
+  <a href="https://ru.wikipedia.org/wiki/Список_кодов_состояния_HTTP" target="_blank">Список кодов состояния HTTP</a>,
+  <a href="https://www.restapitutorial.com/httpstatuscodes.html" target="_blank">HTTP Status Codes</a>
+</small></p>
 
   </article>
 </div>
@@ -112,23 +136,23 @@
   <ul class="related-posts">
     
       <li>
-        <a href="/2019-10-13-analog-photography">
-          
-          <small><time datetime="2019-12-04T12:07:14+03:00">04 Dec 2019</time></small>
+        <a href="/script-publish-jekyll">
+          Script to publish jekyll
+          <small><time datetime="2019-09-14T00:00:00+03:00">14 Sep 2019</time></small>
         </a>
       </li>
     
       <li>
-        <a href="/java-stream-api">
-          Java Stream API
-          <small><time datetime="2019-12-04T00:00:00+03:00">04 Dec 2019</time></small>
+        <a href="/sapphire-s-cura">
+          Cura config for Sapphire S
+          <small><time datetime="2019-08-03T00:00:00+03:00">03 Aug 2019</time></small>
         </a>
       </li>
     
       <li>
-        <a href="/http-status-code">
-          HTTP status code
-          <small><time datetime="2019-10-05T00:00:00+03:00">05 Oct 2019</time></small>
+        <a href="/3d-printer-sappire-s">
+          Two Trees Sapphire S
+          <small><time datetime="2019-08-03T00:00:00+03:00">03 Aug 2019</time></small>
         </a>
       </li>
     
