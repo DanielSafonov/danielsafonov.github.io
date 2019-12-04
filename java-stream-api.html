@@ -104,6 +104,23 @@
   <li><a href="https://annimon.com/article/2778" target="_blank">Полное руководство по Java 8 Stream API в картинках и примерах</a></li>
 </ul>
 
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">address</span> <span class="o">=</span> <span class="n">peopleList</span><span class="o">.</span><span class="na">stream</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">person</span> <span class="o">-&gt;</span> <span class="n">person</span><span class="o">.</span><span class="na">getAddress</span><span class="o">())</span>
+        <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">address</span> <span class="o">-&gt;</span> <span class="n">address</span><span class="o">.</span><span class="na">isVerified</span><span class="o">())</span>
+        <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="nl">Address:</span><span class="o">:</span><span class="n">getCity</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="nl">String:</span><span class="o">:</span><span class="n">toUpperCase</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">distinct</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">limin</span><span class="o">(</span><span class="mi">10</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+</code></pre></div></div>
+
+<div class="mx-auto" style="width: 60%">
+	<figure class="figure">
+	  <img src="img/attachments/2019/12/stream_api.jpg" class="figure-img img-fluid" alt="Stream API" />
+	  <center><figcaption class="figure-caption">Stream API</figcaption></center>
+	</figure>
+</div>
+
   </article>
 </div>
 
