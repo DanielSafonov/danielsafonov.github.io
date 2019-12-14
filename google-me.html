@@ -124,15 +124,24 @@
 <ol>
   <li>Создадим новый ресурc типа веб-сайт в <a href="https://analytics.google.com" target="_blank">Google Analitics</a></li>
   <li>Создадим новый файл <code class="highlighter-rouge">_includes/analytics.html</code> и вставим туда сгенерированный Global Site Tag</li>
-  <li>Для того, чтобы скрипт аналитики при сборке автоматически был добавлен на каждую страницу блога, сделаем {% include %} в страндартный макет: вставим строку <code class="highlighter-rouge">{% include analytics.html %}</code> перед закрывающимся тэгом body в файл <code class="highlighter-rouge">_layouts/default.html</code>.</li>
-  <li>Вы великолепны: после сборки и выгрузки сайта на сервер, аналитика будет доступна в личном кабинете Google Analitics.</li>
+  <li>Для того, чтобы скрипт аналитики при сборке автоматически был добавлен на каждую страницу блога, сделаем {% include %} в страндартный макет: вставим строку <code class="highlighter-rouge">{% include analytics.html %}</code> перед закрывающимся тэгом body в файл <code class="highlighter-rouge">_layouts/default.html</code></li>
+  <li>Вы великолепны: после сборки и выгрузки сайта на сервер, аналитика будет доступна в личном кабинете Google Analitics</li>
+  <li>Просмотр аналитики - <a href="https://analytics.google.com/analytics/web/#/" target="_blank">Google Analitics</a></li>
 </ol>
 
+<p><br /></p>
+
 <h3 id="google-search-console">Google Search Console</h3>
-<p><code class="highlighter-rouge">_config.yml</code></p>
-<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">webmaster_verifications</span><span class="pi">:</span>
+<ol>
+  <li><a href="https://search.google.com/search-console" target="_blank">Google Search Console</a></li>
+  <li>Способ подтверждения: Тег HTML</li>
+  <li><code class="highlighter-rouge">_config.yml</code>
+    <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">webmaster_verifications</span><span class="pi">:</span>
   <span class="na">google</span><span class="pi">:</span> <span class="s2">"</span><span class="s">CODE</span><span class="nv"> </span><span class="s">HERE"</span>
-</code></pre></div></div>
+</code></pre></div>    </div>
+  </li>
+  <li>Просмотр аналитики - <a href="https://search.google.com/search-console" target="_blank">Google Search Console</a></li>
+</ol>
 
 <p><br /></p>
 

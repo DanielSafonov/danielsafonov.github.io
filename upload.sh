@@ -1,3 +1,4 @@
+sudo rm -rf _site/*
 jekyll build
 git add *
 git commit -m "Update"
