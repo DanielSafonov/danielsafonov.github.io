@@ -35,14 +35,13 @@
 <meta property="og:locale" content="ru_RU" />
 <meta name="description" content="Если тебя нет в интернете, то ты не существуешь. Добавляем сайт в поисковые системы." />
 <meta property="og:description" content="Если тебя нет в интернете, то ты не существуешь. Добавляем сайт в поисковые системы." />
-<link rel="canonical" href="https://www.danielsafonov.github.io/google-me" />
-<meta property="og:url" content="https://www.danielsafonov.github.io/google-me" />
+<link rel="canonical" href="http://localhost:4000/google-me" />
+<meta property="og:url" content="http://localhost:4000/google-me" />
 <meta property="og:site_name" content="DanielSafonov" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-12-15T00:00:00+03:00" />
-<meta name="google-site-verification" content="g3AW8hxy_OomwgoOhY9PMaeb3At_llJtrTjgTev9-CU" />
 <script type="application/ld+json">
-{"headline":"Google me","dateModified":"2019-12-15T00:00:00+03:00","datePublished":"2019-12-15T00:00:00+03:00","url":"https://www.danielsafonov.github.io/google-me","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.danielsafonov.github.io/google-me"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.danielsafonov.github.io/assets/favicon/apple-icon-144x144.png"}},"description":"Если тебя нет в интернете, то ты не существуешь. Добавляем сайт в поисковые системы.","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"datePublished":"2019-12-15T00:00:00+03:00","dateModified":"2019-12-15T00:00:00+03:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/google-me"},"url":"http://localhost:4000/google-me","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/favicon/apple-icon-144x144.png"}},"description":"Если тебя нет в интернете, то ты не существуешь. Добавляем сайт в поисковые системы.","@type":"BlogPosting","headline":"Google me","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -110,21 +109,19 @@
 <a href="https://blog.webjeda.com/optimize-jekyll-seo/" target="_blank">10 Must do Jekyll SEO optimizations</a>
 <br /><br /></p>
 
-<h4 id="jekyll-seo-plugin">Jekyll SEO plugin</h4>
-<p><a href="https://github.com/jekyll/jekyll-seo-tag" target="_blank">Repo</a>, 
+<h3 id="jekyll-plugins">Jekyll Plugins</h3>
+<p><b>Jekyll SEO Tag:</b><br />
+<a href="https://github.com/jekyll/jekyll-seo-tag" target="_blank">Repo</a>, 
 <a href="https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/installation.md" target="_blank">Installation</a>, 
-<a href="https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md" target="_blank">Usage</a></p>
+<a href="https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md" target="_blank">Usage</a> <br />
+<strike>gem 'jekyll-seo-tag'</strike>⠀gem install 'jekyll-seo-tag'</p>
 
-<p><strike>gem 'jekyll-seo-tag'</strike>⠀gem install 'jekyll-seo-tag'</p>
-
-<p><br /></p>
-
-<h4 id="jekyll-sitemap-plugin">Jekyll Sitemap plugin</h4>
-<p><a href="https://github.com/jekyll/jekyll-sitemap" target="_blank">Repo</a>, <a href="/jekyll-sitemap-localhost-error" target="_blank">Jekyll sitemapl localhost error</a></p>
+<p><strong>Jekyll Sitemap:</strong> <br />
+<a href="https://github.com/jekyll/jekyll-sitemap" target="_blank">Repo</a>, <a href="/jekyll-sitemap-localhost-error" target="_blank">Jekyll sitemap localhost error</a></p>
 
 <p><br /></p>
 
-<h4 id="google-analitics">Google analitics</h4>
+<h3 id="google-analitics">Google analitics</h3>
 <p>Получаем аналитику.</p>
 
 <ol>
@@ -137,7 +134,10 @@
 
 <p><br /></p>
 
-<h4 id="google-search-console">Google Search Console</h4>
+<h3 id="add-to-search-engines">Add to search engines</h3>
+<p>После создания сайта, необходимо добавить его в поисковые системы, чтобы потенциальный пользователь смог найти его.</p>
+
+<p><strong>Google Search Console</strong></p>
 <ol>
   <li><a href="https://search.google.com/search-console" target="_blank">Google Search Console</a></li>
   <li>Способ подтверждения: Тег HTML</li>
@@ -146,32 +146,22 @@
   <span class="na">google</span><span class="pi">:</span> <span class="s2">"</span><span class="s">CODE</span><span class="nv"> </span><span class="s">HERE"</span>
 </code></pre></div>    </div>
   </li>
+  <li>Запрашиваем принудительное индексирование сайта: <code class="highlighter-rouge">Проверка URL -&gt; %URL% -&gt; Запросить Индексирование</code></li>
+  <li>Указываем ссылку на файл с картой сайта: <code class="highlighter-rouge">Индекс -&gt; Файлы Sitemap -&gt; Добавить адрес sitemap.xml</code></li>
+  <li>Вы великолепны: через некоторое время сайт будет добавлен в поисковую выдачу</li>
   <li>Просмотр аналитики - <a href="https://search.google.com/search-console" target="_blank">Google Search Console</a></li>
 </ol>
-
-<p><br /></p>
-
-<h4 id="add-to-search-engines">Add to search engines</h4>
-<p>После создания сайта, необходимо добавить его в поисковые системы, чтобы потенциальный пользователь смог найти его.</p>
-
-<p><strong>Добавление сайта в Google</strong></p>
-
-<ol>
-  <li>Переходим на <a href="https://search.google.com" target="_blank">Google Search Console</a></li>
-  <li>Добавляем новый ресурс и верифицируем его (я использовал год в мета-тэге)</li>
-  <li>Запрашиваем принудительное индексирование сайта: <code class="highlighter-rouge">Проверка URL -&gt; Запросить Индексирование</code></li>
-  <li>Указываем ссылку на файл с картой сайта: <code class="highlighter-rouge">Индекс -&gt; Файлы Sitemap -&gt; Добавить адрес sitemap.xml</code>
-<br /><em>(Сам xml файл с валидной картой сайта генерирует плагин jekyll-sitemap)</em></li>
-  <li>Вы великолепны: через несколько дней сайт будет добавлен в поисковую выдачу, если с ним все в порядке</li>
-</ol>
-
-<p><br /></p>
 
 <p><strong>Добавление сайта в Яндекс</strong></p>
 
 <ol>
-  <li>Переходим на <a href="https://webmaster.yandex.ru" target="_blank">Яндекс.Веб-Мастер</a></li>
-  <li>Добавляем новый сайт и верифицируем его (я использовал год в мета-тэге)</li>
+  <li><a href="https://webmaster.yandex.ru" target="_blank">Яндекс.Веб-Мастер</a></li>
+  <li>Добавляем новый сайт и верифицируем его c помощью метатега</li>
+  <li><code class="highlighter-rouge">_config.yml</code>
+    <div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">webmaster_verifications</span><span class="pi">:</span>
+  <span class="na">yandex</span><span class="pi">:</span> <span class="s2">"</span><span class="s">CODE</span><span class="nv"> </span><span class="s">HERE"</span>
+</code></pre></div>    </div>
+  </li>
   <li>Указываем ссылку на файл с картой сайта, запрашиваем принудительную индексацию конкретных страниц. Тут же можно провести анализ сайта (Проверка ответа сервера, анализ robots.txt, Проверка млбильных страниц и тд)</li>
   <li>Вы великолепны: через несколько дней сайт будет добавлен в поисковую выдачу, если с ним все в порядке</li>
 </ol>
