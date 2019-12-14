@@ -1,5 +1,5 @@
 sudo rm -rf _site/*
-jekyll build
+sudo JEKYLL_ENV=production jekyll build
 git add *
 git commit -m "Update"
 git push origin master
