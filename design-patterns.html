@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-100">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>
+    
+      Design Patterns &middot; DanielSafonov
+    
+  </title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="144x144"  href="/assets/favicon/android-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Design Patterns" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="Блог Даниила Сафонова об около-айтишных вещах, diy и java backend разработке" />
+<meta property="og:description" content="Блог Даниила Сафонова об около-айтишных вещах, diy и java backend разработке" />
+<link rel="canonical" href="https://www.danielsafonov.github.io/design-patterns" />
+<meta property="og:url" content="https://www.danielsafonov.github.io/design-patterns" />
+<meta property="og:site_name" content="DanielSafonov" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-12-17T00:00:00+03:00" />
+<meta name="google-site-verification" content="g3AW8hxy_OomwgoOhY9PMaeb3At_llJtrTjgTev9-CU" />
+<meta name="yandex-verification" content="a50ee7c4a5dbe424" />
+<script type="application/ld+json">
+{"headline":"Design Patterns","dateModified":"2019-12-17T00:00:00+03:00","datePublished":"2019-12-17T00:00:00+03:00","url":"https://www.danielsafonov.github.io/design-patterns","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.danielsafonov.github.io/design-patterns"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.danielsafonov.github.io/assets/favicon/apple-icon-144x144.png"}},"description":"Блог Даниила Сафонова об около-айтишных вещах, diy и java backend разработке","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body class="d-flex flex-column h-100">
+	<main role="main" class="flex-shrink-0">
+		 <!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="/">Daniel Safonov</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#rollup" aria-controls="rollup" aria-expanded="false" aria-label="Rollup navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="rollup">
+     <ul class="navbar-nav ml-auto text-uppercase">
+      <li class="nav-item">
+        <a class="nav-link " href="/">Main</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/offtop">Offtop</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/tags">Tags</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+
+  <hr style="background: $white-1; margin-top: 0; margin-bottom: 3rem;" />
+
+
+		 <!-- Top tags -->
+		
+
+		<div class="container page-content">
+		    <div class="post mt-5">
+  <h1 class="post-title">Design Patterns</h1>
+  <div datetime="2019-12-17T00:00:00+03:00" class="post-date">
+    17 Dec 2019
+     | 
+      
+        <a href="/tags#patterns" class="badge tag">patterns</a>
+      
+        <a href="/tags#architecture" class="badge tag">architecture</a>
+      
+    
+  </div>
+
+  
+
+  <article class="post-content">
+  <!--more-->
+
+<p><strong>Порождающие:</strong></p>
+<ul>
+  <li>Фабричный метод <a href="https://refactoring.guru/ru/design-patterns/factory-method" target="_blank">(Factory Method)</a></li>
+  <li>Абстрактная фабрика <a href="https://refactoring.guru/ru/design-patterns/abstract-factory" target="_blank">(Abstract Factory)</a></li>
+  <li>Строитель <a href="https://refactoring.guru/ru/design-patterns/builder" target="_blank">(Builder)<small>, Директор (Director)</small></a></li>
+  <li>Одиночка <a href="https://refactoring.guru/ru/design-patterns/singleton" target="_blank">(Singletone)</a></li>
+  <li>Прототип <a href="https://refactoring.guru/ru/design-patterns/prototype" target="_blank">(Prototype)</a></li>
+</ul>
+
+<p><strong>Структурные:</strong></p>
+<ul>
+  <li>Адаптер <a href="https://refactoring.guru/ru/design-patterns/adapter" target="_blank">(Adapter)</a></li>
+  <li>Мост <a href="https://refactoring.guru/ru/design-patterns/bridge" target="_blank">(Bridge)</a></li>
+  <li>Компоновщик <a href="https://refactoring.guru/ru/design-patterns/composite" target="_blank">(Composite)</a></li>
+  <li>Декоратор/Обертка <a href="https://refactoring.guru/ru/design-patterns/decorator" target="_blank">(Decorator/Wrapper)</a></li>
+  <li>Фасад <a href="https://refactoring.guru/ru/design-patterns/facade" target="_blank">(Facade)</a></li>
+  <li>Заместитель <a href="https://refactoring.guru/ru/design-patterns/proxy" target="_blank">(Proxy)</a></li>
+  <li>Легковес <a href="https://refactoring.guru/ru/design-patterns/flyweight" target="_blank">(Flyweight)</a></li>
+</ul>
+
+<p><strong>Поведенческие</strong></p>
+<ul>
+  <li>Цепочка обязанностей <a href="https://refactoring.guru/ru/design-patterns/chain-of-responsibility" target="_blank">(Chain of Responsibility)</a></li>
+  <li>Команда/Действие <a href="https://refactoring.guru/ru/design-patterns/command" target="_blank">(Action/Command)</a></li>
+  <li>Итератор <a href="https://refactoring.guru/ru/design-patterns/iterator" target="_blank">(Iterator)</a></li>
+  <li>Посредник <a href="https://refactoring.guru/ru/design-patterns/mediator" target="_blank">(Mediator/Controller)</a></li>
+  <li>Снимок/Хранитель <a href="https://refactoring.guru/ru/design-patterns/memento" target="_blank">(Memento)</a></li>
+  <li>Наблюдатель <a href="https://refactoring.guru/ru/design-patterns/observer" target="_blank">(Observer)</a></li>
+  <li>Состояние <a href="https://refactoring.guru/ru/design-patterns/state" target="_blank">(State)</a></li>
+  <li>Стратегия <a href="https://refactoring.guru/ru/design-patterns/strategy" target="_blank">(Stategy)</a></li>
+  <li>Шаблонный метод <a href="https://refactoring.guru/ru/design-patterns/template-method" target="_blank">(Template Method)</a></li>
+  <li>Посетитель <a href="https://refactoring.guru/ru/design-patterns/visitor" target="_blank">(Visitor)</a></li>
+</ul>
+
+<hr />
+
+<ul>
+  <li><b><a href="https://refactoring.guru/ru/design-patterns" target="_blank">refactoring.guru</a></b> <br />
+<small><b>Книга refactoring.guru</b> = сайт + основы ООП + принципы проектирования</small> <br />
+    <blockquote>
+      <p><small>Рефакторинг.Гуру посвящён тёмным материям программирования: рефакторингу, паттернам проектирования, принципам SOLID и другим важным темам из мира программирования.</small></p>
+    </blockquote>
+  </li>
+  <li><b>“Приемы объектно-ориентированного проектирования. Паттерны проектирования (Design Patterns)”</b> <small>(Гамма Эрих, Хелм Ричард, Джонсон Ральф, Влиссидес Джон)</small>
+    <blockquote>
+      <p><small>Название книги было слишком длинным, чтобы кто-то смог всерьёз его запомнить. Поэтому вскоре все стали называть её «book by the gang of four», то есть «книга от банды четырёх», а затем и вовсе «GoF book».</small></p>
+    </blockquote>
+  </li>
+  <li><b><a href="http://www.mcdonaldland.info/files/designpatterns/designpatternscard.pdf" target="_blank">Design Patterns cheatsheet</a></b></li>
+</ul>
+
+<p><br /></p>
+
+<div class="mx-auto" style="width: 60%">
+	<figure class="figure">
+	  <img src="img/attachments/2019/12/design-patterns.png" class="figure-img img-fluid" alt="Design Patterns MonkeyUser Comics" />
+	</figure>
+</div>
+
+  </article>
+</div>
+
+
+<aside class="related">
+  <h3>Latest posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/jekyll-sitemap-localhost">
+          Jekyll Sitemap - localhost error
+          <small><time datetime="2019-12-15T00:00:00+03:00">15 Dec 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/google-me">
+          Google me
+          <small><time datetime="2019-12-15T00:00:00+03:00">15 Dec 2019</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/rocket-candy">
+          Rocket Candy
+          <small><time datetime="2019-12-14T00:00:00+03:00">14 Dec 2019</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+		</div>
+	</main>
+	<!-- FOOTER -->
+<footer class="page-footer mt-auto">
+	<div class="container">
+		<div class="row">
+		<div class="col-md-6 col-sm-12 copyright">
+			<small>
+			&copy; <time datetime="2019-05-17T14:12:56+03:00">2019</time>. Даниил Сафонов
+			</small>
+		</div>
+
+		<div class="col-md-6 col-sm-12 navigation">
+			
+          		&nbsp;
+          		<small><a href="/">Main</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/tags">Tags</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/offtop">Offtop</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/about">About</a></small>
+        	
+		</div>
+	</div>
+	</div>
+</footer>
+
+<!-- Jquery -->
+<script src="/assets/javascript/bootstrap/jquery.min.js"></script>
+<!-- Bootstrap`s JS -->
+<script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66260535-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66260535-2');
+</script>
+
+
+</body>
+</html>
