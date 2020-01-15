@@ -132,7 +132,7 @@
 
 <p>Однако, после запуска проекта, написанного в соотвествии с <a href="https://monsterdeveloper.gitbooks.io/writing-telegram-bots-on-java/content/chapter1.html" target="_blank">getting started</a>, приложение падает с ошибкой <code class="highlighter-rouge">Error removing old webhook</code>. Проблема возникает в момент соединения с серверами Telegram - оно не устанавливается.</p>
 
-<p>Говорим спасибо Роскомнадзору, запускаем Tor Browser, добавляем в самом начале метода <code class="highlighter-rouge">main()</code> проксирование через сессию Tor Browser и все работает.</p>
+<p>Говорим спасибо Роскомнадзору, запускаем Tor Browser, добавляем в самом начале метода <code class="highlighter-rouge">main()</code> <small>(или перед инициализацией ApiContext)</small> проксирование через сессию Tor Browser и все работает.</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">System</span><span class="o">.</span><span class="na">getProperties</span><span class="o">().</span><span class="na">put</span><span class="o">(</span><span class="s">"proxySet"</span><span class="o">,</span> <span class="s">"true"</span><span class="o">);</span>
 <span class="n">System</span><span class="o">.</span><span class="na">getProperties</span><span class="o">().</span><span class="na">put</span><span class="o">(</span><span class="s">"socksProxyHost"</span><span class="o">,</span> <span class="s">"127.0.0.1"</span><span class="o">);</span>
 <span class="n">System</span><span class="o">.</span><span class="na">getProperties</span><span class="o">().</span><span class="na">put</span><span class="o">(</span><span class="s">"socksProxyPort"</span><span class="o">,</span> <span class="s">"9150"</span><span class="o">);</span>
@@ -148,6 +148,13 @@
   <ul class="related-posts">
     
       <li>
+        <a href="/hibernate-search-slow">
+          Hibernate Search working slow
+          <small><time datetime="2020-01-09T00:00:00+03:00">09 Jan 2020</time></small>
+        </a>
+      </li>
+    
+      <li>
         <a href="/movie-database-api">
           Movie Database API
           <small><time datetime="2020-01-05T00:00:00+03:00">05 Jan 2020</time></small>
@@ -158,13 +165,6 @@
         <a href="/get-string-from-properties">
           Get string from properties file
           <small><time datetime="2020-01-05T00:00:00+03:00">05 Jan 2020</time></small>
-        </a>
-      </li>
-    
-      <li>
-        <a href="/uml">
-          UML
-          <small><time datetime="2020-01-02T00:00:00+03:00">02 Jan 2020</time></small>
         </a>
       </li>
     
