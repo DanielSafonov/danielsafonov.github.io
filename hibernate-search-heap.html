@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-100">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>
+    
+      Hibernate Search Heap &middot; DanielSafonov
+    
+  </title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="144x144"  href="/assets/favicon/android-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Hibernate Search Heap" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="Утилизация хипа в приложениях на Lucene." />
+<meta property="og:description" content="Утилизация хипа в приложениях на Lucene." />
+<link rel="canonical" href="https://www.danielsafonov.github.io/hibernate-search-heap" />
+<meta property="og:url" content="https://www.danielsafonov.github.io/hibernate-search-heap" />
+<meta property="og:site_name" content="DanielSafonov" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-01-26T00:00:00+03:00" />
+<meta name="google-site-verification" content="g3AW8hxy_OomwgoOhY9PMaeb3At_llJtrTjgTev9-CU" />
+<meta name="yandex-verification" content="a50ee7c4a5dbe424" />
+<script type="application/ld+json">
+{"headline":"Hibernate Search Heap","dateModified":"2020-01-26T00:00:00+03:00","datePublished":"2020-01-26T00:00:00+03:00","url":"https://www.danielsafonov.github.io/hibernate-search-heap","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.danielsafonov.github.io/hibernate-search-heap"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.danielsafonov.github.io/assets/favicon/apple-icon-144x144.png"}},"description":"Утилизация хипа в приложениях на Lucene.","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body class="d-flex flex-column h-100">
+	<main role="main" class="flex-shrink-0">
+		 <!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="/">Daniel Safonov</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#rollup" aria-controls="rollup" aria-expanded="false" aria-label="Rollup navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="rollup">
+     <ul class="navbar-nav ml-auto text-uppercase">
+      <li class="nav-item">
+        <a class="nav-link " href="/">Main</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/offtop">Offtop</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/tags">Tags</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+
+  <hr style="background: $white-1; margin-top: 0; margin-bottom: 3rem;" />
+
+
+		 <!-- Top tags -->
+		
+
+		<div class="container page-content">
+		    <div class="post mt-5">
+  <h1 class="post-title">Hibernate Search Heap</h1>
+  <div datetime="2020-01-26T00:00:00+03:00" class="post-date">
+    26 Jan 2020
+     | 
+      
+        <a href="/tags#java" class="badge tag">java</a>
+      
+        <a href="/tags#hibernate-search" class="badge tag">hibernate-search</a>
+      
+        <a href="/tags#lucene" class="badge tag">lucene</a>
+      
+    
+  </div>
+
+  
+
+  <article class="post-content">
+  <p>Утилизация хипа в приложениях на Lucene.
+<!--more--></p>
+
+<p>Нормальная утилизация JVM Heap - 20-40%, при достижении ~80% происходит очистка. Механизма освобождения зарезервированной JVM памяти не предусмотрено.<br />
+<small>SAP Cloud Platform, 7 процессов (развернутых приложений), ограничение TomCat по 200 потоков на процесс, нагрузка в 18000 уникальных поисковых запросов в минуту. Hibernate Search.</small></p>
+
+<div class="mx-auto" style="width: 100%">
+	<figure class="figure">
+	  <img src="img/attachments/2020/01/hibernate-search-heap.png" class="figure-img img-fluid" alt="Hibernate Search JVM Heap utilization rate" />
+	  <center><figcaption class="figure-caption">Hibernate Search JVM Heap utilization rate</figcaption></center>
+	</figure>
+</div>
+
+<div class="mx-auto" style="width: 100%">
+	<figure class="figure">
+	  <img src="img/attachments/2020/01/hibernate-search-heap-ram.png" class="figure-img img-fluid" alt="Hibernate Search OS RAM utilization rate" />
+	  <center><figcaption class="figure-caption">Hibernate Search OS RAM utilization rate</figcaption></center>
+	</figure>
+</div>
+
+<hr />
+
+<p>Аналогичная статистика наблюдается и при использовании “чистого” Apache Lucene:</p>
+<div class="mx-auto" style="width: 100%">
+	<figure class="figure">
+	  <img src="img/attachments/2020/01/hibernate-search-heap-lucene.png" class="figure-img img-fluid" alt="Apache Lucene JVM Heap utilization rate" />
+	  <center><figcaption class="figure-caption">Apache Lucene JVM Heap utilization rate</figcaption></center>
+	</figure>
+</div>
+
+<p><br /></p>
+
+<blockquote>
+	<p class="mb-0">
+		<b>5.1.2 Using a filesystem directory provider</b> <br />
+		The default and most useful storage for a Lucene directory is a filesystem (if possible, a local filesystem). Such a model is efficient for several reasons:<br />
+		&lt;..&gt; <br />
+		■ Lucene caches information in memory to avoid unnecessary reads to the filesystem. This caching is done at the IndexReader level, and Hibernate Search benefits from it by reusing IndexReader instances as much as possible.
+	</p>
+	<footer class="blockquote-footer">
+		Hibernate Search in action. <small>Emmanuel Bernard, John Griffin</small> - chapter 5, page 118
+	</footer>
+</blockquote>
+
+<blockquote>
+	<p class="mb-0">
+		<b>11.3.3 Memory</b> <br />
+		You’ve surely hit OutOfMemoryError in your Lucene application in the past? If you haven’t, you will, especially when many of the ways to tune Lucene for performance also increase its memory usage. So you thought: no problem, just increase the JVMs’ heap size and move on. Nothing to see here. You do that, and things seem fine, but little do you know you hurt the performance of your application because the computer has started swapping memory to disk. And perhaps a few weeks later you encounter the same error again. What’s going on? How can you control this devious error and still keep your performance gains?
+	</p>
+	<footer class="blockquote-footer">
+		Lucene in action. Second edition. (Apache Lucene 3.0) <small>Michael McCandless, Erik Hatcher, Otis Gospodnetic</small> - chapter 11, page 371
+	</footer>
+</blockquote>
+
+<blockquote>
+	<p class="mb-0">
+		<b>5.1 Lucene’s field cache</b> <br />
+		Lucene’s field cache, an advanced internal API &lt;..&gt; used the field cache under the hood. &lt;..&gt; important RAM and CPU trade-offs when using a field cache
+	</p>
+	<footer class="blockquote-footer">
+		Lucene in action. Second edition. (Apache Lucene 3.0) <small>Michael McCandless, Erik Hatcher, Otis Gospodnetic</small> - chapter 5, page 153
+	</footer>
+</blockquote>
+
+<blockquote>
+	<p class="mb-0">
+		<b>Memory usage and garbage collection</b> <br />
+		When running Elasticsearch, memory is one of the key resources you’ll want to closely monitor. Elasticsearch and Lucene utilize all of the available RAM on your nodes in two ways: JVM heap and the file system cache. <br />Elasticsearch runs in the Java Virtual Machine (JVM), which means that JVM garbage collection duration and frequency will be other important areas to monitor.
+	</p>
+	<footer class="blockquote-footer">
+		<a href="https://www.datadoghq.com/blog/monitor-elasticsearch-performance-metrics/#memory-usage-and-garbage-collection" target="_blank">Elasticsearch: Memory usage and garbage collection</a>
+	</footer>
+</blockquote>
+
+<blockquote>
+	<p class="mb-0">
+		Hi, the FieldCacheImpl is known to take a lot of memory; depending on your index structure and what you indexed it might grow to a sensible % of the whole index.<br />
+		Are you sure this is a memory leak, and not a constant requirement? you might want to check the behaviour using a larger heap. <br />
+		&lt;..&gt; <br />
+		Each FieldCache is local to the currently opened IndexReader, so as long as you don't forget to close indexReaders you shouldn't have trouble.
+	</p>
+	<footer class="blockquote-footer">
+		<a href="https://forum.hibernate.org/viewtopic.php?f=9&amp;t=1005540" target="_blank">HS : OutOfMemoryException</a>
+	</footer>
+</blockquote>
+
+
+  </article>
+</div>
+
+
+<aside class="related">
+  <h3>Latest posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/http">
+          HTTP
+          <small><time datetime="2020-01-25T00:00:00+03:00">25 Jan 2020</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/hibernate-search-slow">
+          Hibernate Search working slow
+          <small><time datetime="2020-01-15T00:00:00+03:00">15 Jan 2020</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/hibernate-search">
+          Hibernate Search
+          <small><time datetime="2020-01-09T00:00:00+03:00">09 Jan 2020</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+		</div>
+	</main>
+	<!-- FOOTER -->
+<footer class="page-footer mt-auto">
+	<div class="container">
+		<div class="row">
+		<div class="col-md-6 col-sm-12 copyright">
+			<small>
+			&copy; <time datetime="2019-05-17T14:12:56+03:00">2019</time>. Даниил Сафонов
+			</small>
+		</div>
+
+		<div class="col-md-6 col-sm-12 navigation">
+			
+          		&nbsp;
+          		<small><a href="/">Main</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/tags">Tags</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/offtop">Offtop</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/about">About</a></small>
+        	
+		</div>
+	</div>
+	</div>
+</footer>
+
+<!-- Jquery -->
+<script src="/assets/javascript/bootstrap/jquery.min.js"></script>
+<!-- Bootstrap`s JS -->
+<script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66260535-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66260535-2');
+</script>
+
+
+</body>
+</html>
