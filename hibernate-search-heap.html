@@ -105,7 +105,7 @@
   <p>Утилизация хипа в приложениях на Lucene.
 <!--more--></p>
 
-<p>Нормальная утилизация JVM Heap - 20-40%, при достижении ~80% происходит очистка. Механизма освобождения зарезервированной JVM памяти не предусмотрено.<br />
+<p>Нормальная утилизация JVM Heap - 20-40%, при достижении ~80% происходит очистка. Механизма освобождения зарезервированной JVM оперативной памяти не предусмотрено, поэтому постоянный рост утилизации RAM - ок.<br />
 <small>SAP Cloud Platform, 7 процессов (развернутых приложений), ограничение TomCat по 200 потоков на процесс, нагрузка в 18000 уникальных поисковых запросов в минуту. Hibernate Search.</small></p>
 
 <div class="mx-auto" style="width: 100%">
@@ -198,6 +198,13 @@
   <ul class="related-posts">
     
       <li>
+        <a href="/macos-startup-apps">
+          MacOS startup apps
+          <small><time datetime="2020-01-30T00:00:00+03:00">30 Jan 2020</time></small>
+        </a>
+      </li>
+    
+      <li>
         <a href="/http">
           HTTP
           <small><time datetime="2020-01-25T00:00:00+03:00">25 Jan 2020</time></small>
@@ -208,13 +215,6 @@
         <a href="/hibernate-search-slow">
           Hibernate Search working slow
           <small><time datetime="2020-01-15T00:00:00+03:00">15 Jan 2020</time></small>
-        </a>
-      </li>
-    
-      <li>
-        <a href="/hibernate-search">
-          Hibernate Search
-          <small><time datetime="2020-01-09T00:00:00+03:00">09 Jan 2020</time></small>
         </a>
       </li>
     

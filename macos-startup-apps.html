@@ -9,7 +9,7 @@
   <!-- Title -->
   <title>
     
-      Hibernate Search &middot; DanielSafonov
+      MacOS startup apps &middot; DanielSafonov
     
   </title>
 
@@ -31,19 +31,19 @@
 
   <!-- Begin Jekyll SEO tag v2.6.1 -->
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="Hibernate Search" />
+<meta property="og:title" content="MacOS startup apps" />
 <meta property="og:locale" content="ru_RU" />
-<meta name="description" content="Hibernate Search: ORM. Lucene. Elasticsearch. Integrated. Hibernate Search transparently indexes your objects and offers fast full-text, geolocation and data mining search capabilities. Easy to use, integrates with Apache Lucene, Elasticsearch and Hibernate ORM." />
-<meta property="og:description" content="Hibernate Search: ORM. Lucene. Elasticsearch. Integrated. Hibernate Search transparently indexes your objects and offers fast full-text, geolocation and data mining search capabilities. Easy to use, integrates with Apache Lucene, Elasticsearch and Hibernate ORM." />
-<link rel="canonical" href="https://www.danielsafonov.github.io/hibernate-search" />
-<meta property="og:url" content="https://www.danielsafonov.github.io/hibernate-search" />
+<meta name="description" content="Блог Даниила Сафонова об около-айтишных вещах, diy и java backend разработке" />
+<meta property="og:description" content="Блог Даниила Сафонова об около-айтишных вещах, diy и java backend разработке" />
+<link rel="canonical" href="https://www.danielsafonov.github.io/macos-startup-apps" />
+<meta property="og:url" content="https://www.danielsafonov.github.io/macos-startup-apps" />
 <meta property="og:site_name" content="DanielSafonov" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-01-09T00:00:00+03:00" />
+<meta property="article:published_time" content="2020-01-30T00:00:00+03:00" />
 <meta name="google-site-verification" content="g3AW8hxy_OomwgoOhY9PMaeb3At_llJtrTjgTev9-CU" />
 <meta name="yandex-verification" content="a50ee7c4a5dbe424" />
 <script type="application/ld+json">
-{"headline":"Hibernate Search","dateModified":"2020-01-09T00:00:00+03:00","datePublished":"2020-01-09T00:00:00+03:00","url":"https://www.danielsafonov.github.io/hibernate-search","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.danielsafonov.github.io/hibernate-search"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.danielsafonov.github.io/assets/favicon/apple-icon-144x144.png"}},"description":"Hibernate Search: ORM. Lucene. Elasticsearch. Integrated. Hibernate Search transparently indexes your objects and offers fast full-text, geolocation and data mining search capabilities. Easy to use, integrates with Apache Lucene, Elasticsearch and Hibernate ORM.","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"headline":"MacOS startup apps","dateModified":"2020-01-30T00:00:00+03:00","datePublished":"2020-01-30T00:00:00+03:00","url":"https://www.danielsafonov.github.io/macos-startup-apps","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.danielsafonov.github.io/macos-startup-apps"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.danielsafonov.github.io/assets/favicon/apple-icon-144x144.png"}},"description":"Блог Даниила Сафонова об около-айтишных вещах, diy и java backend разработке","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -85,16 +85,12 @@
 
 		<div class="container page-content">
 		    <div class="post mt-5">
-  <h1 class="post-title">Hibernate Search</h1>
-  <div datetime="2020-01-09T00:00:00+03:00" class="post-date">
-    09 Jan 2020
+  <h1 class="post-title">MacOS startup apps</h1>
+  <div datetime="2020-01-30T00:00:00+03:00" class="post-date">
+    30 Jan 2020
      | 
       
-        <a href="/tags#java" class="badge tag">java</a>
-      
-        <a href="/tags#hibernate-search" class="badge tag">hibernate-search</a>
-      
-        <a href="/tags#lucene" class="badge tag">lucene</a>
+        <a href="/tags#macos" class="badge tag">macos</a>
       
     
   </div>
@@ -102,28 +98,27 @@
   
 
   <article class="post-content">
-  <p><strong><a href="https://hibernate.org/search/" target="_blank">Hibernate Search</a>:</strong> ORM. Lucene. Elasticsearch. Integrated.</p>
+  <!--more-->
 
+<p>Часть приложений можно удалить из автозапуска с помощью системных настроек: <code class="highlighter-rouge">Системные настройки -&gt; Пользователи и группы -&gt; Объекты входа</code>. Однако, этот способ не позволяет управлять всеми приложениями автозапуска - обратимся к launchd.</p>
 <blockquote>
-  <p><small>Hibernate Search transparently indexes your objects and offers fast full-text, geolocation and data mining search capabilities. Easy to use, integrates with Apache Lucene, Elasticsearch and Hibernate ORM.</small></p>
+	<p class="mb-0">
+		<b>launchd</b> — система инциализации в macOS с <a href="https://opensource.apple.com/tarballs/launchd/" target="_blank">открытым исходным кодом</a>, созданная для замены SysVinit и SystemStarter. Процесс launchd имеет PID 1 и занимается тем, что запускает другие процессы и перезапускает их в случае сбоя. Также он заменяет cron. Процессы, запускаемые после запуска системы до входа в систему, записываются в каталог /Library/LaunchDaemons. Процессы, запускаемые после входа в систему — в каталоге /Library/LaunchAgents. В этих каталогах создаются файлы с xml-содержимым, которые управляют запуском процессов.
+	</p>
+	<footer class="blockquote-footer">
+		<a href="https://ru.wikipedia.org/wiki/Launchd" target="_blank">wiki: launchd</a>
+	</footer>
 </blockquote>
 
-<!--more-->
+<div class="mx-auto" style="width: 100%">
+	<figure class="figure">
+	  <img src="img/attachments/2020/01/launchd.png" class="figure-img img-fluid" alt="launchd process" />
+	  <center><figcaption class="figure-caption">launchd process</figcaption></center>
+	</figure>
+</div>
 
-<ul>
-  <li><strong><a href="https://docs.jboss.org/hibernate/stable/search/reference/en-US/html_single/" target="_blank">docs</a>, <a href="https://docs.jboss.org/hibernate/stable/search/api/" target="_blank">javadocs</a>, <a href="https://hibernate.org/search/documentation/getting-started/" target="_blank">getting started</a></strong> <br /></li>
-  <li><a href="https://www.baeldung.com/hibernate-search" target="_blank">Introduction to Hibernate Search</a>, <a href="https://www.codeflow.site/ru/article/hibernate-search" target="_blank">ru</a></li>
-  <li><a href="https://medium.com/@wkrzywiec/full-text-search-with-hibernate-search-lucene-part-1-e245b889aa8e" target="_blank">Full-text search with Hibernate Search (Lucene)</a></li>
-  <li>“Hibernate Search in Action” by John Griffin, Emmanuel Bernard</li>
-</ul>
+<p>Для того, чтобы отключить автозапуск приложения, достаточно удалить соответсвующий <code class="highlighter-rouge">.plist</code> файл: <code class="highlighter-rouge">$ sudo rm -f com.citrix.ctxusbd.plist</code>.</p>
 
-<hr />
-
-<ul>
-  <li>Optimizing - <a href="/hibernate-search-slow" target="_blank">blog: Hibernate Search working slow</a></li>
-  <li>Heap overflow - <a href="/hibernate-search-heap" target="_blank">blog: Hibernate Search heap</a></li>
-  <li>Re-indexing - <a href="/hibernate-search-reindex" target="_blank">blog: Hibernate Search reindex</a></li>
-</ul>
 
   </article>
 </div>
@@ -132,13 +127,6 @@
 <aside class="related">
   <h3>Latest posts</h3>
   <ul class="related-posts">
-    
-      <li>
-        <a href="/macos-startup-apps">
-          MacOS startup apps
-          <small><time datetime="2020-01-30T00:00:00+03:00">30 Jan 2020</time></small>
-        </a>
-      </li>
     
       <li>
         <a href="/hibernate-search-heap">
@@ -151,6 +139,13 @@
         <a href="/http">
           HTTP
           <small><time datetime="2020-01-25T00:00:00+03:00">25 Jan 2020</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/hibernate-search-slow">
+          Hibernate Search working slow
+          <small><time datetime="2020-01-15T00:00:00+03:00">15 Jan 2020</time></small>
         </a>
       </li>
     
