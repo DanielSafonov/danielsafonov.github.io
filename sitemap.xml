@@ -69,10 +69,6 @@
 <lastmod>2019-06-07T00:00:00+03:00</lastmod>
 </url>
 <url>
-<loc>https://www.danielsafonov.github.io/spring-boot-testing</loc>
-<lastmod>2019-06-13T00:00:00+03:00</lastmod>
-</url>
-<url>
 <loc>https://www.danielsafonov.github.io/plastic-bootles-recycling</loc>
 <lastmod>2019-06-16T00:00:00+03:00</lastmod>
 </url>
@@ -185,7 +181,7 @@
 <lastmod>2020-01-15T00:00:00+03:00</lastmod>
 </url>
 <url>
-<loc>https://www.danielsafonov.github.io/http</loc>
+<loc>https://www.danielsafonov.github.io/http-basics</loc>
 <lastmod>2020-01-25T00:00:00+03:00</lastmod>
 </url>
 <url>
@@ -199,6 +195,10 @@
 <url>
 <loc>https://www.danielsafonov.github.io/backend-roadmap</loc>
 <lastmod>2020-02-03T00:00:00+03:00</lastmod>
+</url>
+<url>
+<loc>https://www.danielsafonov.github.io/date-time</loc>
+<lastmod>2020-03-13T00:00:00+03:00</lastmod>
 </url>
 <url>
 <loc>https://www.danielsafonov.github.io/about</loc>
