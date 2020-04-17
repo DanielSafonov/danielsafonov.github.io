@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-100">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>
+    
+      Swagger - UI, Spring Boot &middot; DanielSafonov
+    
+  </title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="144x144"  href="/assets/favicon/android-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Swagger - UI, Spring Boot" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="Блог Даниила Сафонова об около-айтишных вещах, diy и java backend разработке" />
+<meta property="og:description" content="Блог Даниила Сафонова об около-айтишных вещах, diy и java backend разработке" />
+<link rel="canonical" href="https://www.danielsafonov.github.io/swagger" />
+<meta property="og:url" content="https://www.danielsafonov.github.io/swagger" />
+<meta property="og:site_name" content="DanielSafonov" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-12T00:00:00+03:00" />
+<meta name="google-site-verification" content="g3AW8hxy_OomwgoOhY9PMaeb3At_llJtrTjgTev9-CU" />
+<meta name="yandex-verification" content="a50ee7c4a5dbe424" />
+<script type="application/ld+json">
+{"headline":"Swagger - UI, Spring Boot","dateModified":"2020-04-12T00:00:00+03:00","datePublished":"2020-04-12T00:00:00+03:00","url":"https://www.danielsafonov.github.io/swagger","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.danielsafonov.github.io/swagger"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.danielsafonov.github.io/assets/favicon/apple-icon-144x144.png"}},"description":"Блог Даниила Сафонова об около-айтишных вещах, diy и java backend разработке","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body class="d-flex flex-column h-100">
+	<main role="main" class="flex-shrink-0">
+		 <!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="/">Daniel Safonov</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#rollup" aria-controls="rollup" aria-expanded="false" aria-label="Rollup navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="rollup">
+     <ul class="navbar-nav ml-auto text-uppercase">
+      <li class="nav-item">
+        <a class="nav-link " href="/">Main</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/offtop">Offtop</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/tags">Tags</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+
+  <hr style="background: $white-1; margin-top: 0; margin-bottom: 3rem;" />
+
+
+		 <!-- Top tags -->
+		
+
+		<div class="container page-content">
+		    <div class="post mt-5">
+  <h1 class="post-title">Swagger - UI, Spring Boot</h1>
+  <div datetime="2020-04-12T00:00:00+03:00" class="post-date">
+    12 Apr 2020
+     | 
+      
+        <a href="/tags#java" class="badge tag">java</a>
+      
+        <a href="/tags#spring" class="badge tag">spring</a>
+      
+        <a href="/tags#api" class="badge tag">api</a>
+      
+    
+  </div>
+
+  
+
+  <article class="post-content">
+  <!--more-->
+<p>Современные веб-приложения, как правило, состоят из двух отдельных частей - frontend и backend. В качестве фронтенда может выступать как страница в браузере, так и мобильное или десктопное приложение. Для взаимодействия c фронендом бэкенд выставляет один или множество API.</p>
+
+<p>Соответственно, API должен иметь документацию, чтобы фронтенд-разработчики могли с ним взаимодействовать. Более того, документация (спецификация) API должна быть актуальна в каждый момент времени.</p>
+
+<p>Именно такие задачи решают фреймворки для спецификации API, одним из которых является <strong><a href="https://swagger.io" target="_blank">Swagger</a></strong>.</p>
+
+<p><br /></p>
+
+<blockquote>
+  <p>Swagger takes the manual work out of API documentation, with a range of solutions for generating, visualizing, and maintaining API docs.</p>
+</blockquote>
+
+<p class="ul-head">Swagger</p>
+<ul>
+  <li><strong>Open Source</strong></li>
+  <li>SwaggerHub
+    <ul>
+      <li>SwaggerHub Free <i>(Individual)</i></li>
+      <li>SwaggerHub Pro <i>(Team/Enterprice)</i></li>
+    </ul>
+  </li>
+</ul>
+
+<p>Рассмотрена будет именно Open Source часть сваггера. <small><a href="https://github.com/swagger-api" target="_blank">[github]</a></small></p>
+
+<p class="ul-head">
+	<a href="https://swagger.io/tools/open-source/" target="_blank">
+	Swagger Open Source Tools
+	</a> 
+</p>
+<ul>
+	<li>
+	<a href="https://swagger.io/tools/swagger-codegen/" target="_blank">Swagger Codegen:</a> <i>Generate server stubs and client SDKs from OpenAPI Specification definitions;</i>
+	</li>
+	<li>
+	<a href="https://swagger.io/tools/swagger-editor/" target="_blank">Swagger Editor:</a> <i>API editor for designing APIs with the OpenAPI Specification;</i>
+	</li>
+	<li>
+	<a href="https://swagger.io/tools/swagger-ui/" target="_blank">Swagger UI:</a> <i>Visualize OpenAPI Specification definitions in an interactive UI.</i>
+	</li>
+</ul>
+
+<p><br /></p>
+
+<p><a href="https://swagger.io/resources/open-api/" target="_blank">OpenAPI Specification (OAS)</a>, ранее известный как Swagger Specification (OAS 2.0), это стандарт для описания RESTful API. Актуальная версия - OAS 3.0.<br /></p>
+<p class="ul-head-light">OpenAPI файл позволяет полность описать API, включая</p>
+<ul>
+  <li>Доступные эндпоинты и операции на каждом из них (GET /users, POST /users)</li>
+  <li>Параметры запроса и ответа на каждый endpoint</li>
+  <li>Методы аутентификации</li>
+  <li>Контактную информацию, лицензию и прочую информацию об API</li>
+</ul>
+
+<p align="center"><b>Swagger actial version - 2.1.2 (OAS 3.0)</b></p>
+<hr />
+
+<p><a href="https://springfox.github.io/springfox/" target="_blank">SpringFox</a> - реализация Swagger для приложений на Spring Framework.</p>
+
+<ul>
+  <li><a href="https://github.com/swagger-api/swagger-core/wiki/Swagger-2.X---Annotations" target="_blank">OAS Annotations Overview</a></li>
+  <li>Maven dependencies: <a href="https://mvnrepository.com/artifact/io.springfox/springfox-swagger2" target="_blank"> springfox-swagger2</a>, <a href="https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui" target="_blank">springfox-swagger-ui</a></li>
+  <li><a href="https://www.baeldung.com/swagger-2-documentation-for-spring-rest-api" target="_blank">Setting Up Swagger 2 with a Spring REST API</a></li>
+</ul>
+
+  </article>
+</div>
+
+
+<aside class="related">
+  <h3>Latest posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/dell-u2719dc">
+          Dell U2719DC
+          <small><time datetime="2020-04-09T00:00:00+03:00">09 Apr 2020</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/date-time">
+          Date & Time
+          <small><time datetime="2020-03-13T00:00:00+03:00">13 Mar 2020</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/backend-roadmap">
+          Backend developer roadmap
+          <small><time datetime="2020-02-03T00:00:00+03:00">03 Feb 2020</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+		</div>
+	</main>
+	<!-- FOOTER -->
+<footer class="page-footer mt-auto">
+	<div class="container">
+		<div class="row">
+		<div class="col-md-6 col-sm-12 copyright">
+			<small>
+			&copy; <time datetime="2019-05-17T14:12:56+03:00">2019</time>. Даниил Сафонов
+			</small>
+		</div>
+
+		<div class="col-md-6 col-sm-12 navigation">
+			
+          		&nbsp;
+          		<small><a href="/">Main</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/tags">Tags</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/offtop">Offtop</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/about">About</a></small>
+        	
+		</div>
+	</div>
+	</div>
+</footer>
+
+<!-- Jquery -->
+<script src="/assets/javascript/bootstrap/jquery.min.js"></script>
+<!-- Bootstrap`s JS -->
+<script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66260535-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66260535-2');
+</script>
+
+
+</body>
+</html>
