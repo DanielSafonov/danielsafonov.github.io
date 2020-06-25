@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-100">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>
+    
+      SOLID &middot; DanielSafonov
+    
+  </title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="144x144"  href="/assets/favicon/android-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="SOLID" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="5 design principles." />
+<meta property="og:description" content="5 design principles." />
+<link rel="canonical" href="https://www.danielsafonov.github.io/solid" />
+<meta property="og:url" content="https://www.danielsafonov.github.io/solid" />
+<meta property="og:site_name" content="DanielSafonov" />
+<meta property="og:image" content="https://www.danielsafonov.github.io/2020/06/solid.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-22T00:00:00+03:00" />
+<meta name="google-site-verification" content="g3AW8hxy_OomwgoOhY9PMaeb3At_llJtrTjgTev9-CU" />
+<meta name="yandex-verification" content="a50ee7c4a5dbe424" />
+<script type="application/ld+json">
+{"headline":"SOLID","dateModified":"2020-06-22T00:00:00+03:00","datePublished":"2020-06-22T00:00:00+03:00","image":"https://www.danielsafonov.github.io/2020/06/solid.jpg","url":"https://www.danielsafonov.github.io/solid","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.danielsafonov.github.io/solid"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.danielsafonov.github.io/assets/favicon/apple-icon-144x144.png"}},"description":"5 design principles.","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body class="d-flex flex-column h-100">
+	<main role="main" class="flex-shrink-0">
+		 <!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="/">Daniel Safonov</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#rollup" aria-controls="rollup" aria-expanded="false" aria-label="Rollup navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="rollup">
+     <ul class="navbar-nav ml-auto text-uppercase">
+      <li class="nav-item">
+        <a class="nav-link " href="/">Main</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/offtop">Offtop</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/tags">Tags</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+
+  <hr style="background: $white-1; margin-top: 0; margin-bottom: 3rem;" />
+
+
+		 <!-- Top tags -->
+		
+
+		<div class="container page-content">
+		    <div class="post mt-5">
+  <h1 class="post-title">SOLID</h1>
+  <div datetime="2020-06-22T00:00:00+03:00" class="post-date">
+    22 Jun 2020
+     | 
+      
+        <a href="/tags#patterns" class="badge tag">patterns</a>
+      
+    
+  </div>
+
+  
+      <div class="thumbnail-container-full">
+        <a href="/solid"><img src="/img/thumbnail/2020/06/solid.jpg"></a>
+      </div>
+  
+
+  <article class="post-content">
+  <p><em>5 design principles.</em>
+<!--more--></p>
+
+<p class="ul-head">Помимо четырех главных концепций ООП</p>
+<ul>
+  <li>Абстракция</li>
+  <li>Инкапсуляция</li>
+  <li>Наследование</li>
+  <li>Полиморфизм</li>
+</ul>
+
+<p class="ul-head">И базовых принципов проектирования</p>
+<ul>
+  <li>Повторное использоватение кода</li>
+  <li>Расширяемость кодовой базы</li>
+  <li>Инкапсуляция изменчивых частей программы</li>
+  <li>Программирование на уровне интерфейсов</li>
+  <li>Реализация композиции вместе наследования</li>
+</ul>
+
+<p>Существуют принципы SOLID, позволяющие повысить гибкость архитектуры программы, уменьшить связанность компонентов и облегчить повтоное использование кода.</p>
+
+<p><strong>SOLID</strong> – акроним Майкла Фэзерса, обозначающий 5 основных принципов ООП и проектирования.
+<br /></p>
+<ul>
+  <li><strong>S</strong> – The Single Responsibility Principle (Прицнип единственной ответственности)</li>
+  <li><strong>O</strong> – The Open Closed Principle (Пронцип открытости/закрытости)</li>
+  <li><strong>L</strong> – The Liskov Substitution Principle (Принцип подстановки Барбары Лисков)</li>
+  <li><strong>I</strong> – The Interface Segregation Principle (Принцип разделения интерфейса)</li>
+  <li><strong>D</strong> – The Dependency Inversion Principle (Принцип инверсии зависимостей)
+<br /><br /></li>
+</ul>
+
+<p><b>The Single Responsibility Principle (SRP):</b></p>
+<blockquote>
+  <p>“A class should have only one reason to change.”</p>
+</blockquote>
+
+<p>Каждый объект должен отвечать только за одну часть функциональность программы и эта ответсвенность должна быть польностью инкапсулирована в класс.
+<br /><br /></p>
+
+<p><b>The Open Closed Principle (OCP):</b></p>
+<blockquote>
+  <p>“Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.”</p>
+</blockquote>
+
+<p>Программные сущности должны быть открыты для расширения, но закрыты для изменения.
+<br /><br /></p>
+
+<p><b>Liskov Substitution Principle (<a href="https://www.webcitation.org/6AJYJLSEa?url=http://www.objectmentor.com/resources/articles/lsp.pdf" target="_blank">LSP</a>):</b></p>
+<blockquote>
+  <p>“Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it.”</p>
+</blockquote>
+
+<p>Функции, которые используют базовый тип, должны иметь возможность использовать подтипы базового типа, не зная об этом. <br />
+Таким образом, идея Лисков о «подтипе» даёт определение понятия замещения — если S является подтипом T, тогда объекты типа T в программе могут быть замещены объектами типа S без каких-либо изменений – поведение наследующих классов не должно противоречить поведению, заданному базовым классом.<br />
+В отличие от остальных принципов, принцип подставновки имеет ряд формальных требований для соответсвия кода принципу.
+<br /><br /></p>
+
+<p><b>Interface Segregation Principle (<a href="https://www.webcitation.org/6AL2qqIGg?url=http://www.objectmentor.com/resources/articles/isp.pdf" target="_blank">ISP</a>):</b></p>
+<blockquote>
+  <p>“Clients should not be forced to depend upon interfaces that they do not use.”</p>
+</blockquote>
+
+<p>Программные сущности не должны зависеть от методов, которые они не используют. Принцип разделения интерфейсов говорит о том, что слишком «толстые» интерфейсы необходимо разделять на более маленькие и специфические, чтобы программные сущности маленьких интерфейсов знали только о методах, которые необходимы им в работе. В итоге, при изменении метода интерфейса не должны меняться программные сущности, которые этот метод не используют.
+<br /><br /></p>
+
+<p><b>Dependency Inversion Principle (<a href="https://web.archive.org/web/20110714224327/http://www.objectmentor.com/resources/articles/dip.pdf" target="_blank">DIP</a>):</b></p>
+<blockquote>
+  <ul>
+    <li>High level modules should not depend upon low level modules. Both should depend upon abstractions.</li>
+    <li>Abstractions should not depend upon details. Details should depend upon abstractions.</li>
+  </ul>
+</blockquote>
+
+<ul>
+  <li>Модули верхних уровней не должны зависеть от модулей нижних уровней. Оба типа модулей должны зависеть от абстракций.</li>
+  <li>Абстракции не должны зависеть от деталей. Детали должны зависеть от абстракций.
+<br /><br /></li>
+</ul>
+
+<p><b><a href="https://habr.com/ru/company/digital-ecosystems/blog/505430/" target="_blank">[habr] Принципы SOLID в картинках</a>, <a href="https://www.baeldung.com/solid-principles" target="_blank">[baelding] A Solid Guide to SOLID Principles</a></b>
+<br /></p>
+<hr />
+
+<p><small>
+	<strong>Links:</strong> <a href="https://refactoring.guru/ru/design-patterns/book" target="_blank">Швец А. “Погружение в паттерны проектирования”</a>, 
+	<a href="https://ru.wikipedia.org/wiki/SOLID_(объектно-ориентированное_программирование)" target="_blank">[wiki] SOLID</a>, 
+	<a href="https://ru.wikipedia.org/wiki/Принцип_единственной_ответственности" target="_blank">[wiki] Принцип единственной ответственности</a>,
+	<a href="https://ru.wikipedia.org/wiki/Принцип_открытости/закрытости" target="_blank">[wiki] Принцип открытости/закрытости</a>, 
+	<a href="https://ru.wikipedia.org/wiki/Принцип_подстановки_Барбары_Лисков" target="_blank">[wiki] Принцип подстановки Барбары Лисков</a>, 
+	<a href="https://ru.wikipedia.org/wiki/Принцип_разделения_интерфейса" target="_blank">[wiki] Принцип разделения интерфейса</a>, 
+	<a href="https://team-coder.com/solid-principles/" target="_blank">The SOLID Principles of Software Design by Examples</a>
+</small></p>
+
+  </article>
+</div>
+
+
+<aside class="related">
+  <h3>Latest posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/ipad-handwriting">
+          iPad handwriting
+          <small><time datetime="2020-05-14T00:00:00+03:00">14 May 2020</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/swagger">
+          Swagger - UI, Spring Boot
+          <small><time datetime="2020-04-12T00:00:00+03:00">12 Apr 2020</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/dell-u2719dc">
+          Dell U2719DC
+          <small><time datetime="2020-04-09T00:00:00+03:00">09 Apr 2020</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+		</div>
+	</main>
+	<!-- FOOTER -->
+<footer class="page-footer mt-auto">
+	<div class="container">
+		<div class="row">
+		<div class="col-md-6 col-sm-12 copyright">
+			<small>
+			&copy; <time datetime="2019-05-17T14:12:56+03:00">2019</time>. Даниил Сафонов
+			</small>
+		</div>
+
+		<div class="col-md-6 col-sm-12 navigation">
+			
+          		&nbsp;
+          		<small><a href="/">Main</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/tags">Tags</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/offtop">Offtop</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/about">About</a></small>
+        	
+		</div>
+	</div>
+	</div>
+</footer>
+
+<!-- Jquery -->
+<script src="/assets/javascript/bootstrap/jquery.min.js"></script>
+<!-- Bootstrap`s JS -->
+<script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66260535-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66260535-2');
+</script>
+
+
+</body>
+</html>
