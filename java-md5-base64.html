@@ -30,7 +30,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
   <!-- Begin Jekyll SEO tag v2.6.1 -->
-<meta name="generator" content="Jekyll v3.8.5" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Java get file md5 and base64" />
 <meta property="og:locale" content="ru_RU" />
 <meta name="description" content="Блог Даниила Сафонова об около-айтишных вещах, diy и java backend разработке" />
@@ -101,24 +101,24 @@
   <!--more-->
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//byte[] to String Base64</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">byteToBase64</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
-	<span class="k">return</span> <span class="n">Base64</span><span class="o">.</span><span class="na">getMimeEncoder</span><span class="o">().</span><span class="na">encodeToString</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">byteToBase64</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+	<span class="k">return</span> <span class="nc">Base64</span><span class="o">.</span><span class="na">getMimeEncoder</span><span class="o">().</span><span class="na">encodeToString</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
 <span class="o">}</span>
 
 <span class="c1">//String Base64 to byte[]</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">base64ToByte</span><span class="o">(</span><span class="n">String</span> <span class="n">base64</span><span class="o">){</span>
-	<span class="k">return</span> <span class="n">Base64</span><span class="o">.</span><span class="na">getMimeDecoder</span><span class="o">().</span><span class="na">decode</span><span class="o">(</span><span class="n">base64</span><span class="o">);</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">base64ToByte</span><span class="o">(</span><span class="nc">String</span> <span class="n">base64</span><span class="o">){</span>
+	<span class="k">return</span> <span class="nc">Base64</span><span class="o">.</span><span class="na">getMimeDecoder</span><span class="o">().</span><span class="na">decode</span><span class="o">(</span><span class="n">base64</span><span class="o">);</span>
 <span class="o">}</span>
 
 
 <span class="c1">//byte[] to String MD5</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">getByteArrayFileHash</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">fileData</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="nc">String</span> <span class="nf">getByteArrayFileHash</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">fileData</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
 	<span class="k">try</span> <span class="o">{</span>
-		<span class="n">MessageDigest</span> <span class="n">md</span> <span class="o">=</span> <span class="n">MessageDigest</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">"MD5"</span><span class="o">);</span>
+		<span class="nc">MessageDigest</span> <span class="n">md</span> <span class="o">=</span> <span class="nc">MessageDigest</span><span class="o">.</span><span class="na">getInstance</span><span class="o">(</span><span class="s">"MD5"</span><span class="o">);</span>
 		<span class="n">md</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">fileData</span><span class="o">);</span>
 		<span class="kt">byte</span><span class="o">[]</span> <span class="n">digest</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="na">digest</span><span class="o">();</span>
-		<span class="k">return</span> <span class="n">DatatypeConverter</span><span class="o">.</span><span class="na">printHexBinary</span><span class="o">(</span><span class="n">digest</span><span class="o">).</span><span class="na">toUpperCase</span><span class="o">();</span>
-	<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nc">DatatypeConverter</span><span class="o">.</span><span class="na">printHexBinary</span><span class="o">(</span><span class="n">digest</span><span class="o">).</span><span class="na">toUpperCase</span><span class="o">();</span>
+	<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 		<span class="k">throw</span> <span class="k">new</span> <span class="nf">Exception</span><span class="o">(</span><span class="s">"An error in getByteArrayFileHash() while calculating hash code!"</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
 	<span class="o">}</span>
 <span class="o">}</span>
@@ -139,6 +139,13 @@
   <ul class="related-posts">
     
       <li>
+        <a href="/modern-web-architecture">
+          Modern web applications architecture
+          <small><time datetime="2020-09-08T00:00:00+03:00">08 Sep 2020</time></small>
+        </a>
+      </li>
+    
+      <li>
         <a href="/pc">
           PC
           <small><time datetime="2020-07-26T00:00:00+03:00">26 Jul 2020</time></small>
@@ -149,13 +156,6 @@
         <a href="/feign-basics">
           Netfix Feign Basics
           <small><time datetime="2020-07-12T00:00:00+03:00">12 Jul 2020</time></small>
-        </a>
-      </li>
-    
-      <li>
-        <a href="/solid">
-          SOLID
-          <small><time datetime="2020-06-22T00:00:00+03:00">22 Jun 2020</time></small>
         </a>
       </li>
     

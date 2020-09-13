@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-100">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>
+    
+      Modern web applications architecture &middot; DanielSafonov
+    
+  </title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="144x144"  href="/assets/favicon/android-icon-144x144.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Modern web applications architecture" />
+<meta property="og:locale" content="ru_RU" />
+<meta name="description" content="Senior Software Vlogger – Архитектура Web Приложений / от простых до высоконагруженных." />
+<meta property="og:description" content="Senior Software Vlogger – Архитектура Web Приложений / от простых до высоконагруженных." />
+<link rel="canonical" href="https://www.danielsafonov.github.io/modern-web-architecture" />
+<meta property="og:url" content="https://www.danielsafonov.github.io/modern-web-architecture" />
+<meta property="og:site_name" content="DanielSafonov" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-08T00:00:00+03:00" />
+<meta name="google-site-verification" content="g3AW8hxy_OomwgoOhY9PMaeb3At_llJtrTjgTev9-CU" />
+<meta name="yandex-verification" content="a50ee7c4a5dbe424" />
+<script type="application/ld+json">
+{"headline":"Modern web applications architecture","dateModified":"2020-09-08T00:00:00+03:00","datePublished":"2020-09-08T00:00:00+03:00","url":"https://www.danielsafonov.github.io/modern-web-architecture","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.danielsafonov.github.io/modern-web-architecture"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.danielsafonov.github.io/assets/favicon/apple-icon-144x144.png"}},"description":"Senior Software Vlogger – Архитектура Web Приложений / от простых до высоконагруженных.","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+<body class="d-flex flex-column h-100">
+	<main role="main" class="flex-shrink-0">
+		 <!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="/">Daniel Safonov</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#rollup" aria-controls="rollup" aria-expanded="false" aria-label="Rollup navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="rollup">
+     <ul class="navbar-nav ml-auto text-uppercase">
+      <li class="nav-item">
+        <a class="nav-link " href="/">Main</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/offtop">Offtop</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/tags">Tags</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+
+  <hr style="background: $white-1; margin-top: 0; margin-bottom: 3rem;" />
+
+
+		 <!-- Top tags -->
+		
+
+		<div class="container page-content">
+		    <div class="post mt-5">
+  <h1 class="post-title">Modern web applications architecture</h1>
+  <div datetime="2020-09-08T00:00:00+03:00" class="post-date">
+    08 Sep 2020
+     | 
+      
+        <a href="/tags#architecture" class="badge tag">architecture</a>
+      
+    
+  </div>
+
+  
+
+  <article class="post-content">
+  <p>Senior Software Vlogger – Архитектура Web Приложений / от простых до высоконагруженных.
+<!--more--></p>
+<figure class="embed-responsive embed-responsive-16by9">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/9mZmc6a0tmM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</figure>
+<p><br /></p>
+<div class="mx-auto" style="width: 100%">
+    <figure class="figure">
+      <img src="img/attachments/2020/09/architecture.png" class="figure-img img-fluid" alt="Архитектура" />
+      <figcaption class="figure-caption text-center">Итоговая архитектура</figcaption>
+    </figure>
+</div>
+
+<p class="ul-head">Эволюция архитектуры приложения:</p>
+<ol>
+  <li>Приложение и СУБД развернуты на одном сервере</li>
+  <li><code class="language-plaintext highlighter-rouge">[memcache, redis]</code> Добавляем кэш для снижение нагрузки на СУБД и увеличения скорости ответа. Кэш хранит либо готовые данные БД/json/html-страницы, либо фрагменты данных.
+<br />
+memcache хранит все в RAM, redis позволяет синхронихировать кэш с диском – при перезапуске приложения не придется “прогревать кэш”, а данные не будут утеряны.
+    <blockquote>
+      <p>Подобное решение способно выдерживать большие нагрузки – при определенных условиях возможно обслуживание миллиона пользователей. Приложение дергает API, получает данные и быстро готовит их с использованием СУБД. Клиенты не “долгие”, например, не загружают большие файлы, то есть, нет длительных блокирующих процессов.</p>
+    </blockquote>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">[amazon s3]</code> Добавляем облачное хранилище для хранения каких-либо файлов – например, фотографий пользователей. Использование облака гораздо проще организации собственной системы хранения файлов. Кроме того, на серверах приложений дисковая память, как правило, дорогая.</li>
+  <li>Выделение отдельного сервера для СУБД. В целях повышения надежности системы необходимо также добавить репликацию данных.</li>
+  <li>Выделение отдельного сервера для кэша. Кэшу, в отличие от приложения, необходимо большое количество RAM, поэтому выделение кэш-сервера – рациональное расходование ресурсов.</li>
+  <li>Масштабирование приложения – использование нескольких серверов приложений вместо одного; динамическое масштабирование – увеличение количества серверов приложений под нагрузкой и уменьшение в нормальном режиме.</li>
+  <li><code class="language-plaintext highlighter-rouge">[nginx, HAProxy, Traefik]</code> Фиксирование количество серверов позволяет прописать их адреса в DNS и открыть его Интернету, но в таком случае не получится динамически управлять системой – масштабировать, заменять упавшие сервера, распределять нагрузку и тд. Нужен балансировщик нагрузки, который встает перед клиентом. <br />
+Серверов балансировки нагрузки так же может быть несколько – именно их IP адреса добавляются в DNS и выставляются наружу в Интернет. Помимо архитектурных преимуществ, это способствует повышению безопасности и надежности системы – между пользователями и серверами приложений есть промежуточное звено, которое, помимо балансировки нагрузки, реже падает, быстро работает и не дает прямого доступа к серверу приложения.</li>
+  <li><code class="language-plaintext highlighter-rouge">[rabbitMQ]</code> Современное приложение сложно представить без асинхронных задач – загрузка пользователями видео в облако, транскодировка, обработка таблиц с данными, обучение модели и тп – подобные “тяжелые” задачи некорректно решать ресурсами того же приложения, которое обрабатывает запросы пользователей, так как возникает блокировка. Грамотным решением будет построение очередей асинхронных задач с их последующей обработкой сторонним приложением. В случае транскодирования – видео принимается, загружается в облако, а затем в виде отложенной задачи обрабатывается и уходит обратно в облако. Аналогично с отправкой писем, созданием превью фотографий и прочими “тяжелыми” задачами. <br /><br />
+Все тяжелые задачи (не “сходить в БД и отдать ответ пользователю”) откладываются на потом, чтобы сервера приложений имели максимальный отклик и не блокировали пользователей. Принял задачу, скинул, сказал “жди”, со временем выполнил в порядке очереди. <br /><br />
+Наиболее примитивная реализация очереди может быть на стороне СУБД – паттерн RubyOnRails “delayed_job”. Фоновая задача с заданными параметрами записывается в БД, а затем по шедуллеру происходит выполнение фоновых задач из БД в виде отдельного процесса. <br /><br />
+Однако, подобное решение не является целевым использованием СУБД – БД должна обладать наиболее простой структурой и не хрнаить лишние данные – меньше бэкапить, меньше нагрузка на СУБД, меньше операций на вставку и удаление (не все СУБД любят эти операции). <br /><br />
+Возникает потребность в отдельном сервере очереди задач. Задача отправляется в RabbitMQ и хранится там до тех пор, пока ее кто-то оттуда не заберет с целью обработки. <br /><br />
+Для обработки заданий из очереди следует использователь отдельные сервера приложений и соответствующие приложения для работы с асинхронными задачами. Подобные приложения так же можно масштабировать.</li>
+  <li><code class="language-plaintext highlighter-rouge">[Apache Lucene, Apache Solr, ElasticSearch, Sphinx]</code> Полнотекстовый поиск для осуществления неточного поиска по индексируемым данным. Есть упрощенные реализации на стороне СУБД, однако, это лишняя нагрузка – СУБД должна быть “тупым” хранилищем данных. Специализированные поисковые системы предоставляют более качественный поиск и широкие возможности, а также разгружают СУБД.</li>
+  <li>Специфичный функционал приложения выносится в отдельные приложения – микросервисная архитектура. Подобный подход выигрывает у монолита в плане разделения разработки на разные команды, возможности гибкого масштабирования и релизов. Основное приложение обращается к множеству внутренних или внешних сервисов, решающих прикладные задачи:
+    <ul>
+      <li>отправка писем (Sendgrid, Postmark)</li>
+      <li>синхронизация курсов валют/погоды</li>
+      <li>сервисы авторизации и аутентификации</li>
+      <li>тд</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">[Apache Kafka]</code> Приложение может генерировать множество событий – регистранция пользователей, подписка, обновление данных, обмен сообщениями между приложениями в случае микросервисной архитектуры. Обработка этих сообщений и событий осуществляется системой потоковой обрабокти данных (стриминга данных). <br /><br />
+Сообщений и события могут использоваться для реализации событийно-ориентированной арзитектуры (event-driven architecture), так и для сбора данных с последующей аналитикой, отображения информации на дажборде и тп – например, аналитика по регистрациям пользователей в режиме реального времени.</li>
+  <li><code class="language-plaintext highlighter-rouge">[hadoop]</code> Для организации data lake, а также хранения и управления огромными объемами данных необходимы специализированные системы. Данные в хранилище hadoop могут попадать из kafka. Например, есть необходимость готовить и анализировать отчет на основе всех данных в БД по расписанию – раз в день/месяц/тп.</li>
+</ol>
+
+<hr />
+
+<ul>
+  <li><a href="https://engineering.videoblocks.com/web-architecture-101-a3224e126947?gi=13b89c8d277" target="_blank">Web Architecture 101</a> – <i>“The basic architecture concepts I wish I knew when I was getting started as a web developer”</i></li>
+  <li><a href="https://www.educative.io/courses/web-application-software-architecture-101?aff=x4pq" target="_blank">Web Application &amp; Software Architecture 101</a></li>
+</ul>
+
+
+  </article>
+</div>
+
+
+<aside class="related">
+  <h3>Latest posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/pc">
+          PC
+          <small><time datetime="2020-07-26T00:00:00+03:00">26 Jul 2020</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/feign-basics">
+          Netfix Feign Basics
+          <small><time datetime="2020-07-12T00:00:00+03:00">12 Jul 2020</time></small>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/solid">
+          SOLID
+          <small><time datetime="2020-06-22T00:00:00+03:00">22 Jun 2020</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+		</div>
+	</main>
+	<!-- FOOTER -->
+<footer class="page-footer mt-auto">
+	<div class="container">
+		<div class="row">
+		<div class="col-md-6 col-sm-12 copyright">
+			<small>
+			&copy; <time datetime="2019-05-17T14:12:56+03:00">2019</time>. Даниил Сафонов
+			</small>
+		</div>
+
+		<div class="col-md-6 col-sm-12 navigation">
+			
+          		&nbsp;
+          		<small><a href="/">Main</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/tags">Tags</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/offtop">Offtop</a></small>
+        	
+          		&nbsp;
+          		<small><a href="/about">About</a></small>
+        	
+		</div>
+	</div>
+	</div>
+</footer>
+
+<!-- Jquery -->
+<script src="/assets/javascript/bootstrap/jquery.min.js"></script>
+<!-- Bootstrap`s JS -->
+<script src="/assets/javascript/bootstrap/bootstrap.bundle.min.js"></script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-66260535-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-66260535-2');
+</script>
+
+
+</body>
+</html>

@@ -30,7 +30,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
   <!-- Begin Jekyll SEO tag v2.6.1 -->
-<meta name="generator" content="Jekyll v3.8.5" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Get string from properties file" />
 <meta property="og:locale" content="ru_RU" />
 <meta name="description" content="Inject application properties variable without Spring." />
@@ -122,23 +122,23 @@
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Slf4j</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">PropertiesGetter</span> <span class="o">{</span>
-	<span class="kd">private</span> <span class="n">Configuration</span> <span class="n">config</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="nc">Configuration</span> <span class="n">config</span><span class="o">;</span>
 
 	<span class="kd">public</span> <span class="nf">PropertiesGetter</span><span class="o">(){</span>
-		<span class="n">Parameters</span> <span class="n">params</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Parameters</span><span class="o">();</span>
-		<span class="n">FileBasedConfigurationBuilder</span><span class="o">&lt;</span><span class="n">FileBasedConfiguration</span><span class="o">&gt;</span> <span class="n">builder</span> <span class="o">=</span>
-				<span class="k">new</span> <span class="n">FileBasedConfigurationBuilder</span><span class="o">&lt;</span><span class="n">FileBasedConfiguration</span><span class="o">&gt;(</span><span class="n">PropertiesConfiguration</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+		<span class="nc">Parameters</span> <span class="n">params</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Parameters</span><span class="o">();</span>
+		<span class="nc">FileBasedConfigurationBuilder</span><span class="o">&lt;</span><span class="nc">FileBasedConfiguration</span><span class="o">&gt;</span> <span class="n">builder</span> <span class="o">=</span>
+				<span class="k">new</span> <span class="nc">FileBasedConfigurationBuilder</span><span class="o">&lt;</span><span class="nc">FileBasedConfiguration</span><span class="o">&gt;(</span><span class="nc">PropertiesConfiguration</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
 						<span class="o">.</span><span class="na">configure</span><span class="o">(</span><span class="n">params</span><span class="o">.</span><span class="na">properties</span><span class="o">()</span>
 								<span class="o">.</span><span class="na">setFileName</span><span class="o">(</span><span class="s">"application.properties"</span><span class="o">));</span>
 		<span class="k">try</span> <span class="o">{</span>
 			<span class="n">config</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="na">getConfiguration</span><span class="o">();</span>
-		<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">ConfigurationException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+		<span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="nc">ConfigurationException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 			<span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"An error in PropertiesGetter.init(): "</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
 		<span class="o">}</span>
 	<span class="o">}</span>
 
 	<span class="c1">//Получить строку по имени переменной конфигурации</span>
-	<span class="kd">public</span> <span class="n">String</span> <span class="nf">getProperty</span><span class="o">(</span><span class="n">String</span> <span class="n">propertyName</span><span class="o">){</span>
+	<span class="kd">public</span> <span class="nc">String</span> <span class="nf">getProperty</span><span class="o">(</span><span class="nc">String</span> <span class="n">propertyName</span><span class="o">){</span>
 		<span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">propertyName</span><span class="o">);</span>
 	<span class="o">}</span>
 <span class="o">}</span>
@@ -148,7 +148,7 @@
 
 <p class="ul-head">Using</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PropertiesGetter</span> <span class="n">propertiesGetter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PropertiesGetter</span><span class="o">();</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">PropertiesGetter</span> <span class="n">propertiesGetter</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PropertiesGetter</span><span class="o">();</span>
 <span class="n">propertiesGetter</span><span class="o">.</span><span class="na">getProperty</span><span class="o">(</span><span class="s">"telegram-api.bot-name"</span><span class="o">);</span>
 </code></pre></div></div>
 
@@ -156,7 +156,7 @@
 
 <p class="ul-head">Без зависимости <code class="highlighter-rouge">commons-beanutils</code> приложение упадет с ошибкой</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Exception in thread "main" java.lang.NoClassDefFoundError: org/apache/commons/beanutils/DynaBean
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Exception in thread "main" java.lang.NoClassDefFoundError: org/apache/commons/beanutils/DynaBean
 Caused by: java.lang.ClassNotFoundException: org.apache.commons.beanutils.DynaBean
 </code></pre></div></div>
 
@@ -169,6 +169,13 @@ Caused by: java.lang.ClassNotFoundException: org.apache.commons.beanutils.DynaBe
   <ul class="related-posts">
     
       <li>
+        <a href="/modern-web-architecture">
+          Modern web applications architecture
+          <small><time datetime="2020-09-08T00:00:00+03:00">08 Sep 2020</time></small>
+        </a>
+      </li>
+    
+      <li>
         <a href="/pc">
           PC
           <small><time datetime="2020-07-26T00:00:00+03:00">26 Jul 2020</time></small>
@@ -179,13 +186,6 @@ Caused by: java.lang.ClassNotFoundException: org.apache.commons.beanutils.DynaBe
         <a href="/feign-basics">
           Netfix Feign Basics
           <small><time datetime="2020-07-12T00:00:00+03:00">12 Jul 2020</time></small>
-        </a>
-      </li>
-    
-      <li>
-        <a href="/solid">
-          SOLID
-          <small><time datetime="2020-06-22T00:00:00+03:00">22 Jun 2020</time></small>
         </a>
       </li>
     

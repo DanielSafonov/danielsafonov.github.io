@@ -30,7 +30,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
   <!-- Begin Jekyll SEO tag v2.6.1 -->
-<meta name="generator" content="Jekyll v3.8.5" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Java lossless image compressing" />
 <meta property="og:locale" content="ru_RU" />
 <meta name="description" content="Блог Даниила Сафонова об около-айтишных вещах, diy и java backend разработке" />
@@ -44,7 +44,7 @@
 <meta name="google-site-verification" content="g3AW8hxy_OomwgoOhY9PMaeb3At_llJtrTjgTev9-CU" />
 <meta name="yandex-verification" content="a50ee7c4a5dbe424" />
 <script type="application/ld+json">
-{"headline":"Java lossless image compressing","dateModified":"2019-07-18T00:00:00+03:00","datePublished":"2019-07-18T00:00:00+03:00","image":"https://www.danielsafonov.github.io/2019/08/jpg-jackals.jpg","url":"https://www.danielsafonov.github.io/java-lossless-image-compressing","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.danielsafonov.github.io/java-lossless-image-compressing"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.danielsafonov.github.io/assets/favicon/apple-icon-144x144.png"}},"description":"Блог Даниила Сафонова об около-айтишных вещах, diy и java backend разработке","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"headline":"Java lossless image compressing","dateModified":"2019-07-18T00:00:00+03:00","datePublished":"2019-07-18T00:00:00+03:00","url":"https://www.danielsafonov.github.io/java-lossless-image-compressing","image":"https://www.danielsafonov.github.io/2019/08/jpg-jackals.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.danielsafonov.github.io/java-lossless-image-compressing"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.danielsafonov.github.io/assets/favicon/apple-icon-144x144.png"}},"description":"Блог Даниила Сафонова об около-айтишных вещах, diy и java backend разработке","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -107,32 +107,32 @@
   <article class="post-content">
   <!--more-->
 
-<p>Для сжатия <code class="highlighter-rouge">jpeg</code> используется <a href="https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html" target="blank">Java ImageIO</a>, для <code class="highlighter-rouge">png</code> - <a href="https://github.com/depsypher/pngtastic" target="_blank">PNGtastic</a>.</p>
+<p>Для сжатия <code class="language-plaintext highlighter-rouge">jpeg</code> используется <a href="https://docs.oracle.com/javase/8/docs/api/javax/imageio/ImageIO.html" target="blank">Java ImageIO</a>, для <code class="language-plaintext highlighter-rouge">png</code> - <a href="https://github.com/depsypher/pngtastic" target="_blank">PNGtastic</a>.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">compressImage</span><span class="o">(</span><span class="n">MultipartFile</span> <span class="n">multipartFile</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
-	<span class="n">String</span> <span class="n">imageExtention</span> <span class="o">=</span> <span class="n">multipartFile</span><span class="o">.</span><span class="na">getContentType</span><span class="o">().</span><span class="na">substring</span><span class="o">(</span><span class="n">multipartFile</span><span class="o">.</span><span class="na">getContentType</span><span class="o">().</span><span class="na">indexOf</span><span class="o">(</span><span class="sc">'/'</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
-	<span class="k">if</span><span class="o">(!</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">imageExtention</span><span class="o">)){</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">compressImage</span><span class="o">(</span><span class="nc">MultipartFile</span> <span class="n">multipartFile</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span>
+	<span class="nc">String</span> <span class="n">imageExtention</span> <span class="o">=</span> <span class="n">multipartFile</span><span class="o">.</span><span class="na">getContentType</span><span class="o">().</span><span class="na">substring</span><span class="o">(</span><span class="n">multipartFile</span><span class="o">.</span><span class="na">getContentType</span><span class="o">().</span><span class="na">indexOf</span><span class="o">(</span><span class="sc">'/'</span><span class="o">)</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+	<span class="k">if</span><span class="o">(!</span><span class="nc">StringUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">imageExtention</span><span class="o">)){</span>
 		<span class="k">if</span><span class="o">(</span><span class="n">imageExtention</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"jpeg"</span><span class="o">)){</span>
 			<span class="c1">//JPEG, JPG</span>
-			<span class="n">BufferedImage</span> <span class="n">image</span> <span class="o">=</span> <span class="n">ImageIO</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="k">new</span> <span class="n">ByteArrayInputStream</span><span class="o">(</span><span class="n">multipartFile</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
-			<span class="n">ImageWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="n">ImageIO</span><span class="o">.</span><span class="na">getImageWritersByFormatName</span><span class="o">(</span><span class="s">"jpeg"</span><span class="o">).</span><span class="na">next</span><span class="o">();</span>
-			<span class="n">ImageWriteParam</span> <span class="n">param</span> <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="na">getDefaultWriteParam</span><span class="o">();</span>
-			<span class="n">param</span><span class="o">.</span><span class="na">setCompressionMode</span><span class="o">(</span><span class="n">ImageWriteParam</span><span class="o">.</span><span class="na">MODE_DEFAULT</span><span class="o">);</span>
+			<span class="nc">BufferedImage</span> <span class="n">image</span> <span class="o">=</span> <span class="nc">ImageIO</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="k">new</span> <span class="nc">ByteArrayInputStream</span><span class="o">(</span><span class="n">multipartFile</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
+			<span class="nc">ImageWriter</span> <span class="n">writer</span> <span class="o">=</span> <span class="nc">ImageIO</span><span class="o">.</span><span class="na">getImageWritersByFormatName</span><span class="o">(</span><span class="s">"jpeg"</span><span class="o">).</span><span class="na">next</span><span class="o">();</span>
+			<span class="nc">ImageWriteParam</span> <span class="n">param</span> <span class="o">=</span> <span class="n">writer</span><span class="o">.</span><span class="na">getDefaultWriteParam</span><span class="o">();</span>
+			<span class="n">param</span><span class="o">.</span><span class="na">setCompressionMode</span><span class="o">(</span><span class="nc">ImageWriteParam</span><span class="o">.</span><span class="na">MODE_DEFAULT</span><span class="o">);</span>
 			<span class="c1">//compression quality default = 100%</span>
 
-			<span class="n">ByteArrayOutputStream</span> <span class="n">baos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayOutputStream</span><span class="o">();</span>
-			<span class="n">ImageOutputStream</span> <span class="n">ios</span> <span class="o">=</span> <span class="n">ImageIO</span><span class="o">.</span><span class="na">createImageOutputStream</span><span class="o">(</span><span class="n">baos</span><span class="o">);</span>
+			<span class="nc">ByteArrayOutputStream</span> <span class="n">baos</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ByteArrayOutputStream</span><span class="o">();</span>
+			<span class="nc">ImageOutputStream</span> <span class="n">ios</span> <span class="o">=</span> <span class="nc">ImageIO</span><span class="o">.</span><span class="na">createImageOutputStream</span><span class="o">(</span><span class="n">baos</span><span class="o">);</span>
 			<span class="n">writer</span><span class="o">.</span><span class="na">setOutput</span><span class="o">(</span><span class="n">ios</span><span class="o">);</span>
-			<span class="n">writer</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="k">new</span> <span class="n">IIOImage</span><span class="o">(</span><span class="n">image</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">),</span> <span class="n">param</span><span class="o">);</span>
+			<span class="n">writer</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="k">new</span> <span class="nc">IIOImage</span><span class="o">(</span><span class="n">image</span><span class="o">,</span> <span class="kc">null</span><span class="o">,</span> <span class="kc">null</span><span class="o">),</span> <span class="n">param</span><span class="o">);</span>
 
 			<span class="k">return</span> <span class="n">baos</span><span class="o">.</span><span class="na">toByteArray</span><span class="o">();</span>
 		<span class="o">}</span> <span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">imageExtention</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"png"</span><span class="o">)){</span>
 			<span class="c1">//PNG</span>
-			<span class="n">PngImage</span> <span class="n">image</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PngImage</span><span class="o">(</span><span class="k">new</span> <span class="n">ByteArrayInputStream</span><span class="o">(</span><span class="n">multipartFile</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
-			<span class="n">PngOptimizer</span> <span class="n">pngOptimizer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PngOptimizer</span><span class="o">();</span>
-			<span class="n">PngImage</span> <span class="n">optimizedImage</span> <span class="o">=</span> <span class="n">pngOptimizer</span><span class="o">.</span><span class="na">optimize</span><span class="o">(</span><span class="n">image</span><span class="o">);</span>
+			<span class="nc">PngImage</span> <span class="n">image</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PngImage</span><span class="o">(</span><span class="k">new</span> <span class="nc">ByteArrayInputStream</span><span class="o">(</span><span class="n">multipartFile</span><span class="o">.</span><span class="na">getBytes</span><span class="o">()));</span>
+			<span class="nc">PngOptimizer</span> <span class="n">pngOptimizer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PngOptimizer</span><span class="o">();</span>
+			<span class="nc">PngImage</span> <span class="n">optimizedImage</span> <span class="o">=</span> <span class="n">pngOptimizer</span><span class="o">.</span><span class="na">optimize</span><span class="o">(</span><span class="n">image</span><span class="o">);</span>
 
-			<span class="n">ByteArrayOutputStream</span> <span class="n">baos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayOutputStream</span><span class="o">();</span>
+			<span class="nc">ByteArrayOutputStream</span> <span class="n">baos</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ByteArrayOutputStream</span><span class="o">();</span>
 			<span class="n">optimizedImage</span><span class="o">.</span><span class="na">writeDataOutputStream</span><span class="o">(</span><span class="n">baos</span><span class="o">);</span>
 
 			<span class="k">return</span> <span class="n">baos</span><span class="o">.</span><span class="na">toByteArray</span><span class="o">();</span>
@@ -163,6 +163,13 @@ Original: 390k, Luban: 87k (78%), WeChat: 56k (86%)</p>
   <ul class="related-posts">
     
       <li>
+        <a href="/modern-web-architecture">
+          Modern web applications architecture
+          <small><time datetime="2020-09-08T00:00:00+03:00">08 Sep 2020</time></small>
+        </a>
+      </li>
+    
+      <li>
         <a href="/pc">
           PC
           <small><time datetime="2020-07-26T00:00:00+03:00">26 Jul 2020</time></small>
@@ -173,13 +180,6 @@ Original: 390k, Luban: 87k (78%), WeChat: 56k (86%)</p>
         <a href="/feign-basics">
           Netfix Feign Basics
           <small><time datetime="2020-07-12T00:00:00+03:00">12 Jul 2020</time></small>
-        </a>
-      </li>
-    
-      <li>
-        <a href="/solid">
-          SOLID
-          <small><time datetime="2020-06-22T00:00:00+03:00">22 Jun 2020</time></small>
         </a>
       </li>
     

@@ -30,7 +30,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
   <!-- Begin Jekyll SEO tag v2.6.1 -->
-<meta name="generator" content="Jekyll v3.8.5" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="SAP HANA get table modified date" />
 <meta property="og:locale" content="ru_RU" />
 <meta name="description" content="Блог Даниила Сафонова об около-айтишных вещах, diy и java backend разработке" />
@@ -110,10 +110,10 @@
 
 <p>Репозиторий с методом для получения даты изменения конкретной таблицы в конкретной схеме.</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Repository</span>
-<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">OrgunitRepository</span> <span class="kd">extends</span> <span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">Orgunit</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;{</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">OrgunitRepository</span> <span class="kd">extends</span> <span class="nc">JpaRepository</span><span class="o">&lt;</span><span class="nc">Orgunit</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;{</span>
 	<span class="c1">//Получить дату обновления таблицы</span>
 	<span class="nd">@Query</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"SELECT LAST_MODIFY_TIME FROM SYS.M_TABLE_STATISTICS WHERE TABLE_NAME = \'TABLE_NAME\' AND SCHEMA_NAME = \'SCHEMA_NAME\'"</span><span class="o">,</span> <span class="n">nativeQuery</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
-	<span class="n">Timestamp</span> <span class="nf">getLastModifiedDate</span><span class="o">();</span>
+	<span class="nc">Timestamp</span> <span class="nf">getLastModifiedDate</span><span class="o">();</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
@@ -126,6 +126,13 @@
   <ul class="related-posts">
     
       <li>
+        <a href="/modern-web-architecture">
+          Modern web applications architecture
+          <small><time datetime="2020-09-08T00:00:00+03:00">08 Sep 2020</time></small>
+        </a>
+      </li>
+    
+      <li>
         <a href="/pc">
           PC
           <small><time datetime="2020-07-26T00:00:00+03:00">26 Jul 2020</time></small>
@@ -136,13 +143,6 @@
         <a href="/feign-basics">
           Netfix Feign Basics
           <small><time datetime="2020-07-12T00:00:00+03:00">12 Jul 2020</time></small>
-        </a>
-      </li>
-    
-      <li>
-        <a href="/solid">
-          SOLID
-          <small><time datetime="2020-06-22T00:00:00+03:00">22 Jun 2020</time></small>
         </a>
       </li>
     

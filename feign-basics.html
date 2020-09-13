@@ -30,7 +30,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
   <!-- Begin Jekyll SEO tag v2.6.1 -->
-<meta name="generator" content="Jekyll v3.8.5" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Netfix Feign Basics" />
 <meta property="og:locale" content="ru_RU" />
 <meta name="description" content="Блог Даниила Сафонова об около-айтишных вещах, diy и java backend разработке" />
@@ -44,7 +44,7 @@
 <meta name="google-site-verification" content="g3AW8hxy_OomwgoOhY9PMaeb3At_llJtrTjgTev9-CU" />
 <meta name="yandex-verification" content="a50ee7c4a5dbe424" />
 <script type="application/ld+json">
-{"headline":"Netfix Feign Basics","dateModified":"2020-07-12T00:00:00+03:00","datePublished":"2020-07-12T00:00:00+03:00","image":"https://www.danielsafonov.github.io/2020/07/feign.jpeg","url":"https://www.danielsafonov.github.io/feign-basics","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.danielsafonov.github.io/feign-basics"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.danielsafonov.github.io/assets/favicon/apple-icon-144x144.png"}},"description":"Блог Даниила Сафонова об около-айтишных вещах, diy и java backend разработке","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"headline":"Netfix Feign Basics","dateModified":"2020-07-12T00:00:00+03:00","datePublished":"2020-07-12T00:00:00+03:00","url":"https://www.danielsafonov.github.io/feign-basics","image":"https://www.danielsafonov.github.io/2020/07/feign.jpeg","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.danielsafonov.github.io/feign-basics"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://www.danielsafonov.github.io/assets/favicon/apple-icon-144x144.png"}},"description":"Блог Даниила Сафонова об около-айтишных вещах, diy и java backend разработке","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -124,27 +124,27 @@
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@EnableFeignClients</span>
 <span class="nd">@SpringBootApplication</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Application</span> <span class="o">{</span>
-	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-		<span class="n">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">Application</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="nc">Application</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
 	<span class="o">}</span>
 <span class="o">}</span>
 
 <span class="nd">@Data</span>
 <span class="nd">@NoArgsConstructor</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">PostDTO</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">id</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">userId</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">title</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">body</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">id</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">userId</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">title</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">body</span><span class="o">;</span>
 <span class="o">}</span>
 
 <span class="nd">@FeignClient</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"jsonPlaceHolder"</span><span class="o">,</span> <span class="n">url</span> <span class="o">=</span> <span class="s">"https://jsonplaceholder.typicode.com/posts"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">JsonPlaceHolder</span> <span class="o">{</span>
     <span class="nd">@GetMapping</span>
-    <span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">PostDTO</span><span class="o">&gt;&gt;</span> <span class="nf">getPosts</span><span class="o">();</span>
+    <span class="nc">ResponseEntity</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">PostDTO</span><span class="o">&gt;&gt;</span> <span class="nf">getPosts</span><span class="o">();</span>
 
     <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">path</span> <span class="o">=</span> <span class="s">"{id}"</span><span class="o">)</span>
-    <span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">PostDTO</span><span class="o">&gt;</span> <span class="nf">getPosts</span><span class="o">(</span><span class="nd">@PathVariable</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"id"</span><span class="o">)</span> <span class="n">String</span> <span class="n">id</span><span class="o">);</span>
+    <span class="nc">ResponseEntity</span><span class="o">&lt;</span><span class="nc">PostDTO</span><span class="o">&gt;</span> <span class="nf">getPosts</span><span class="o">(</span><span class="nd">@PathVariable</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"id"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">id</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
@@ -187,6 +187,13 @@
   <ul class="related-posts">
     
       <li>
+        <a href="/modern-web-architecture">
+          Modern web applications architecture
+          <small><time datetime="2020-09-08T00:00:00+03:00">08 Sep 2020</time></small>
+        </a>
+      </li>
+    
+      <li>
         <a href="/pc">
           PC
           <small><time datetime="2020-07-26T00:00:00+03:00">26 Jul 2020</time></small>
@@ -197,13 +204,6 @@
         <a href="/solid">
           SOLID
           <small><time datetime="2020-06-22T00:00:00+03:00">22 Jun 2020</time></small>
-        </a>
-      </li>
-    
-      <li>
-        <a href="/ipad-handwriting">
-          iPad handwriting
-          <small><time datetime="2020-05-14T00:00:00+03:00">14 May 2020</time></small>
         </a>
       </li>
     

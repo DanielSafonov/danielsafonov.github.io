@@ -30,7 +30,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
   <!-- Begin Jekyll SEO tag v2.6.1 -->
-<meta name="generator" content="Jekyll v3.8.5" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="MacOS startup apps" />
 <meta property="og:locale" content="ru_RU" />
 <meta name="description" content="Блог Даниила Сафонова об около-айтишных вещах, diy и java backend разработке" />
@@ -100,7 +100,7 @@
   <article class="post-content">
   <!--more-->
 
-<p>Часть приложений можно удалить из автозапуска с помощью системных настроек: <code class="highlighter-rouge">Системные настройки -&gt; Пользователи и группы -&gt; Объекты входа</code>. Однако, этот способ не позволяет управлять всеми приложениями автозапуска - обратимся к launchd.</p>
+<p>Часть приложений можно удалить из автозапуска с помощью системных настроек: <code class="language-plaintext highlighter-rouge">Системные настройки -&gt; Пользователи и группы -&gt; Объекты входа</code>. Однако, этот способ не позволяет управлять всеми приложениями автозапуска - обратимся к launchd.</p>
 <blockquote>
 	<p class="mb-0">
 		<b>launchd</b> — система инциализации в macOS с <a href="https://opensource.apple.com/tarballs/launchd/" target="_blank">открытым исходным кодом</a>, созданная для замены SysVinit и SystemStarter. Процесс launchd имеет PID 1 и занимается тем, что запускает другие процессы и перезапускает их в случае сбоя. Также он заменяет cron. Процессы, запускаемые после запуска системы до входа в систему, записываются в каталог /Library/LaunchDaemons. Процессы, запускаемые после входа в систему — в каталоге /Library/LaunchAgents. В этих каталогах создаются файлы с xml-содержимым, которые управляют запуском процессов.
@@ -117,7 +117,7 @@
 	</figure>
 </div>
 
-<p>Для того, чтобы отключить автозапуск приложения, достаточно удалить соответсвующий <code class="highlighter-rouge">.plist</code> файл: <code class="highlighter-rouge">$ sudo rm -f com.citrix.ctxusbd.plist</code>.</p>
+<p>Для того, чтобы отключить автозапуск приложения, достаточно удалить соответсвующий <code class="language-plaintext highlighter-rouge">.plist</code> файл: <code class="language-plaintext highlighter-rouge">$ sudo rm -f com.citrix.ctxusbd.plist</code>.</p>
 
 
   </article>
@@ -127,6 +127,13 @@
 <aside class="related">
   <h3>Latest posts</h3>
   <ul class="related-posts">
+    
+      <li>
+        <a href="/modern-web-architecture">
+          Modern web applications architecture
+          <small><time datetime="2020-09-08T00:00:00+03:00">08 Sep 2020</time></small>
+        </a>
+      </li>
     
       <li>
         <a href="/pc">
@@ -139,13 +146,6 @@
         <a href="/feign-basics">
           Netfix Feign Basics
           <small><time datetime="2020-07-12T00:00:00+03:00">12 Jul 2020</time></small>
-        </a>
-      </li>
-    
-      <li>
-        <a href="/solid">
-          SOLID
-          <small><time datetime="2020-06-22T00:00:00+03:00">22 Jun 2020</time></small>
         </a>
       </li>
     

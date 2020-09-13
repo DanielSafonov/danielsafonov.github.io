@@ -30,7 +30,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
   <!-- Begin Jekyll SEO tag v2.6.1 -->
-<meta name="generator" content="Jekyll v3.8.5" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="SAP Cloud Document Service" />
 <meta property="og:locale" content="ru_RU" />
 <meta name="description" content="Работа с SAP Cloud Document Service на Java." />
@@ -167,7 +167,7 @@
 <span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div></div>
 
-<p>Помимо этого, <code class="highlighter-rouge">web.xml</code> должен содержать <strong>определение ресурса Ecm-сервиса</strong>:</p>
+<p>Помимо этого, <code class="language-plaintext highlighter-rouge">web.xml</code> должен содержать <strong>определение ресурса Ecm-сервиса</strong>:</p>
 
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;resource-ref&gt;</span>
 	<span class="nt">&lt;res-ref-name&gt;</span>EcmService<span class="nt">&lt;/res-ref-name&gt;</span>
@@ -181,10 +181,10 @@
 
 <p><strong>Создать новый репозиторий:</strong></p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Параметры создаваемого репозитория</span>
-<span class="n">RepositoryOptions</span> <span class="n">repositoryOptions</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RepositoryOptions</span><span class="o">();</span>
+<span class="nc">RepositoryOptions</span> <span class="n">repositoryOptions</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RepositoryOptions</span><span class="o">();</span>
 <span class="n">repositoryOptions</span><span class="o">.</span><span class="na">setUniqueName</span><span class="o">(</span><span class="n">repositoryDTO</span><span class="o">.</span><span class="na">getRepositoryName</span><span class="o">());</span>
 <span class="n">repositoryOptions</span><span class="o">.</span><span class="na">setRepositoryKey</span><span class="o">(</span><span class="n">repositoryDTO</span><span class="o">.</span><span class="na">getRepositoryKey</span><span class="o">());</span>
-<span class="n">repositoryOptions</span><span class="o">.</span><span class="na">setVisibility</span><span class="o">(</span><span class="n">RepositoryOptions</span><span class="o">.</span><span class="na">Visibility</span><span class="o">.</span><span class="na">PROTECTED</span><span class="o">);</span>
+<span class="n">repositoryOptions</span><span class="o">.</span><span class="na">setVisibility</span><span class="o">(</span><span class="nc">RepositoryOptions</span><span class="o">.</span><span class="na">Visibility</span><span class="o">.</span><span class="na">PROTECTED</span><span class="o">);</span>
 <span class="n">repositoryOptions</span><span class="o">.</span><span class="na">setDisplayName</span><span class="o">(</span><span class="n">repositoryDTO</span><span class="o">.</span><span class="na">getRepositoryName</span><span class="o">());</span>
 <span class="k">if</span> <span class="o">(</span><span class="n">repositoryDTO</span><span class="o">.</span><span class="na">getRepositoryDescription</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
 	<span class="n">repositoryOptions</span><span class="o">.</span><span class="na">setDescription</span><span class="o">(</span><span class="n">repositoryDTO</span><span class="o">.</span><span class="na">getRepositoryDescription</span><span class="o">());</span>
@@ -194,7 +194,7 @@
 <span class="c1">//Валидация параметров репозитория</span>
 <span class="k">if</span><span class="o">(</span><span class="n">repositoryOptions</span><span class="o">.</span><span class="na">validate</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">){</span>
 	<span class="c1">//Параметры не прошли валидацию</span>
-	<span class="n">String</span> <span class="n">error</span> <span class="o">=</span> <span class="n">repositoryOptions</span><span class="o">.</span><span class="na">validate</span><span class="o">();</span>
+	<span class="nc">String</span> <span class="n">error</span> <span class="o">=</span> <span class="n">repositoryOptions</span><span class="o">.</span><span class="na">validate</span><span class="o">();</span>
 	<span class="o">...</span>
 <span class="o">}</span>
 
@@ -203,30 +203,30 @@
 <span class="c1">//Создание репозитория</span>
 <span class="k">try</span><span class="o">{</span>
 	<span class="n">ecmService</span><span class="o">.</span><span class="na">createRepository</span><span class="o">(</span><span class="n">repositoryOptions</span><span class="o">);</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">RepositoryAlreadyExistsException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">RepositoryAlreadyExistsException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 	<span class="c1">//Репозиторий с таким именем уже существует</span>
 	<span class="o">...</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">ServiceException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">ServiceException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 	<span class="c1">//Ошибка ECM-сервиса</span>
 	<span class="o">...</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 	<span class="c1">//Ошибка общего характера</span>
 	<span class="o">...</span>
 <span class="o">}</span>
 </code></pre></div></div>
-<p><strong>Важно:</strong> в моем случае Document Service блокировал создание репозитория с любым типом <code class="highlighter-rouge">Visibility</code>, кроме <code class="highlighter-rouge">PROTECTED</code>.</p>
+<p><strong>Важно:</strong> в моем случае Document Service блокировал создание репозитория с любым типом <code class="language-plaintext highlighter-rouge">Visibility</code>, кроме <code class="language-plaintext highlighter-rouge">PROTECTED</code>.</p>
 
 <p><strong>Соединиться с репозиторием:</strong></p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="o">{</span>
 	<span class="c1">//Открыть соединение</span>
 	<span class="n">session</span> <span class="o">=</span> <span class="n">ecmService</span><span class="o">.</span><span class="na">connect</span><span class="o">(</span><span class="n">repositoryName</span><span class="o">,</span> <span class="n">repositoryKey</span><span class="o">);</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">CmisObjectNotFoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">CmisObjectNotFoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 	<span class="c1">//Репозиторий не найден</span>
 	<span class="o">...</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">ServiceException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">ServiceException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 	<span class="c1">//Ошибка ECM-сервиса</span>
 	<span class="o">...</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 	<span class="c1">//Ошибка общего характера</span>
 	<span class="o">...</span>
 <span class="o">}</span>
@@ -235,7 +235,7 @@
 <p><strong>Удалить репозиторий:</strong></p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="o">{</span>
 	<span class="n">ecmService</span><span class="o">.</span><span class="na">deleteRepository</span><span class="o">(</span><span class="n">repositoryName</span><span class="o">,</span> <span class="n">repositoryKey</span><span class="o">);</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">RepositoryNotEmptyException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">RepositoryNotEmptyException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
 	<span class="c1">//Репозиторий содержит какие-то файлы</span>
 
 	<span class="k">if</span> <span class="o">(</span><span class="n">repositoryDTO</span><span class="o">.</span><span class="na">getIsForceDelete</span><span class="o">()</span> <span class="o">==</span> <span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
@@ -264,6 +264,13 @@
   <ul class="related-posts">
     
       <li>
+        <a href="/modern-web-architecture">
+          Modern web applications architecture
+          <small><time datetime="2020-09-08T00:00:00+03:00">08 Sep 2020</time></small>
+        </a>
+      </li>
+    
+      <li>
         <a href="/pc">
           PC
           <small><time datetime="2020-07-26T00:00:00+03:00">26 Jul 2020</time></small>
@@ -274,13 +281,6 @@
         <a href="/feign-basics">
           Netfix Feign Basics
           <small><time datetime="2020-07-12T00:00:00+03:00">12 Jul 2020</time></small>
-        </a>
-      </li>
-    
-      <li>
-        <a href="/solid">
-          SOLID
-          <small><time datetime="2020-06-22T00:00:00+03:00">22 Jun 2020</time></small>
         </a>
       </li>
     

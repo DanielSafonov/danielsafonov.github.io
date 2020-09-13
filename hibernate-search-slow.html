@@ -30,7 +30,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
   <!-- Begin Jekyll SEO tag v2.6.1 -->
-<meta name="generator" content="Jekyll v3.8.5" />
+<meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Hibernate Search working slow" />
 <meta property="og:locale" content="ru_RU" />
 <meta name="description" content="Медленный только у тех, кто не умеет его готовить." />
@@ -125,12 +125,12 @@ Hibernate Search: <i>поиск по локальному индексу -&gt; �
 </ul>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;..&gt;</span>
-<span class="nd">@Field</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"personLastName"</span><span class="o">,</span> <span class="n">store</span> <span class="o">=</span> <span class="n">Store</span><span class="o">.</span><span class="na">YES</span><span class="o">,</span> <span class="n">norms</span> <span class="o">=</span> <span class="n">Norms</span><span class="o">.</span><span class="na">NO</span><span class="o">,</span> <span class="n">indexNullAs</span> <span class="o">=</span> <span class="s">" "</span><span class="o">)</span>
-<span class="kd">private</span> <span class="n">String</span> <span class="n">personLastName</span><span class="o">;</span> <span class="c1">//Фамилия сотрудника хранится в локальном индексе</span>
+<span class="nd">@Field</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"personLastName"</span><span class="o">,</span> <span class="n">store</span> <span class="o">=</span> <span class="nc">Store</span><span class="o">.</span><span class="na">YES</span><span class="o">,</span> <span class="n">norms</span> <span class="o">=</span> <span class="nc">Norms</span><span class="o">.</span><span class="na">NO</span><span class="o">,</span> <span class="n">indexNullAs</span> <span class="o">=</span> <span class="s">" "</span><span class="o">)</span>
+<span class="kd">private</span> <span class="nc">String</span> <span class="n">personLastName</span><span class="o">;</span> <span class="c1">//Фамилия сотрудника хранится в локальном индексе</span>
 <span class="o">&lt;..&gt;</span>
-<span class="kd">public</span> <span class="n">List</span> <span class="nf">execQuery</span><span class="o">(</span><span class="n">Query</span> <span class="n">query</span><span class="o">)</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="nc">List</span> <span class="nf">execQuery</span><span class="o">(</span><span class="nc">Query</span> <span class="n">query</span><span class="o">)</span> <span class="o">{</span>
 	<span class="k">return</span> <span class="n">fullTextEntityManager</span>
-			<span class="o">.</span><span class="na">createFullTextQuery</span><span class="o">(</span><span class="n">query</span><span class="o">,</span> <span class="n">AggregatedPersonData</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+			<span class="o">.</span><span class="na">createFullTextQuery</span><span class="o">(</span><span class="n">query</span><span class="o">,</span> <span class="nc">AggregatedPersonData</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
 			<span class="o">.</span><span class="na">setProjection</span><span class="o">(</span><span class="s">"personID"</span><span class="o">,</span> <span class="s">"positionID"</span><span class="o">,</span> <span class="s">"orgunitID"</span><span class="o">,</span> <span class="s">"personSFID"</span><span class="o">,</span>
 					<span class="s">"personLastName"</span><span class="o">,</span> <span class="s">"personFirstName"</span><span class="o">,</span> <span class="s">"personMiddleName"</span><span class="o">,</span> <span class="s">"personSex"</span><span class="o">,</span>
 					<span class="s">"personEmailAlpha"</span><span class="o">,</span> <span class="s">"personEmailSigma"</span><span class="o">,</span> <span class="s">"orgunitFunctionalBlock"</span><span class="o">,</span>
@@ -138,7 +138,7 @@ Hibernate Search: <i>поиск по локальному индексу -&gt; �
 					<span class="s">"orgunitCode"</span><span class="o">,</span> <span class="s">"orgunitFullName"</span><span class="o">,</span> <span class="s">"orgunitTerbankCode"</span><span class="o">,</span>
 					<span class="s">"orgunitTerbank"</span><span class="o">,</span> <span class="s">"orgunitCity"</span><span class="o">,</span> <span class="s">"orgunitIsRemote"</span><span class="o">,</span> <span class="s">"personPhotoLink"</span><span class="o">,</span>
 					<span class="s">"personSberchatLink"</span><span class="o">)</span> <span class="c1">//Проекция хранимых в индексе полей</span>
-			<span class="o">.</span><span class="na">setMaxResults</span><span class="o">(</span><span class="n">Constants</span><span class="o">.</span><span class="na">SEARCH_RESULTS_DEFAULT_LIMIT</span><span class="o">)</span>
+			<span class="o">.</span><span class="na">setMaxResults</span><span class="o">(</span><span class="nc">Constants</span><span class="o">.</span><span class="na">SEARCH_RESULTS_DEFAULT_LIMIT</span><span class="o">)</span>
 			<span class="o">.</span><span class="na">getResultList</span><span class="o">();</span>
 <span class="o">}</span>
 <span class="o">&lt;..&gt;</span>
@@ -146,19 +146,19 @@ Hibernate Search: <i>поиск по локальному индексу -&gt; �
 	Получение значений объектов из проекции
 	execQuery() List&lt;Object[]&gt; -&gt; List&lt;AggregatedPersonData&gt;
 */</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">AggregatedPersonData</span><span class="o">&gt;</span> <span class="nf">convertProjectionIndexDataToListAggregatedPersonData</span><span class="o">(</span>
-		<span class="n">List</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">[]&gt;</span> <span class="n">projectionObjectList</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">AggregatedPersonData</span><span class="o">&gt;</span> <span class="nf">convertProjectionIndexDataToListAggregatedPersonData</span><span class="o">(</span>
+		<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Object</span><span class="o">[]&gt;</span> <span class="n">projectionObjectList</span>
 <span class="o">){</span>
-	<span class="n">List</span><span class="o">&lt;</span><span class="n">AggregatedPersonData</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
+	<span class="nc">List</span><span class="o">&lt;</span><span class="nc">AggregatedPersonData</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">LinkedList</span><span class="o">&lt;&gt;();</span>
 
 	<span class="n">projectionObjectList</span><span class="o">.</span><span class="na">forEach</span><span class="o">(</span>
 			<span class="n">projectionObject</span> <span class="o">-&gt;</span> <span class="o">{</span>
-				<span class="n">AggregatedPersonData</span> <span class="n">aggregatedPersonData</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AggregatedPersonData</span><span class="o">();</span>
+				<span class="nc">AggregatedPersonData</span> <span class="n">aggregatedPersonData</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AggregatedPersonData</span><span class="o">();</span>
 				<span class="n">aggregatedPersonData</span>
 					<span class="o">&lt;..&gt;</span>
-					<span class="o">.</span><span class="na">setPersonLastName</span><span class="o">((</span><span class="n">String</span><span class="o">)</span> <span class="n">projectionObject</span><span class="o">[</span><span class="mi">4</span><span class="o">])</span>
+					<span class="o">.</span><span class="na">setPersonLastName</span><span class="o">((</span><span class="nc">String</span><span class="o">)</span> <span class="n">projectionObject</span><span class="o">[</span><span class="mi">4</span><span class="o">])</span>
 					<span class="o">&lt;..&gt;</span>
-					<span class="o">.</span><span class="na">setPersonSberchatLink</span><span class="o">((</span><span class="n">String</span><span class="o">)</span> <span class="n">projectionObject</span><span class="o">[</span><span class="mi">21</span><span class="o">]);</span>
+					<span class="o">.</span><span class="na">setPersonSberchatLink</span><span class="o">((</span><span class="nc">String</span><span class="o">)</span> <span class="n">projectionObject</span><span class="o">[</span><span class="mi">21</span><span class="o">]);</span>
 				<span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">aggregatedPersonData</span><span class="o">);</span>
 			<span class="o">}</span>
 	<span class="o">);</span>
@@ -171,10 +171,10 @@ Hibernate Search: <i>поиск по локальному индексу -&gt; �
   <li><b>Ограничение поисковой выдачи</b><br /></li>
 </ul>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="n">List</span> <span class="nf">execQuery</span><span class="o">(</span><span class="n">Query</span> <span class="n">query</span><span class="o">)</span> <span class="o">{</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">List</span> <span class="nf">execQuery</span><span class="o">(</span><span class="nc">Query</span> <span class="n">query</span><span class="o">)</span> <span class="o">{</span>
 	<span class="k">return</span> <span class="n">fullTextEntityManager</span>
-			<span class="o">.</span><span class="na">createFullTextQuery</span><span class="o">(</span><span class="n">query</span><span class="o">,</span> <span class="n">AggregatedPersonData</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-			<span class="o">.</span><span class="na">setMaxResults</span><span class="o">(</span><span class="n">Constants</span><span class="o">.</span><span class="na">SEARCH_RESULTS_DEFAULT_LIMIT</span><span class="o">)</span>
+			<span class="o">.</span><span class="na">createFullTextQuery</span><span class="o">(</span><span class="n">query</span><span class="o">,</span> <span class="nc">AggregatedPersonData</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+			<span class="o">.</span><span class="na">setMaxResults</span><span class="o">(</span><span class="nc">Constants</span><span class="o">.</span><span class="na">SEARCH_RESULTS_DEFAULT_LIMIT</span><span class="o">)</span>
 			<span class="o">.</span><span class="na">getResultList</span><span class="o">();</span>
 <span class="o">}</span>
 </code></pre></div></div>
@@ -184,14 +184,14 @@ Hibernate Search: <i>поиск по локальному индексу -&gt; �
 В несколько потоков, batch`ами и с последующей оптимизацией построенного индекса. <a href="https://docs.jboss.org/hibernate/stable/search/reference/en-US/html_single/#search-optimize" target="_blank">docs: Index optimization</a> <br /></li>
 </ul>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fullTextEntityManager</span><span class="o">.</span><span class="na">createIndexer</span><span class="o">(</span><span class="n">AggregatedPersonData</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">fullTextEntityManager</span><span class="o">.</span><span class="na">createIndexer</span><span class="o">(</span><span class="nc">AggregatedPersonData</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
                     <span class="o">.</span><span class="na">threadsToLoadObjects</span><span class="o">(</span><span class="mi">5</span><span class="o">)</span>
                     <span class="o">.</span><span class="na">batchSizeToLoadObjects</span><span class="o">(</span><span class="mi">1000</span><span class="o">)</span>
-                    <span class="o">.</span><span class="na">batchSizeToLoadObjects</span><span class="o">(</span><span class="n">Constants</span><span class="o">.</span><span class="na">INDEXING_BATCH_COUNT</span><span class="o">)</span>
+                    <span class="o">.</span><span class="na">batchSizeToLoadObjects</span><span class="o">(</span><span class="nc">Constants</span><span class="o">.</span><span class="na">INDEXING_BATCH_COUNT</span><span class="o">)</span>
                     <span class="o">.</span><span class="na">optimizeOnFinish</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
                     <span class="o">.</span><span class="na">startAndWait</span><span class="o">();</span>
 
-<span class="n">SearchFactory</span> <span class="n">searchFactory</span> <span class="o">=</span> <span class="n">fullTextEntityManager</span><span class="o">.</span><span class="na">getSearchFactory</span><span class="o">();</span>
+<span class="nc">SearchFactory</span> <span class="n">searchFactory</span> <span class="o">=</span> <span class="n">fullTextEntityManager</span><span class="o">.</span><span class="na">getSearchFactory</span><span class="o">();</span>
 <span class="n">searchFactory</span><span class="o">.</span><span class="na">optimize</span><span class="o">();</span>
 </code></pre></div></div>
 <p><br /></p>
@@ -211,6 +211,13 @@ Hibernate Search: <i>поиск по локальному индексу -&gt; �
   <ul class="related-posts">
     
       <li>
+        <a href="/modern-web-architecture">
+          Modern web applications architecture
+          <small><time datetime="2020-09-08T00:00:00+03:00">08 Sep 2020</time></small>
+        </a>
+      </li>
+    
+      <li>
         <a href="/pc">
           PC
           <small><time datetime="2020-07-26T00:00:00+03:00">26 Jul 2020</time></small>
@@ -221,13 +228,6 @@ Hibernate Search: <i>поиск по локальному индексу -&gt; �
         <a href="/feign-basics">
           Netfix Feign Basics
           <small><time datetime="2020-07-12T00:00:00+03:00">12 Jul 2020</time></small>
-        </a>
-      </li>
-    
-      <li>
-        <a href="/solid">
-          SOLID
-          <small><time datetime="2020-06-22T00:00:00+03:00">22 Jun 2020</time></small>
         </a>
       </li>
     
